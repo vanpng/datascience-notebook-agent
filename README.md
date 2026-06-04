@@ -148,7 +148,7 @@ Key settings in `.env`:
 | `MAX_DEBUG_ATTEMPTS` | `3` | Debug retries before giving up |
 | `LORA_ADAPTER_PATH` | _(empty)_ | Path to fine-tuned LoRA adapter |
 
-### 3. Start everything (terminal UI) (ARCHIVED - use Jupyter UI instead)
+### 3. Start everything (terminal UI)
 
 ```bash
 bash scripts/start.sh
