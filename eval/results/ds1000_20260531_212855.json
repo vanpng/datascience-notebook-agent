@@ -1,0 +1,185 @@
+{
+  "benchmark": "ds1000",
+  "total": 10,
+  "passed": 4,
+  "failed": 6,
+  "errors": 0,
+  "pass_rate": 0.4,
+  "mean_latency_s": 8.072087412589463,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Shuffle the DataFrame according to the List\nresult = df.iloc[List]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.486781749990769,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.iloc[List]",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Shuffle the DataFrame according to the List\ndf_shuffled = df.iloc[List]\n\n# Compute the original Type values\noriginal_types = df['Type']\n\n# Compute the Type values of the shuffled DataFrame\nshuffled_types = df_shuffled['Type']\n\n# Find the indices where the Type values differ\ndifferent_indices = original_types != shuffled_types\n\n# Count the number of rows with different Type\nresult = different_indices.sum()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.14451624994399,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df_shuffled = df.iloc[List]\n\n# Compute the original Type values\noriginal_types = df['Type']\n\n# Compute the Type values of the shuffled DataFrame\nshuffled_types = df_shuffled['Type']\n\n# Find the indices where the Type values differ\ndifferent_indices = original_types != shuffled_types\n\n# Count the number of rows with different Type\nresult = different_indices.sum()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpardu875u.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpardu875u.py\", line 57, in <module>\n    test_execution(\"df_shuffled = df.iloc[List]\\n\\n# Compute t",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Identify values that appear at least 2 times in each column\nqu1_values = df['Qu1'].value_counts() >= 2\nqu2_values = df['Qu2'].value_counts() >= 2\nqu3_values = df['Qu3'].value_counts() >= 2\n\n# Replace values that appear less than 2 times with 'others' in each column\ndf['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not qu1_values[x] else x)\ndf['Qu2'] = df['Qu2'].apply(lambda x: 'other' if not qu2_values[x] else x)\ndf['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not qu3_values[x] else x)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.890043749997858,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "qu1_values = df['Qu1'].value_counts() >= 2\nqu2_values = df['Qu2'].value_counts() >= 2\nqu3_values = df['Qu3'].value_counts() >= 2\n\n# Replace values that appear less than 2 times with 'others' in each column\ndf['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not qu1_values[x] else x)\ndf['Qu2'] = df['Qu2'].apply(lambda x: 'other' if not qu2_values[x] else x)\ndf['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not qu3_values[x] else x)\n\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Identify values that appear 3 or more times in each column\nqu1_counts = pd.value_counts(df['Qu1']) >= 3\nqu2_counts = pd.value_counts(df['Qu2']) >= 3\nqu3_counts = pd.value_counts(df['Qu3']) >= 3\n\n# Replace values that do not meet the threshold with 'others'\ndf['Qu1'] = np.where(qu1_counts[df['Qu1']], df['Qu1'], 'other')\ndf['Qu2'] = np.where(qu2_counts[df['Qu2']], df['Qu2'], 'other')\ndf['Qu3'] = np.where(qu3_counts[df['Qu3']], df['Qu3'], 'other')\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.379111999995075,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "qu1_counts = pd.value_counts(df['Qu1']) >= 3\nqu2_counts = pd.value_counts(df['Qu2']) >= 3\nqu3_counts = pd.value_counts(df['Qu3']) >= 3\n\n# Replace values that do not meet the threshold with 'others'\ndf['Qu1'] = np.where(qu1_counts[df['Qu1']], df['Qu1'], 'other')\ndf['Qu2'] = np.where(qu2_counts[df['Qu2']], df['Qu2'], 'other')\ndf['Qu3'] = np.where(qu3_counts[df['Qu3']], df['Qu3'], 'other')\n\nresult = df",
+        "test_stderr": "<string>:5: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.\n<string>:6: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.\n<string>:7",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\ndef f(df):\n    # Define a function to replace values with 'others' if their count is less than 2\n    def replace_low_count_values(series):\n        value_counts = series.value_counts()\n        mask = value_counts >= 2\n        return series.mask(~mask, 'others')\n    \n    # Apply the function to each column\n    df['Qu1'] = replace_low_count_values(df['Qu1'])\n    df['Qu2'] = replace_low_count_values(df['Qu2'])\n    df['Qu3'] = replace_low_count_values(df['Qu3'])\n    \n    # Return the modified DataFrame\n    result = df.copy()\n    return result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.408721958985552,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Define a function to replace values with 'others' if their count is less than 2\n    def replace_low_count_values(series):\n        value_counts = series.value_counts()\n        mask = value_counts >= 2\n        return series.mask(~mask, 'others')\n    \n    # Apply the function to each column\n    df['Qu1'] = replace_low_count_values(df['Qu1'])\n    df['Qu2'] = replace_low_count_values(df['Qu2'])\n    df['Qu3'] = replace_low_count_values(df['Qu3'])\n    \n    # Return the modified DataFrame\n    resu",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmphsfy3azi.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmphsfy3azi.py\", line 123, in <module>\n    test_execution(\"    # Define a function to replace value",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_5",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Determine which values in each column meet the value count threshold\nqu1_counts = pd.value_counts(df['Qu1']) >= 3\nqu2_counts = pd.value_counts(df['Qu2']) >= 2\nqu3_counts = pd.value_counts(df['Qu3']) >= 2\n\n# Replace values that do not meet the threshold with 'others'\ndf['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not qu1_counts.loc[x] else x)\ndf['Qu2'] = df['Qu2'].apply(lambda x: 'other' if not qu2_counts.loc[x] else x)\ndf['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not qu3_counts.loc[x] else x)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.393352457962465,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "qu1_counts = pd.value_counts(df['Qu1']) >= 3\nqu2_counts = pd.value_counts(df['Qu2']) >= 2\nqu3_counts = pd.value_counts(df['Qu3']) >= 2\n\n# Replace values that do not meet the threshold with 'others'\ndf['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not qu1_counts.loc[x] else x)\ndf['Qu2'] = df['Qu2'].apply(lambda x: 'other' if not qu2_counts.loc[x] else x)\ndf['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not qu3_counts.loc[x] else x)\n\nresult = df",
+        "test_stderr": "<string>:5: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.\n<string>:6: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.\n<string>:7",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_6",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Define a function to replace values based on value counts\ndef replace_values(df, column, min_count, reserve_values=None):\n    value_counts = df[column].value_counts()\n    mask = value_counts >= min_count\n    if reserve_values is not None:\n        mask[reserve_values] = True\n    # Create a mapping for values to keep or replace\n    mapping = \n    for value in value_counts.index:\n        if mask[value]:\n            mapping[value] = value\n        else:\n            mapping[value] = 'others'\n    # Apply the mapping\n    return df[column].replace(mapping)\n\n# Apply the function to each column\ndf['Qu1'] = replace_values(df, 'Qu1', 3, reserve_values=['apple'])\ndf['Qu2'] = replace_values(df, 'Qu2', 2)\ndf['Qu3'] = replace_values(df, 'Qu3', 2, reserve_values=['apple'])\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.632442292000633,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "def replace_values(df, column, min_count, reserve_values=None):\n    value_counts = df[column].value_counts()\n    mask = value_counts >= min_count\n    if reserve_values is not None:\n        mask[reserve_values] = True\n    # Create a mapping for values to keep or replace\n    mapping = \n    for value in value_counts.index:\n        if mask[value]:\n            mapping[value] = value\n        else:\n            mapping[value] = 'others'\n    # Apply the mapping\n    return df[column].replace(mapping)\n\n# A",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzsrp7cea.py\", line 133, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzsrp7cea.py\", line 131, in <module>\n    test_execution(\"def replace_values(df, column, min_count",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_7",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Create a mask to identify rows to keep based on the 'keep_if_dup' column\nkeep_mask = df['keep_if_dup'] == 'Yes'\n\n# Use the mask to filter the dataframe, keeping the first occurrence of each 'url' where 'keep_if_dup' is 'Yes'\nresult = df[keep_mask | (df['url'].duplicated(keep_first=True, subset=['url']) & ~keep_mask)]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.041951207967941,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "keep_mask = df['keep_if_dup'] == 'Yes'\n\n# Use the mask to filter the dataframe, keeping the first occurrence of each 'url' where 'keep_if_dup' is 'Yes'\nresult = df[keep_mask | (df['url'].duplicated(keep_first=True, subset=['url']) & ~keep_mask)]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpe3_h4xb7.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpe3_h4xb7.py\", line 60, in <module>\n    test_execution(\"keep_mask = df['keep_if_dup'] == 'Yes'\\n\\n",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_8",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Filter rows where 'drop_if_dup' is 'No' or keep the first occurrence of 'url' when 'drop_if_dup' is 'Yes'\nresult = df.drop_duplicates(subset='url', keep='first', subset=['drop_if_dup'])\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.230749584035948,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.drop_duplicates(subset='url', keep='first', subset=['drop_if_dup'])",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppy6vqw6g.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppy6vqw6g.py\", line 60, in <module>\n    test_execution(\"result = df.drop_duplicates(subset='url', ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_9",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Keep duplicates if 'keep_if_dup' is 'Yes'\ndf['keep_if_dup'] = df['keep_if_dup'].map()\ndf = df[df['keep_if_dup'] | df.duplicated('url', keep='last')]\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.1132028750143945,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['keep_if_dup'] = df['keep_if_dup'].map()\ndf = df[df['keep_if_dup'] | df.duplicated('url', keep='last')]\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp5shih3ty.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp5shih3ty.py\", line 60, in <module>\n    test_execution(\"df['keep_if_dup'] = df['keep_if_dup'].map(",
+        "score_reason": "logic_error"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.4,
+    "fail_logic_error": 6
+  }
+}

@@ -1,0 +1,1206 @@
+{
+  "benchmark": "ds1000",
+  "total": 70,
+  "passed": 17,
+  "failed": 52,
+  "errors": 1,
+  "pass_rate": 0.24285714285714285,
+  "mean_latency_s": 17.211850499442804,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.5751302090002355,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "result = (df.iloc[List]['Type'] != df['Type']).sum()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.380642166999678,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = (df.iloc[List]['Type'] != df['Type']).sum()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp24cqbjdz.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp24cqbjdz.py\", line 57, in <module>\n    test_execution(\"result = (df.iloc[List]['Type'] != df['Type']).sum()\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp24cqbjdz.py\", line 52, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 5, in <module>\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/ops/common.py\", line 76, in new_method\n    return method(self, other)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/arraylike.py\", line 44, in __ne__\n    retu",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Check if df is defined\nif 'df' not in locals():\n    df = pd.DataFrame()  # Create an empty DataFrame if no data is loaded\n\n# Check if required columns exist\nrequired_columns = ['Qu1', 'Qu2', 'Qu3']\nmissing_columns = [col for col in required_columns if col not in df.columns]\nif missing_columns:\n    print(f\"Missing columns: {missing_columns}\")\n    df = pd.DataFrame(columns=required_columns)  # Create DataFrame with required columns\n\nmask = df.apply(lambda col: col.value_counts() >= 2)\n\n# Replace values in Qu1\nif 'Qu1' in df.columns:\n    df['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not mask['Qu1'][df['Qu1'] == x].any() else x)\n\n# Replace values in Qu2\nif 'Qu2' in df.columns:\n    df['Qu2'] = df['Qu2'].apply(lambda x: x if mask['Qu2'][df['Qu2'] == x].any() else x)\n\n# Replace values in Qu3\nif 'Qu3' in df.columns:\n    df['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not mask['Qu3'][df['Qu3'] == x].any() else x)\n\nresult = df",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 40.21130745800019,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "if 'df' not in locals():\n    df = pd.DataFrame()  # Create an empty DataFrame if no data is loaded\n\n# Check if required columns exist\nrequired_columns = ['Qu1', 'Qu2', 'Qu3']\nmissing_columns = [col for col in required_columns if col not in df.columns]\nif missing_columns:\n    print(f\"Missing columns: {missing_columns}\")\n    df = pd.DataFrame(columns=required_columns)  # Create DataFrame with required columns\n\nmask = df.apply(lambda col: col.value_counts() >= 2)\n\n# Replace values in Qu1\nif 'Qu1' in df.columns:\n    df['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not mask['Qu1'][df['Qu1'] == x].any() else x)\n\n# Replace values in Qu2\nif 'Qu2' in df.columns:\n    df['Qu2'] = df['Qu2'].apply(lambda x: x if mask['Qu2'][df['Qu2'] == x].any() else x)\n\n# Replace values in Qu3\nif 'Qu3' in df.columns:\n    df['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not mask['Qu3'][df['Qu3'] == x].any() else x)\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp9pli6edt.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp9pli6edt.py\", line 121, in <module>\n    test_execution('if \\'df\\' not in locals():\\n    df = pd.DataFrame()  # Create an empty DataFrame if no data is loaded\\n\\n# Check if required columns exist\\nrequired_columns = [\\'Qu1\\', \\'Qu2\\', \\'Qu3\\']\\nmissing_columns = [col for col in required_columns if col not in df.columns]\\nif missing_columns:\\n    print(f\"Missing columns: {missing_columns}\")\\n    df = pd.DataFrame(columns=required_columns)  # Create DataFrame with required columns\\n\\nmask = df.apply(lambda col: col.value_counts() >= 2)\\n\\n# Replace values in Qu1\\nif \\'Qu1\\' in df.columns:\\n  ",
+        "score_reason": "stub_no_data"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Create a sample DataFrame for demonstration\ndf = pd.DataFrame({\n    'col1': [1, 2, 3, 4, 5],\n    'col2': [5, 4, 3, 2, 1]\n})",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 23.461699499999668,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.DataFrame({\n    'col1': [1, 2, 3, 4, 5],\n    'col2': [5, 4, 3, 2, 1]\n})",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp4s9ogf4.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp4s9ogf4.py\", line 121, in <module>\n    test_execution(\"df = pd.DataFrame({\\n    'col1': [1, 2, 3, 4, 5],\\n    'col2': [5, 4, 3, 2, 1]\\n})\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp4s9ogf4.py\", line 117, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nKeyError: 'result'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "def f(df):\n    def replace_low_freq(column):\n        freq = df[column].value_counts()\n        mask = freq < 2\n        return df[column].apply(lambda x: 'others' if mask[x] else x)\n\n    return df.apply(replace_low_freq, axis=0)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 24.74559729199973,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    def replace_low_freq(column):\n        freq = df[column].value_counts()\n        mask = freq < 2\n        return df[column].apply(lambda x: 'others' if mask[x] else x)\n\n    return df.apply(replace_low_freq, axis=0)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6u5qluq7.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6u5qluq7.py\", line 123, in <module>\n    test_execution(\"    def replace_low_freq(column):\\n        freq = df[column].value_counts()\\n        mask = freq < 2\\n        return df[column].apply(lambda x: 'others' if mask[x] else x)\\n\\n    return df.apply(replace_low_freq, axis=0)\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6u5qluq7.py\", line 118, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 12, in <module>\n  File \"<string>\", line 10, in f\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/frame.py\", l",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "df['Qu1'] = np.where(df['Qu1'].value_counts().loc[lambda x: x >= 3].index, df['Qu1'], 'other')\ndf['Qu2'] = np.where(df['Qu2'].value_counts().loc[lambda x: x >= 2].index, df['Qu2'], 'other')\ndf['Qu3'] = np.where(df['Qu3'].value_counts().loc[lambda x: x >= 2].index, df['Qu3'], 'other')\nresult = df",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 29.388773417000266,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['Qu1'] = np.where(df['Qu1'].value_counts().loc[lambda x: x >= 3].index, df['Qu1'], 'other')\ndf['Qu2'] = np.where(df['Qu2'].value_counts().loc[lambda x: x >= 2].index, df['Qu2'], 'other')\ndf['Qu3'] = np.where(df['Qu3'].value_counts().loc[lambda x: x >= 2].index, df['Qu3'], 'other')\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmphrfe1eup.py\", line 129, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmphrfe1eup.py\", line 127, in <module>\n    test_execution(\"df['Qu1'] = np.where(df['Qu1'].value_counts().loc[lambda x: x >= 3].index, df['Qu1'], 'other')\\ndf['Qu2'] = np.where(df['Qu2'].value_counts().loc[lambda x: x >= 2].index, df['Qu2'], 'other')\\ndf['Qu3'] = np.where(df['Qu3'].value_counts().loc[lambda x: x >= 2].index, df['Qu3'], 'other')\\nresult = df\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmphrfe1eup.py\", line 122, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 6, in <module>\nValueError: operands could not be broadcast together with shapes (3,) (9",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_6",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Create a sample DataFrame since no data is loaded\ndf = pd.DataFrame({\n    'Qu1': ['apple', 'egg', 'potato', 'banana', 'apple', 'egg', 'potato', 'banana'],\n    'Qu2': ['apple', 'banana', 'sausage', 'apple', 'banana', 'sausage', 'apple', 'banana'],\n    'Qu3': ['apple', 'banana', 'cheese', 'potato', 'egg', 'cheese', 'potato', 'egg']\n})\n\n# Define replacement criteria\nqu1_counts = df['Qu1'].value_counts() >= 3\nqu2_counts = df['Qu2'].value_counts() >= 2\nqu3_counts = df['Qu3'].value_counts() >= 2\n\n# Replace values in Qu1\nqu1_replace = df['Qu1'][~qu1_counts].replace({'apple': 'apple', 'egg': 'other', 'potato': 'other', 'banana': 'other'})\n\n# Replace values in Qu2 and Qu3\nqu2_replace = df['Qu2'][~qu2_counts].replace({'apple': 'apple', 'banana': 'banana', 'sausage': 'sausage'})\nqu3_replace = df['Qu3'][~qu3_counts].replace({'apple': 'apple', 'banana': 'banana', 'cheese': 'cheese', 'potato': 'other', 'egg': 'other'})\n\n# Combine into result\nresult = df.copy()\nresult['Qu1'] = qu1_replace\nresult['Qu2'] = qu2_replace\nresult['Qu3'] = qu3_replace\n\nresult",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 52.1170512080007,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.DataFrame({\n    'Qu1': ['apple', 'egg', 'potato', 'banana', 'apple', 'egg', 'potato', 'banana'],\n    'Qu2': ['apple', 'banana', 'sausage', 'apple', 'banana', 'sausage', 'apple', 'banana'],\n    'Qu3': ['apple', 'banana', 'cheese', 'potato', 'egg', 'cheese', 'potato', 'egg']\n})\n\n# Define replacement criteria\nqu1_counts = df['Qu1'].value_counts() >= 3\nqu2_counts = df['Qu2'].value_counts() >= 2\nqu3_counts = df['Qu3'].value_counts() >= 2\n\n# Replace values in Qu1\nqu1_replace = df['Qu1'][~qu1_counts].replace({'apple': 'apple', 'egg': 'other', 'potato': 'other', 'banana': 'other'})\n\n# Replace values in Qu2 and Qu3\nqu2_replace = df['Qu2'][~qu2_counts].replace({'apple': 'apple', 'banana': 'banana', 'sausage': 'sausage'})\nqu3_replace = df['Qu3'][~qu3_counts].replace({'apple': 'apple', 'banana': 'banana', 'cheese': 'cheese', 'potato': 'other', 'egg': 'other'})\n\n# Combine into result\nresult = df.copy()\nresult['Qu1'] = qu1_replace\nresult['Qu2'] = qu2_replace\nresult['Qu3'] = qu3_replace\n\nresult",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk29v53eu.py\", line 133, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk29v53eu.py\", line 131, in <module>\n    test_execution(\"df = pd.DataFrame({\\n    'Qu1': ['apple', 'egg', 'potato', 'banana', 'apple', 'egg', 'potato', 'banana'],\\n    'Qu2': ['apple', 'banana', 'sausage', 'apple', 'banana', 'sausage', 'apple', 'banana'],\\n    'Qu3': ['apple', 'banana', 'cheese', 'potato', 'egg', 'cheese', 'potato', 'egg']\\n})\\n\\n# Define replacement criteria\\nqu1_counts = df['Qu1'].value_counts() >= 3\\nqu2_counts = df['Qu2'].value_counts() >= 2\\nqu3_counts = df['Qu3'].value_counts() >= 2\\n\\n# Replace values in Qu1\\nqu1_replace = df['Qu1'][~qu1_counts].replace({'apple': 'ap",
+        "score_reason": "stub_no_data"
+      }
+    },
+    {
+      "problem_id": "Pandas_7",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Create a sample DataFrame for demonstration\ndf = pd.DataFrame({\n    'url': ['a', 'a', 'b', 'b', 'c'],\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'Yes', 'No']\n})\n\nresult = df.loc[df.duplicated(subset='url', keep=False) | (df['keep_if_dup'] == 'Yes')]",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 19.982027000000016,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.DataFrame({\n    'url': ['a', 'a', 'b', 'b', 'c'],\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'Yes', 'No']\n})\n\nresult = df.loc[df.duplicated(subset='url', keep=False) | (df['keep_if_dup'] == 'Yes')]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp50eitdy.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp50eitdy.py\", line 60, in <module>\n    test_execution(\"df = pd.DataFrame({\\n    'url': ['a', 'a', 'b', 'b', 'c'],\\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'Yes', 'No']\\n})\\n\\nresult = df.loc[df.duplicated(subset='url', keep=False) | (df['keep_if_dup'] == 'Yes')]\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp50eitdy.py\", line 56, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_8",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n# Load or create data as needed (example: df = pd.DataFrame(...))\nresult = pd.concat([df[df['drop_if_dup'] == 'No'], df[df['drop_if_dup'] == 'Yes'].drop_duplicates(subset='url', keep='first')], ignore_index=True)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 18.85741654100002,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = pd.concat([df[df['drop_if_dup'] == 'No'], df[df['drop_if_dup'] == 'Yes'].drop_duplicates(subset='url', keep='first')], ignore_index=True)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6p4lo6cc.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6p4lo6cc.py\", line 60, in <module>\n    test_execution(\"result = pd.concat([df[df['drop_if_dup'] == 'No'], df[df['drop_if_dup'] == 'Yes'].drop_duplicates(subset='url', keep='first')], ignore_index=True)\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6p4lo6cc.py\", line 56, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_9",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load or create the dataset (example: create a sample DataFrame)\ndf = pd.DataFrame({\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'No'],\n    'url': ['a', 'b', 'a', 'c']\n})\n\n# Apply the logic\nresult = df[(df['keep_if_dup'] == 'Yes') | (df.duplicated(subset='url', keep=False))].sort_index()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 15.829454333000285,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.DataFrame({\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'No'],\n    'url': ['a', 'b', 'a', 'c']\n})\n\n# Apply the logic\nresult = df[(df['keep_if_dup'] == 'Yes') | (df.duplicated(subset='url', keep=False))].sort_index()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp63zeu_hs.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp63zeu_hs.py\", line 60, in <module>\n    test_execution(\"df = pd.DataFrame({\\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'No'],\\n    'url': ['a', 'b', 'a', 'c']\\n})\\n\\n# Apply the logic\\nresult = df[(df['keep_if_dup'] == 'Yes') | (df.duplicated(subset='url', keep=False))].sort_index()\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp63zeu_hs.py\", line 56, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Numpy_291",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "result = a.shape",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.8626920420001625,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "result = a.shape",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Numpy_292",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import numpy as np\nx = np.array([1, 2, np.nan])\nx = np.nan_to_num(x).astype(int)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 14.010240000000522,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "x = np.array([1, 2, np.nan])\nx = np.nan_to_num(x).astype(int)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp51ggnwz6.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp51ggnwz6.py\", line 49, in <module>\n    test_execution('x = np.array([1, 2, np.nan])\\nx = np.nan_to_num(x).astype(int)')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp51ggnwz6.py\", line 45, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp51ggnwz6.py\", line 27, in exec_test\n    np.testing.assert_array_equal(result, ans)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/numpy/_utils/__init__.py\", line 86, in wrapper\n    return fun(*args, **kwargs)\n  F",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Numpy_293",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "x = np.where(np.isnan(x), np.inf, x)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.196152250000523,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "x = np.where(np.isnan(x), np.inf, x)",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Numpy_294",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import numpy as np\nx = np.array([1, 2, 3])\nresult = np.nan_to_num(x).tolist()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 16.49163362499985,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "x = np.array([1, 2, 3])\nresult = np.nan_to_num(x).tolist()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7s9ppsou.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7s9ppsou.py\", line 49, in <module>\n    test_execution('x = np.array([1, 2, 3])\\nresult = np.nan_to_num(x).tolist()')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7s9ppsou.py\", line 45, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7s9ppsou.py\", line 28, in exec_test\n    np.testing.assert_array_equal(arr1, arr2)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/numpy/_utils/__init__.py\", line 86, in wrapper\n    return fun(*args, **kwargs)\n  File ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Numpy_295",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "max_val = a.max()\nb = np.zeros((len(a), max_val + 1))\nb[np.arange(len(a)), a] = 1",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.3363779579995025,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "max_val = a.max()\nb = np.zeros((len(a), max_val + 1))\nb[np.arange(len(a)), a] = 1",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Numpy_296",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "max_val = a.max()\nsize = max_val + 1\nb = np.zeros((len(a), size), dtype=int)\nb[np.arange(len(a)), a] = 1",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.465959125000154,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "max_val = a.max()\nsize = max_val + 1\nb = np.zeros((len(a), size), dtype=int)\nb[np.arange(len(a)), a] = 1",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Numpy_297",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import numpy as np\n\n# Ensure 'a' is a numpy array\nif not isinstance(a, np.ndarray):\n    a = np.array(a)\n\nunique_elements = np.unique(a)\nnum_classes = len(unique_elements)\nmax_size = np.max(np.abs(unique_elements)) + 1\n\n# Create a one-hot encoded matrix\nb = np.zeros((len(a), max_size), dtype=int)\nfor i in range(len(a)):\n    b[i, a[i]] = 1",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 22.47598833399934,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "if not isinstance(a, np.ndarray):\n    a = np.array(a)\n\nunique_elements = np.unique(a)\nnum_classes = len(unique_elements)\nmax_size = np.max(np.abs(unique_elements)) + 1\n\n# Create a one-hot encoded matrix\nb = np.zeros((len(a), max_size), dtype=int)\nfor i in range(len(a)):\n    b[i, a[i]] = 1",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpl7h7q9cc.py\", line 60, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpl7h7q9cc.py\", line 58, in <module>\n    test_execution('if not isinstance(a, np.ndarray):\\n    a = np.array(a)\\n\\nunique_elements = np.unique(a)\\nnum_classes = len(unique_elements)\\nmax_size = np.max(np.abs(unique_elements)) + 1\\n\\n# Create a one-hot encoded matrix\\nb = np.zeros((len(a), max_size), dtype=int)\\nfor i in range(len(a)):\\n    b[i, a[i]] = 1')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpl7h7q9cc.py\", line 47, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpl7h7q9cc.py\", line 29",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Numpy_298",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import numpy as np\n\n# Ensure 'a' is defined (assuming it's provided by the test harness)\na = [1, 2, 2, 3, 1, 4, 4, 4]\n\nunique_sorted = np.sort(np.unique(a))\nnum_classes = len(unique_sorted)\nresult = np.zeros((len(a), num_classes))\n\nfor i in range(len(a)):\n    idx = np.where(unique_sorted == a[i])[0][0]\n    result[i, idx] = 1\n\nresult",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 14.422267250000004,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "a = [1, 2, 2, 3, 1, 4, 4, 4]\n\nunique_sorted = np.sort(np.unique(a))\nnum_classes = len(unique_sorted)\nresult = np.zeros((len(a), num_classes))\n\nfor i in range(len(a)):\n    idx = np.where(unique_sorted == a[i])[0][0]\n    result[i, idx] = 1\n\nresult",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpown68az6.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpown68az6.py\", line 60, in <module>\n    test_execution('a = [1, 2, 2, 3, 1, 4, 4, 4]\\n\\nunique_sorted = np.sort(np.unique(a))\\nnum_classes = len(unique_sorted)\\nresult = np.zeros((len(a), num_classes))\\n\\nfor i in range(len(a)):\\n    idx = np.where(unique_sorted == a[i])[0][0]\\n    result[i, idx] = 1\\n\\nresult')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpown68az6.py\", line 48, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 15, in <module>\nNameError: name 'b' is not defined",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Numpy_299",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import numpy as np\n\n# Ensure 'a' is defined (this is a placeholder - actual data should be provided)\na = np.array([[1, 2], [3, 4], [5, 6]])\n\nunique_elements = np.unique(a.ravel())\nnum_classes = len(unique_elements)\n\n# Create a mapping from value to index\nvalue_to_index = {value: idx for idx, value in enumerate(unique_elements)}\n\n# Initialize the one-hot encoded array\nb = np.zeros((a.shape[0], num_classes), dtype=int)\n\n# Set the appropriate positions\nfor i in range(a.shape[0]):\n    for j in range(a.shape[1]):\n        b[i, value_to_index[a[i, j]]] = 1\n\nresult = b",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 16.792737124999803,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "a = np.array([[1, 2], [3, 4], [5, 6]])\n\nunique_elements = np.unique(a.ravel())\nnum_classes = len(unique_elements)\n\n# Create a mapping from value to index\nvalue_to_index = {value: idx for idx, value in enumerate(unique_elements)}\n\n# Initialize the one-hot encoded array\nb = np.zeros((a.shape[0], num_classes), dtype=int)\n\n# Set the appropriate positions\nfor i in range(a.shape[0]):\n    for j in range(a.shape[1]):\n        b[i, value_to_index[a[i, j]]] = 1\n\nresult = b",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmr7pta5n.py\", line 60, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmr7pta5n.py\", line 58, in <module>\n    test_execution('a = np.array([[1, 2], [3, 4], [5, 6]])\\n\\nunique_elements = np.unique(a.ravel())\\nnum_classes = len(unique_elements)\\n\\n# Create a mapping from value to index\\nvalue_to_index = {value: idx for idx, value in enumerate(unique_elements)}\\n\\n# Initialize the one-hot encoded array\\nb = np.zeros((a.shape[0], num_classes), dtype=int)\\n\\n# Set the appropriate positions\\nfor i in range(a.shape[0]):\\n    for j in range(a.shape[1]):\\n        b[i, value_to_index[a[i, j]]] = 1\\n\\nresult = b')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Numpy_300",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "result = np.percentile(a, p)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.250796541999989,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "result = np.percentile(a, p)",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_511",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "sns.lineplot(x=x, y=y, label='x-y')\nplt.legend()\nplt.show()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.774985166999613,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "sns.lineplot(x=x, y=y, label='x-y')\nplt.legend()\nplt.show()",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_512",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\nimport seaborn as sns\nimport pandas as pd\nimport numpy as np\n\n# Create sample data for plotting\ndata = {'x': [1, 2, 3, 4, 5], 'y': [2, 4, 6, 8, 10]}\ndf = pd.DataFrame(data)\n\n# Set style and context\nsns.set_style(\"white\")\nsns.set_context(\"notebook\")\nplt.minorticks_on()\nplt.yticks(np.arange(-1, 1, 0.1))\nplt.plot(df['x'], df['y'])\nplt.show()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 88.83233995800038,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "data = {'x': [1, 2, 3, 4, 5], 'y': [2, 4, 6, 8, 10]}\ndf = pd.DataFrame(data)\n\n# Set style and context\nsns.set_style(\"white\")\nsns.set_context(\"notebook\")\nplt.minorticks_on()\nplt.yticks(np.arange(-1, 1, 0.1))\nplt.plot(df['x'], df['y'])\nplt.show()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmple54jxr3.py\", line 72, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmple54jxr3.py\", line 70, in <module>\n    test_execution('data = {\\'x\\': [1, 2, 3, 4, 5], \\'y\\': [2, 4, 6, 8, 10]}\\ndf = pd.DataFrame(data)\\n\\n# Set style and context\\nsns.set_style(\"white\")\\nsns.set_context(\"notebook\")\\nplt.minorticks_on()\\nplt.yticks(np.arange(-1, 1, 0.1))\\nplt.plot(df[\\'x\\'], df[\\'y\\'])\\nplt.show()')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmple54jxr3.py\", line 66, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmple54jxr3.py\", line 37, in exec_test\n    assert not t.tick1l",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_513",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "plt.minorticks_on()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.7401287499997125,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "plt.minorticks_on()",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_514",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.6434177080000154,
+      "metadata": {
+        "lib": "Matplotlib",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_515",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import numpy as np\nimport pandas as pd\nimport seaborn as sns\nimport matplotlib.pyplot as plt\n\nx = np.arange(10)\ny = np.random.rand(10)\ndf = pd.DataFrame({'x': x, 'y': y})\nsns.lineplot(data=df, x='x', y='y', style='x', marker='o')\nplt.show()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 28.305826833000538,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "x = np.arange(10)\ny = np.random.rand(10)\ndf = pd.DataFrame({'x': x, 'y': y})\nsns.lineplot(data=df, x='x', y='y', style='x', marker='o')\nplt.show()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjb08vtu4.py\", line 68, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjb08vtu4.py\", line 66, in <module>\n    test_execution(\"x = np.arange(10)\\ny = np.random.rand(10)\\ndf = pd.DataFrame({'x': x, 'y': y})\\nsns.lineplot(data=df, x='x', y='y', style='x', marker='o')\\nplt.show()\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjb08vtu4.py\", line 62, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjb08vtu4.py\", line 35, in exec_test\n    assert len(lines.lineStyles.keys()) == len(ax.lines)\nAssertionError",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_516",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import numpy as np\nimport pandas as pd\nimport seaborn as sns\n\nx = np.arange(10)\ny = np.random.rand(10)\ndf = pd.DataFrame({'x': x, 'y': y})\nsns.lineplot(data=df, x='x', y='y', style='x', marker='o')\nplt.show()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 82.23846474999937,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "x = np.arange(10)\ny = np.random.rand(10)\ndf = pd.DataFrame({'x': x, 'y': y})\nsns.lineplot(data=df, x='x', y='y', style='x', marker='o')\nplt.show()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpn6tpail6.py\", line 68, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpn6tpail6.py\", line 66, in <module>\n    test_execution(\"x = np.arange(10)\\ny = np.random.rand(10)\\ndf = pd.DataFrame({'x': x, 'y': y})\\nsns.lineplot(data=df, x='x', y='y', style='x', marker='o')\\nplt.show()\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpn6tpail6.py\", line 62, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpn6tpail6.py\", line 36, in exec_test\n    assert len(all_markers) == len(ax.lines)\nAssertionError",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_517",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import seaborn as sns\nimport matplotlib.pyplot as plt\nimport numpy as np\n\n# Create sample data\nx = np.arange(10)\ny = np.random.rand(10)\n\n# Plot\nsns.lineplot(x=x, y=y, marker='D', linewidth=1)\nplt.show()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 22.32710670799952,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "x = np.arange(10)\ny = np.random.rand(10)\n\n# Plot\nsns.lineplot(x=x, y=y, marker='D', linewidth=1)\nplt.show()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpc_l5bzcj.py\", line 61, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpc_l5bzcj.py\", line 59, in <module>\n    test_execution(\"x = np.arange(10)\\ny = np.random.rand(10)\\n\\n# Plot\\nsns.lineplot(x=x, y=y, marker='D', linewidth=1)\\nplt.show()\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpc_l5bzcj.py\", line 55, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpc_l5bzcj.py\", line 31, in exec_test\n    assert ax.lines[0].get_marker() == \"d\"\nAssertionError",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_518",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "sns.lineplot(x=x, y=y, marker='D', linewidth=2)\nplt.show()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.6265241250002873,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "sns.lineplot(x=x, y=y, marker='D', linewidth=2)\nplt.show()",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_519",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "plt.ylim(0, 40)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.644324999999299,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "plt.ylim(0, 40)",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_520",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": null,
+      "stderr": null,
+      "agent_error": "timed out",
+      "debug_attempts": 0,
+      "latency_s": 125.35226579199934,
+      "metadata": {
+        "lib": "Matplotlib",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_666",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import tensorflow as tf\nx = tf.constant(1)\nresult = x.numpy()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 10.577123959000346,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "x = tf.constant(1)\nresult = x.numpy()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpotg58rzi.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_667",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "x = 114514\nresult = int(x)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 6.880018415999984,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "x = 114514\nresult = int(x)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2loe1cvo.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_668",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import tensorflow as tf\n    result = tf.one_hot(labels, depth=10, dtype=tf.int32)\nexcept ImportError:\n    result = None",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 7.606399958000111,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "try:\n    import tensorflow as tf\n    result = tf.one_hot(labels, depth=10, dtype=tf.int32)\nexcept ImportError:\n    result = None",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpu3tf8q15.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_669",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import tensorflow as tf\n    result = tf.one_hot(labels, depth=10, dtype=tf.int32)\nexcept ImportError:\n    result = None",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 7.339836125000147,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "try:\n    import tensorflow as tf\n    result = tf.one_hot(labels, depth=10, dtype=tf.int32)\nexcept ImportError:\n    result = None",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpl9wkjjsp.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_670",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import tensorflow as tf\n    result = tf.one_hot(labels, depth=10, dtype=tf.int32)\nexcept ImportError:\n    result = None",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 7.214511458999368,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "try:\n    import tensorflow as tf\n    result = tf.one_hot(labels, depth=10, dtype=tf.int32)\nexcept ImportError:\n    result = None",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpit2p8qoj.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_671",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "def f(labels):\n    try:\n        import tensorflow as tf\n        return tf.one_hot(labels, depth=10, dtype=tf.int32)\n    except ImportError:\n        raise ImportError(\"TensorFlow is required but not installed.\")",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 10.80291141699945,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "    try:\n        import tensorflow as tf\n        return tf.one_hot(labels, depth=10, dtype=tf.int32)\n    except ImportError:\n        raise ImportError(\"TensorFlow is required but not installed.\")",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmptfmahui7.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_672",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import tensorflow as tf\n    result = tf.one_hot(labels, depth=10, dtype=tf.int32)\nexcept ImportError:\n    result = None",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 7.263303542000358,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "try:\n    import tensorflow as tf\n    result = tf.one_hot(labels, depth=10, dtype=tf.int32)\nexcept ImportError:\n    result = None",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpcl18xmv4.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_673",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import tensorflow as tf\nexcept ModuleNotFoundError:\n    # Handle the case where TensorFlow is not installed\n    print(\"TensorFlow is not installed. Please install it using pip install tensorflow.\")\n    exit()\nds = ds.flat_map(lambda x: tf.data.Dataset.from_tensor_slices([ [x, x+1, x+2] ]))\nelement = tf.compat.v1.data.make_one_shot_iterator(ds).get_next()\nresult = []\nwith tf.compat.v1.Session() as sess:\n  for _ in range(9):\n    result.append(sess.run(element))",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 11.477219624999634,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "try:\n    import tensorflow as tf\nexcept ModuleNotFoundError:\n    # Handle the case where TensorFlow is not installed\n    print(\"TensorFlow is not installed. Please install it using pip install tensorflow.\")\n    exit()\nds = ds.flat_map(lambda x: tf.data.Dataset.from_tensor_slices([ [x, x+1, x+2] ]))\nelement = tf.compat.v1.data.make_one_shot_iterator(ds).get_next()\nresult = []\nwith tf.compat.v1.Session() as sess:\n  for _ in range(9):\n    result.append(sess.run(element))",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpg18j5eas.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_674",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import tensorflow as tf\nexcept ModuleNotFoundError:\n    # Handle the case where TensorFlow is not installed\n    print(\"TensorFlow is not installed. Please install it using pip install tensorflow.\")\n    exit()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 9.79663837499993,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "try:\n    import tensorflow as tf\nexcept ModuleNotFoundError:\n    # Handle the case where TensorFlow is not installed\n    print(\"TensorFlow is not installed. Please install it using pip install tensorflow.\")\n    exit()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpdn7rmufl.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_675",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import tensorflow as tf\n    max_length = 8\n    mask = tf.keras.backend.zeros((len(lengths), max_length), dtype=tf.int32)\n    for i in range(len(lengths)):\n        mask[i, :lengths[i]] = 1\n    result = mask\nexcept ImportError:\n    result = None",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 9.14381429200057,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "try:\n    import tensorflow as tf\n    max_length = 8\n    mask = tf.keras.backend.zeros((len(lengths), max_length), dtype=tf.int32)\n    for i in range(len(lengths)):\n        mask[i, :lengths[i]] = 1\n    result = mask\nexcept ImportError:\n    result = None",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpz57qhtep.py\", line 1, in <module>\n    import tensorflow as tf\nModuleNotFoundError: No module named 'tensorflow'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Scipy_711",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "log_x = np.log(x)\ncoefficients = np.polyfit(log_x, y, 1)\nresult = coefficients",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.9918436250000013,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "log_x = np.log(x)\ncoefficients = np.polyfit(log_x, y, 1)\nresult = coefficients",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Scipy_712",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import numpy as np\n\n# Ensure data is loaded\nx = np.array([1, 2, 3, 4, 5])\ny = np.array([2, 4, 6, 8, 10])\n\nlog_x = np.log(x)\nA, B = np.polyfit(log_x, y, 1)\nresult = np.array([A, B])",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 10.77253383399966,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "x = np.array([1, 2, 3, 4, 5])\ny = np.array([2, 4, 6, 8, 10])\n\nlog_x = np.log(x)\nA, B = np.polyfit(log_x, y, 1)\nresult = np.array([A, B])",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeozh95pt.py\", line 48, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeozh95pt.py\", line 46, in <module>\n    test_execution('x = np.array([1, 2, 3, 4, 5])\\ny = np.array([2, 4, 6, 8, 10])\\n\\nlog_x = np.log(x)\\nA, B = np.polyfit(log_x, y, 1)\\nresult = np.array([A, B])')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeozh95pt.py\", line 42, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeozh95pt.py\", line 24, in exec_test\n    assert np.allclose(result, ans)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Scipy_713",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "result = scipy.optimize.curve_fit(lambda t, A, B, C: A * np.exp(B * t) + C, x, y, p0=p0)[0]",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.589918167000178,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "result = scipy.optimize.curve_fit(lambda t, A, B, C: A * np.exp(B * t) + C, x, y, p0=p0)[0]",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Scipy_714",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "from scipy import stats\n\n# Ensure x and y are defined (provided by the test harness)\nstatistic, p_value = stats.kstest(x, 'ecdf', args=(y,))",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 18.32143200000064,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "statistic, p_value = stats.kstest(x, 'ecdf', args=(y,))",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppfcujz4k.py\", line 57, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppfcujz4k.py\", line 55, in <module>\n    test_execution(\"statistic, p_value = stats.kstest(x, 'ecdf', args=(y,))\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppfcujz4k.py\", line 50, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 6, in <module>\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/scipy/stats/_axis_nan_policy.py\", line 586, in axis_nan_policy_wrapper\n    res = hypotest_fun_out(*samples, **kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/scipy/_lib/_util.",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Scipy_715",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "from scipy import stats\n\nstat, p_value = stats.ks_2samp(x, y)\n\nresult = p_value < alpha",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.058846041999459,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "stat, p_value = stats.ks_2samp(x, y)\n\nresult = p_value < alpha",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Scipy_716",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.3047766669997145,
+      "metadata": {
+        "lib": "Scipy",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Scipy_717",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "p_values = scipy.stats.norm.cdf(z_scores)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.342225583999607,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "p_values = scipy.stats.norm.cdf(z_scores)",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Scipy_718",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "p_values = scipy.stats.norm.cdf(z_scores)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.6659630419999303,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "p_values = scipy.stats.norm.cdf(z_scores)",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Scipy_719",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import scipy\nz_scores = scipy.stats.norm.ppf(p_values)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 14.999908415999926,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "z_scores = scipy.stats.norm.ppf(p_values)",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Scipy_720",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "from scipy import stats\nresult = stats.lognorm.cdf(x, s=stddev, loc=mu)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 19.97299904099964,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "result = stats.lognorm.cdf(x, s=stddev, loc=mu)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmplw_ubxzd.py\", line 55, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmplw_ubxzd.py\", line 53, in <module>\n    test_execution('result = stats.lognorm.cdf(x, s=stddev, loc=mu)')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmplw_ubxzd.py\", line 49, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmplw_ubxzd.py\", line 31, in exec_test\n    assert np.allclose(result, ans)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Sklearn_817",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "data1 = pd.DataFrame(data.data, columns=data.feature_names)\ndata1['target'] = data.target",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.931551417000264,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "data1 = pd.DataFrame(data.data, columns=data.feature_names)\ndata1['target'] = data.target",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Sklearn_818",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "data1 = pd.DataFrame(data.data, columns=data.feature_names)\ndata1['target'] = data.target",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.8609425000004194,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "data1 = pd.DataFrame(data.data, columns=data.feature_names)\ndata1['target'] = data.target",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Sklearn_819",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "data1 = pd.DataFrame(data.data, columns=data.feature_names)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 17.6655248750003,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "data1 = pd.DataFrame(data.data, columns=data.feature_names)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6lt2a4vo.py\", line 54, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6lt2a4vo.py\", line 52, in <module>\n    test_execution('data1 = pd.DataFrame(data.data, columns=data.feature_names)')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6lt2a4vo.py\", line 48, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Sklearn_820",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "def solve(data):\n    return pd.DataFrame(data.data, columns=data.feature_names)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 9.603325875000337,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "    return pd.DataFrame(data.data, columns=data.feature_names)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkxw47kui.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkxw47kui.py\", line 57, in <module>\n    test_execution('    return pd.DataFrame(data.data, columns=data.feature_names)')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkxw47kui.py\", line 53, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Sklearn_821",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "unique_elements = df['Col3'].apply(lambda x: x.split(', ')).explode().str.strip().unique()\nresult = pd.get_dummies(df['Col3'].apply(lambda x: ', '.join(x)), prefix='').reindex(columns=unique_elements, fill_value=0)\ndf_result = pd.concat([df[['Col1', 'Col2']], result], axis=1)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 33.970321540999976,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "unique_elements = df['Col3'].apply(lambda x: x.split(', ')).explode().str.strip().unique()\nresult = pd.get_dummies(df['Col3'].apply(lambda x: ', '.join(x)), prefix='').reindex(columns=unique_elements, fill_value=0)\ndf_result = pd.concat([df[['Col1', 'Col2']], result], axis=1)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_l73unv1.py\", line 110, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_l73unv1.py\", line 108, in <module>\n    test_execution(\"unique_elements = df['Col3'].apply(lambda x: x.split(', ')).explode().str.strip().unique()\\nresult = pd.get_dummies(df['Col3'].apply(lambda x: ', '.join(x)), prefix='').reindex(columns=unique_elements, fill_value=0)\\ndf_result = pd.concat([df[['Col1', 'Col2']], result], axis=1)\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_l73unv1.py\", line 103, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 6, in <module>\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Sklearn_822",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Create a sample DataFrame for demonstration\ndf = pd.DataFrame({\n    df.columns[0]: [1, 2, 3],\n    df.columns[1]: [4, 5, 6],\n    df.columns[2]: [7, 8, 9],\n    'Col3': ['a, b', 'c, d', 'e, f']\n})\n\n# Explode 'Col3' and create the exploded DataFrame\ndf_exploded = df[df.columns[0:3]].join(\n    df['Col3'].str.split(', ').apply(pd.Series).add_prefix('Col')).dropna()\n\n# Pivot the exploded DataFrame\ndf_out = df_exploded.pivot(\n    index=[df.columns[0], df.columns[1]], columns='Col', values=0).fillna(0).astype(int)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 31.729978458000005,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "df = pd.DataFrame({\n    df.columns[0]: [1, 2, 3],\n    df.columns[1]: [4, 5, 6],\n    df.columns[2]: [7, 8, 9],\n    'Col3': ['a, b', 'c, d', 'e, f']\n})\n\n# Explode 'Col3' and create the exploded DataFrame\ndf_exploded = df[df.columns[0:3]].join(\n    df['Col3'].str.split(', ').apply(pd.Series).add_prefix('Col')).dropna()\n\n# Pivot the exploded DataFrame\ndf_out = df_exploded.pivot(\n    index=[df.columns[0], df.columns[1]], columns='Col', values=0).fillna(0).astype(int)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmprk2tsxyb.py\", line 110, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmprk2tsxyb.py\", line 108, in <module>\n    test_execution(\"df = pd.DataFrame({\\n    df.columns[0]: [1, 2, 3],\\n    df.columns[1]: [4, 5, 6],\\n    df.columns[2]: [7, 8, 9],\\n    'Col3': ['a, b', 'c, d', 'e, f']\\n})\\n\\n# Explode 'Col3' and create the exploded DataFrame\\ndf_exploded = df[df.columns[0:3]].join(\\n    df['Col3'].str.split(', ').apply(pd.Series).add_prefix('Col')).dropna()\\n\\n# Pivot the exploded DataFrame\\ndf_out = df_exploded.pivot(\\n    index=[df.columns[0], df.columns[1]], columns='Col', values=0).fillna(0).astype(int)\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/t",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Sklearn_823",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "unique_elements = df.iloc[:, -1].explode().unique()\nresult = pd.get_dummies(df.iloc[:, -1], prefix='', prefix_sep='', drop_first=False)\ndf_result = pd.concat([df.iloc[:, :-1], result], axis=1)\nresult = df_result",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 23.83204958299939,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "unique_elements = df.iloc[:, -1].explode().unique()\nresult = pd.get_dummies(df.iloc[:, -1], prefix='', prefix_sep='', drop_first=False)\ndf_result = pd.concat([df.iloc[:, :-1], result], axis=1)\nresult = df_result",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/arrays/categorical.py\", line 460, in __init__\n    codes, categories = factorize(values, sort=True)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/algorithms.py\", line 795, in factorize\n    codes, uniques = factorize_array(\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/algorithms.py\", line 595, in factorize_array\n    uniques, codes = table.factorize(\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7293, in pandas._libs.hashtable.PyObjectHashTable.factorize\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7203, in pandas._libs",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Sklearn_824",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\ndf = pd.DataFrame({\n    'A': [1, 2, 3],\n    'B': [4, 5, 6]\n})\n\nunique_elements = df.iloc[:, -1].explode().unique()\ndf_out = df.copy()\ndf_out = pd.get_dummies(df_out, columns=[df.columns[-1]], drop_first=False)\nresult = df_out",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 16.06922675000078,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "df = pd.DataFrame({\n    'A': [1, 2, 3],\n    'B': [4, 5, 6]\n})\n\nunique_elements = df.iloc[:, -1].explode().unique()\ndf_out = df.copy()\ndf_out = pd.get_dummies(df_out, columns=[df.columns[-1]], drop_first=False)\nresult = df_out",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpcgehepgw.py\", line 126, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpcgehepgw.py\", line 124, in <module>\n    test_execution(\"df = pd.DataFrame({\\n    'A': [1, 2, 3],\\n    'B': [4, 5, 6]\\n})\\n\\nunique_elements = df.iloc[:, -1].explode().unique()\\ndf_out = df.copy()\\ndf_out = pd.get_dummies(df_out, columns=[df.columns[-1]], drop_first=False)\\nresult = df_out\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpcgehepgw.py\", line 120, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Sklearn_825",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Create a sample DataFrame for demonstration\n df = pd.DataFrame({\n     'col1': [1, 2, 3],\n     'col2': [4, 5, 6]\n })\n\nunique_elements = df.iloc[:, -1].explode().str.strip().unique()\n df_out = pd.get_dummies(df, columns=[df.columns[-1]], drop_first=False)\n result = df_out",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 20.008735417000025,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "df = pd.DataFrame({\n     'col1': [1, 2, 3],\n     'col2': [4, 5, 6]\n })\n\nunique_elements = df.iloc[:, -1].explode().str.strip().unique()\n df_out = pd.get_dummies(df, columns=[df.columns[-1]], drop_first=False)\n result = df_out",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpd6a1a3at.py\", line 129, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpd6a1a3at.py\", line 127, in <module>\n    test_execution(\"df = pd.DataFrame({\\n     'col1': [1, 2, 3],\\n     'col2': [4, 5, 6]\\n })\\n\\nunique_elements = df.iloc[:, -1].explode().str.strip().unique()\\n df_out = pd.get_dummies(df, columns=[df.columns[-1]], drop_first=False)\\n result = df_out\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpd6a1a3at.py\", line 122, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 12\n    df_out = pd.get_dummies(df, columns=[df.columns[-1]], drop_first=False)\nIndentationError: unexpected indent",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Sklearn_826",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "from sklearn.calibration import CalibratedClassifierCV\n\n calibrator = CalibratedClassifierCV(svmmodel, method='sigmoid', cv=5)\n calibrator.fit(X, y)\n proba = calibrator.predict_proba(x_test)[:, 1]",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 18.99517433299934,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "calibrator = CalibratedClassifierCV(svmmodel, method='sigmoid', cv=5)\n calibrator.fit(X, y)\n proba = calibrator.predict_proba(x_test)[:, 1]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7yjqa2oj.py\", line 128, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7yjqa2oj.py\", line 126, in <module>\n    test_execution(\"calibrator = CalibratedClassifierCV(svmmodel, method='sigmoid', cv=5)\\n calibrator.fit(X, y)\\n proba = calibrator.predict_proba(x_test)[:, 1]\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7yjqa2oj.py\", line 114, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 8\n    calibrator.fit(X, y)\nIndentationError: unexpected indent",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_932",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import torch\noptim.param_groups[0]['lr'] = 0.001",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 11.660179833000257,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "optim.param_groups[0]['lr'] = 0.001",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzwwrjvtj.py\", line 1, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_933",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import torch\n    optim.param_groups[0]['lr'] = 0.001\nexcept ImportError:\n    print('torch is not installed')",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 7.658705166999425,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "try:\n    import torch\n    optim.param_groups[0]['lr'] = 0.001\nexcept ImportError:\n    print('torch is not installed')",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpq6hm4od1.py\", line 1, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_934",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import torch\n    optim.param_groups[0]['lr'] = 0.0005\nexcept ImportError:\n    print('torch is not installed')",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 7.303706165999756,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "try:\n    import torch\n    optim.param_groups[0]['lr'] = 0.0005\nexcept ImportError:\n    print('torch is not installed')",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpsogwjbai.py\", line 1, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_935",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import torch\noptim.param_groups[0]['lr'] = 0.005",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 11.786483791999672,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "optim.param_groups[0]['lr'] = 0.005",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp28k3axcs.py\", line 1, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_936",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import torch\n\nembedding_layer = torch.nn.Embedding(num_embeddings=len(word2vec.wv.key_to_index), embedding_dim=100)\nembedding_weights = torch.tensor([word2vec.wv[v] for v in word2vec.wv.key_to_index], dtype=torch.float32)\nembedding_layer.weight = torch.nn.Parameter(embedding_weights)\nembedded_input = embedding_layer(input_Tensor)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 19.89784758299993,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "embedding_layer = torch.nn.Embedding(num_embeddings=len(word2vec.wv.key_to_index), embedding_dim=100)\nembedding_weights = torch.tensor([word2vec.wv[v] for v in word2vec.wv.key_to_index], dtype=torch.float32)\nembedding_layer.weight = torch.nn.Parameter(embedding_weights)\nembedded_input = embedding_layer(input_Tensor)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7y99_ks4.py\", line 1, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_937",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "def get_embedded_input(input_Tensor):\n    try:\n        import torch\n    except ImportError:\n        # Handle the case where PyTorch is not installed\n        raise ModuleNotFoundError(\"PyTorch is required but not installed.\")\n\n    # Get the word vectors from gensim\n    word_vectors = word2vec.wv\n\n    # Create a PyTorch embedding layer\n    embedding_layer = torch.nn.Embedding(num_embeddings=len(word_vectors), embedding_dim=100)\n\n    # Initialize the embedding layer with the word vectors\n    embedding_layer.weight.data = torch.tensor([word_vectors[word] for word in word_vectors.key_to_index], dtype=torch.float32)\n\n    # Embed the input tensor\n    embedded_input = embedding_layer(input_Tensor)\n\n    return embedded_input",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 20.039861541999926,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "    try:\n        import torch\n    except ImportError:\n        # Handle the case where PyTorch is not installed\n        raise ModuleNotFoundError(\"PyTorch is required but not installed.\")\n\n    # Get the word vectors from gensim\n    word_vectors = word2vec.wv\n\n    # Create a PyTorch embedding layer\n    embedding_layer = torch.nn.Embedding(num_embeddings=len(word_vectors), embedding_dim=100)\n\n    # Initialize the embedding layer with the word vectors\n    embedding_layer.weight.data = torch.tensor([word_vectors[word] for word in word_vectors.key_to_index], dtype=torch.float32)\n\n    # Embed the input tensor\n    embedded_input = embedding_layer(input_Tensor)\n\n    return embedded_input",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjptvcccd.py\", line 1, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pytorch_938",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport torch\n\ntry:\n    px = pd.DataFrame(x.numpy())\nexcept ImportError:\n    px = pd.DataFrame()  # Fallback if torch is not available",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 14.380573999999797,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "try:\n    px = pd.DataFrame(x.numpy())\nexcept ImportError:\n    px = pd.DataFrame()  # Fallback if torch is not available",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpcg10v_dx.py\", line 3, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_939",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "try:\n    import torch\n    import pandas as pd\n    px = pd.DataFrame(x.numpy())\nexcept ImportError:\n    import pandas as pd\n    px = pd.DataFrame()  # Fallback if torch is not available",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 10.591362041999673,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "try:\n    import torch\n    import pandas as pd\n    px = pd.DataFrame(x.numpy())\nexcept ImportError:\n    import pandas as pd\n    px = pd.DataFrame()  # Fallback if torch is not available",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpg2_zbrud.py\", line 3, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_940",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport torch\n\n# Check if torch is available\nif torch.__version__ is not None:\n    px = pd.DataFrame(x.numpy())\nelse:\n    px = pd.DataFrame()  # Fallback if torch is not available",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 14.700579874999676,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "if torch.__version__ is not None:\n    px = pd.DataFrame(x.numpy())\nelse:\n    px = pd.DataFrame()  # Fallback if torch is not available",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpnb4ediwy.py\", line 3, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_941",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "C = B[:, A_log]",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 12.681852458999856,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "C = B[:, A_log]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1khi712f.py\", line 1, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.0,
+    "pass_rate_Numpy": 0.5,
+    "pass_rate_Matplotlib": 0.4,
+    "pass_rate_Tensorflow": 0.0,
+    "pass_rate_Scipy": 0.6,
+    "pass_rate_Sklearn": 0.2,
+    "pass_rate_Pytorch": 0.0,
+    "fail_logic_error": 26,
+    "fail_no_result_assigned": 21,
+    "fail_no_code": 4,
+    "fail_stub_no_data": 2
+  }
+}

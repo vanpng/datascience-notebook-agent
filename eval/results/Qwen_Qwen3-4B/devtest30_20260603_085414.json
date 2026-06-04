@@ -1,0 +1,585 @@
+{
+  "benchmark": "devtest30",
+  "total": 30,
+  "passed": 27,
+  "failed": 3,
+  "errors": 0,
+  "pass_rate": 0.9,
+  "mean_latency_s": 2.1470002776555095,
+  "results": [
+    {
+      "problem_id": "sales_total_revenue",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "revenue = sales['units'] * sales['price']\ntotal_revenue = revenue.sum()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.8762022519949824,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "aggregation",
+        "expected": "266.5",
+        "nb_stdout_tail": ""
+      }
+    },
+    {
+      "problem_id": "sales_avg_units_widget",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "widget_sales = sales[sales['product'] == 'Widget']\naverage_units = widget_sales['units'].mean()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.875426720129326,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "filtering",
+        "expected": "10.2",
+        "nb_stdout_tail": "10.2\n8    Ivan\nName: name, dtype: object"
+      }
+    },
+    {
+      "problem_id": "sales_top_product_units",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "units_by_product = sales.groupby('product')['units'].sum()\nmax_units_product = units_by_product.idxmax()\nprint(f\"The product with the highest total units sold is: {max_units_product}\")",
+      "stdout": "The product with the highest total units sold is: Widget\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 3.6432048780843616,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "aggregation",
+        "expected": "Widget",
+        "nb_stdout_tail": "The product with the highest total units sold is: Widget\nThe product with the highest total units sold is: Widget\nNone"
+      }
+    },
+    {
+      "problem_id": "sales_bar_units_region",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\ntotal_units_by_region = sales.groupby('region')['units'].sum()\n\nfig, ax = plt.subplots()\ntotal_units_by_region.plot(kind='bar', ax=ax, color='steelblue', edgecolor='white')\nax.set_xlabel('Region')\nax.set_ylabel('Total Units')\nax.set_title('Total Units Sold by Region')\nax.set_xticklabels(ax.get_xticklabels(), rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.2928066949825734,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "sales_hist_units",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\nplt.hist(sales['units'], bins=5, edgecolor='black')\nplt.xlabel('Units')\nplt.ylabel('Frequency')\nplt.title('Histogram of Units')\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.2675773459486663,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "emp_highest_paid",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "max_salary = employees['salary'].max()\nemployee_with_max_salary = employees[employees['salary'] == max_salary]\nprint(employee_with_max_salary['name'])",
+      "stdout": "8    Ivan\nName: name, dtype: object\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.8706918489187956,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "Ivan",
+        "nb_stdout_tail": "0.99\n0.99\nNone"
+      }
+    },
+    {
+      "problem_id": "emp_top_dept_salary",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\n\naverage_salary_by_department = employees.groupby('department')['salary'].mean()\nhighest_salary_department = average_salary_by_department.idxmax()\n\nprint(highest_salary_department)",
+      "stdout": "Eng\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.2007193020544946,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "aggregation",
+        "expected": "Eng",
+        "nb_stdout_tail": "Eng\nEng\nNone"
+      }
+    },
+    {
+      "problem_id": "emp_corr_age_years",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "correlation = round(employees['age'].corr(employees['years']), 2)\nprint(correlation)",
+      "stdout": "0.99\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.2011254499666393,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "statistics",
+        "expected": "0.99",
+        "nb_stdout_tail": "8    Ivan\nName: name, dtype: object\nNone"
+      }
+    },
+    {
+      "problem_id": "emp_bar_salary_dept",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\naverage_salary_by_department = employees.groupby('department')['salary'].mean()\n\nfig, ax = plt.subplots()\naverage_salary_by_department.plot(kind='bar', ax=ax, color='steelblue', edgecolor='white')\nax.set_xlabel('Department')\nax.set_ylabel('Average Salary')\nax.set_title('Average Salary by Department')\nax.set_xticklabels(ax.get_xticklabels(), rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.380660123890266,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "emp_scatter_age_salary",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\nplt.scatter(employees['age'], employees['salary'], color='blue')\nplt.xlabel('Age')\nplt.ylabel('Salary')\nplt.title('Age vs Salary')\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.163366772932932,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "stu_avg_math",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "average_math_score = students['math'].mean()\nprint(f\"Average math score: {average_math_score:.2f}\")",
+      "stdout": "Average math score: 76.90\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.543650675797835,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "aggregation",
+        "expected": "76.9",
+        "nb_stdout_tail": "Average math score: 76.90\nAverage math score: 76.90\nNone"
+      }
+    },
+    {
+      "problem_id": "stu_top_math",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "max_math_row = students.loc[students['math'].idxmax()]\nmax_math_student_name = max_math_row['name']",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.7943166189361364,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "Gia",
+        "nb_stdout_tail": "Gia"
+      }
+    },
+    {
+      "problem_id": "stu_max_total",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "students_with_total = students.copy()\nstudents_with_total['total'] = students_with_total['math'] + students_with_total['science'] + students_with_total['english']\nmax_total = students_with_total['total'].max()\nprint(f\"Maximum total score: {max_total}\")",
+      "stdout": "Maximum total score: 278\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.0330333448946476,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "preprocessing",
+        "expected": "278",
+        "nb_stdout_tail": "Maximum total score: 278\nMaximum total score: 278\nNone"
+      }
+    },
+    {
+      "problem_id": "stu_count_sci90",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "count = students[students['science'] >= 90].shape[0]",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.7860715461429209,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "filtering",
+        "expected": "2",
+        "nb_stdout_tail": "2"
+      }
+    },
+    {
+      "problem_id": "stu_corr_math_sci",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "correlation_value = round(students['math'].corr(students['science']), 2)\nprint(correlation_value)",
+      "stdout": "0.96\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.8104226810391992,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "statistics",
+        "expected": "0.96",
+        "nb_stdout_tail": "0.96\n0.96\nNone"
+      }
+    },
+    {
+      "problem_id": "stu_count_math_below70",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "count_math_below_70 = len(students[students['math'] < 70])",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.7498028900008649,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "filtering",
+        "expected": "3",
+        "nb_stdout_tail": "3"
+      }
+    },
+    {
+      "problem_id": "stu_hist_math",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\nplt.hist(students['math'], bins=10, edgecolor='black', color='skyblue')\nplt.title('Histogram of Math Scores')\nplt.xlabel('Math Score')\nplt.ylabel('Frequency')\nplt.grid(axis='y', alpha=0.7)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.0122372549958527,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "cust_missing_age",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Calculate mean age and spend by segment\nmean_age_by_segment = customers.groupby('segment')['age'].mean()\nmean_spend_by_segment = customers.groupby('segment')['spend'].mean()\n\n# Plot the results\nfig, ax = plt.subplots()\nmean_age_by_segment.plot(kind='bar', ax=ax, color='skyblue', edgecolor='black', label='Mean Age')\nmean_spend_by_segment.plot(kind='bar', ax=ax, color='salmon', edgecolor='black', label='Mean Spend')\n\nax.set_xlabel('Segment')\nax.set_ylabel('Value')\nax.set_title('Mean Age and Spend by Segment')\nax.legend()\nax.set_xticklabels(ax.get_xticklabels(), rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.182365742046386,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "exploration",
+        "expected": "3",
+        "nb_stdout_tail": "None"
+      }
+    },
+    {
+      "problem_id": "cust_missing_total",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "total_missing_values = customers.isnull().sum().sum()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.4387300468515605,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "exploration",
+        "expected": "6",
+        "nb_stdout_tail": "6"
+      }
+    },
+    {
+      "problem_id": "cust_mean_spend",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "mean_spend = customers['spend'].mean(skipna=True)",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.520225560059771,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "statistics",
+        "expected": "197.22222222222223",
+        "nb_stdout_tail": "197.22222222222223"
+      }
+    },
+    {
+      "problem_id": "cust_fillna_age_mean",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "mean_age = customers['age'].mean()\nfilled_ages = customers['age'].fillna(mean_age)\naverage_age_after_filling = filled_ages.mean()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.8323192519601434,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "preprocessing",
+        "expected": "35.888888888888886",
+        "nb_stdout_tail": "35.888888888888886"
+      }
+    },
+    {
+      "problem_id": "cust_count_segA",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "count_segment_A = (customers[customers['segment'] == 'A']).shape[0]",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.6287452611140907,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "exploration",
+        "expected": "4",
+        "nb_stdout_tail": "4"
+      }
+    },
+    {
+      "problem_id": "cust_top_spend_segment",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "# Filter out rows with missing 'spend' values\nfiltered_customers = customers[customers['spend'].notna()]\n\n# Group the filtered DataFrame by 'segment' and compute the mean 'spend' for each group\nmean_spend_by_segment = filtered_customers.groupby('segment')['spend'].mean()\n\n# Find the segment with the highest mean spend and print the segment label\nhighest_spend_segment = mean_spend_by_segment.idxmax()\n\nprint(f\"The segment with the highest mean spend is: {highest_spend_segment}\")",
+      "stdout": "The segment with the highest mean spend is: C\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.438533120788634,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "aggregation",
+        "expected": "C",
+        "nb_stdout_tail": "The segment with the highest mean spend is: C\nThe segment with the highest mean spend is: C\nNone"
+      }
+    },
+    {
+      "problem_id": "cust_bar_spend_segment",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\naverage_spend_by_segment = customers.groupby('segment')['spend'].mean()\n\nfig, ax = plt.subplots()\naverage_spend_by_segment.plot(kind='bar', ax=ax, color='steelblue', edgecolor='white')\nax.set_xlabel('Segment')\nax.set_ylabel('Average Spend')\nax.set_title('Average Spend by Segment')\nax.set_xticklabels(ax.get_xticklabels(), rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.4615658859256655,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "ts_peak_day",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "max_visitors_index = ts['visitors'].idxmax()\nmax_date = ts.loc[max_visitors_index, 'date']\nprint(f\"The date with the maximum visitors is: {max_date}\")",
+      "stdout": "The date with the maximum visitors is: 2023-01-11 00:00:00\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.7483773939311504,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "2023-01-11",
+        "nb_stdout_tail": "e date with the maximum visitors is: 2023-01-11 00:00:00\nThe date with the maximum visitors is: 2023-01-11 00:00:00\nNone"
+      }
+    },
+    {
+      "problem_id": "ts_avg_visitors",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "average_visitors = ts['visitors'].mean()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.36221395409666,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "statistics",
+        "expected": "124.64285714285714",
+        "nb_stdout_tail": "124.64285714285714"
+      }
+    },
+    {
+      "problem_id": "ts_rolling7_last",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\n\n# Compute 7-day rolling mean\nrolling_mean = ts['visitors'].rolling(window=7).mean()\n\n# Extract the last (most recent) rolling-mean value\nlast_rolling_mean = rolling_mean.iloc[-1]\n\n# Print the result\nprint(last_rolling_mean)",
+      "stdout": "127.85714285714286\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.8070802681613714,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "preprocessing",
+        "expected": "127.85714285714286",
+        "nb_stdout_tail": "127.85714285714286\n127.85714285714286\nNone"
+      }
+    },
+    {
+      "problem_id": "prod_top_category_count",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "category_counts = products['category'].value_counts()\nmost_common_category = category_counts.idxmax()\nprint(most_common_category)",
+      "stdout": "Electronics\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.6315010159742087,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "Electronics",
+        "nb_stdout_tail": "Electronics\nElectronics\nNone"
+      }
+    },
+    {
+      "problem_id": "prod_top_avg_price_cat",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "mean_price_by_category = products.groupby('category')['price'].mean()\nhighest_mean_category = mean_price_by_category.idxmax()\nprint(f\"The category with the highest mean price is: {highest_mean_category}\")",
+      "stdout": "The category with the highest mean price is: Electronics\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 1.7171252800617367,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "aggregation",
+        "expected": "Electronics",
+        "nb_stdout_tail": "The category with the highest mean price is: Electronics\nThe category with the highest mean price is: Electronics\nNone"
+      }
+    },
+    {
+      "problem_id": "prod_pie_category",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\nproducts_per_category = products.groupby('category').size()\n\nplt.figure(figsize=(8, 6))\nplt.pie(products_per_category, labels=products_per_category.index, autopct='%1.1f%%', startangle=140)\nplt.title('Product Distribution by Category')\nplt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.139909147983417,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "format_compliance_rate": 1.0,
+    "format_compliant": 30,
+    "format_noncompliant": 0,
+    "pass_aggregation": 0.8333,
+    "pass_exploration": 0.8571,
+    "pass_filtering": 0.6667,
+    "pass_preprocessing": 1.0,
+    "pass_statistics": 1.0,
+    "pass_visualization": 1.0
+  }
+}

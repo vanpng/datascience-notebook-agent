@@ -1,0 +1,65 @@
+{
+  "benchmark": "dabstep",
+  "total": 3,
+  "passed": 1,
+  "failed": 2,
+  "errors": 0,
+  "pass_rate": 0.3333333333333333,
+  "mean_latency_s": 13.631520583682383,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\n\n# Count the number of transactions per issuing country\ntransaction_counts = payments['issuing_country'].value_counts()\n\n# Find the country with the highest number of transactions\nmost_frequent_issuing_country = transaction_counts.idxmax()\n\n# Print the result\nprint(most_frequent_issuing_country)",
+      "stdout": "NL\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.435811917006504,
+      "metadata": {
+        "level": "easy",
+        "predicted": "NL",
+        "score_reason": "numeric_match"
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Filter payments for fraudulent disputes\nfraudulent_payments = payments[payments['has_fraudulent_dispute'] == True]\n\n# Count occurrences of each ip_country\nfraudulent_countries = fraudulent_payments['ip_country'].value_counts()\n\n# Find the top country\ntop_country = fraudulent_countries.idxmax()\n\n# Map the country code to the option letter\noption_map = {'NL': 'A', 'BE': 'B', 'ES': 'C', 'FR': 'D'}\noption_letter = option_map.get(top_country, 'Not Applicable')\n\nprint(f'{option_letter}. {top_country}')",
+      "stdout": "A. NL\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.59126145899063,
+      "metadata": {
+        "level": "easy",
+        "predicted": "A. NL",
+        "score_reason": "mismatch",
+        "expected": "B. BE"
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "martinis_fine_steakhouse_fees = [fee for fee in fees if fee['merchant_category_code'] == 'Martinis_Fine_Steakhouse']",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 20.867488375050016,
+      "metadata": {
+        "level": "easy",
+        "score_reason": "no_output",
+        "predicted": ""
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_easy": 0.3333333333333333,
+    "fail_mismatch": 1,
+    "fail_no_output": 1
+  }
+}

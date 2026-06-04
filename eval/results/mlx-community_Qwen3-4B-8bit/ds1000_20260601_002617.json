@@ -1,0 +1,141 @@
+{
+  "benchmark": "ds1000",
+  "total": 7,
+  "passed": 3,
+  "failed": 4,
+  "errors": 0,
+  "pass_rate": 0.42857142857142855,
+  "mean_latency_s": 10.205807845571274,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "result = pd.DataFrame(list)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 18.34526258400001,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = pd.DataFrame(list)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_onu3yy6.py\", line 58, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_onu3yy6.py\", line 56, in <module>\n    test_execution('result = pd.DataFrame(list)')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_onu3yy6.py\", line 51, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 5, in <module>\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/frame.py\", line 890, in __init__\n    raise ValueError(\"DataFrame constructor not properly called!\")\nValueError: DataFrame constructor not properly called!",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Numpy_291",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "result = a.shape",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.8634936669996023,
+      "metadata": {
+        "lib": "Numpy",
+        "cleaned_code": "result = a.shape",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Matplotlib_511",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "sns.lineplot(x=x, y=y, label='x-y')",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.306828166999367,
+      "metadata": {
+        "lib": "Matplotlib",
+        "cleaned_code": "sns.lineplot(x=x, y=y, label='x-y')",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Tensorflow_666",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "x = [1, 2, 3]\nresult = x",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 12.3253144170003,
+      "metadata": {
+        "lib": "Tensorflow",
+        "cleaned_code": "x = [1, 2, 3]\nresult = x",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkbi_z5c8.py\", line 73, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkbi_z5c8.py\", line 71, in <module>\n    test_execution('x = [1, 2, 3]\\nresult = x')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkbi_z5c8.py\", line 60, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Scipy_711",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "log_x = np.log(x)\nA, B = np.polyfit(log_x, y, 1)\nresult = np.array([A, B])",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.5650972919993364,
+      "metadata": {
+        "lib": "Scipy",
+        "cleaned_code": "log_x = np.log(x)\nA, B = np.polyfit(log_x, y, 1)\nresult = np.array([A, B])",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Sklearn_817",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\ndata1 = pd.DataFrame(data.data, columns=data.feature_names)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 16.01284116700026,
+      "metadata": {
+        "lib": "Sklearn",
+        "cleaned_code": "data1 = pd.DataFrame(data.data, columns=data.feature_names)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzaom8jk4.py\", line 57, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzaom8jk4.py\", line 55, in <module>\n    test_execution('data1 = pd.DataFrame(data.data, columns=data.feature_names)')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzaom8jk4.py\", line 51, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pytorch_932",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "pass",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 13.02181762500004,
+      "metadata": {
+        "lib": "Pytorch",
+        "cleaned_code": "pass",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpifsdbgk7.py\", line 1, in <module>\n    import torch\nModuleNotFoundError: No module named 'torch'",
+        "score_reason": "no_result_assigned"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.0,
+    "pass_rate_Numpy": 1.0,
+    "pass_rate_Matplotlib": 1.0,
+    "pass_rate_Tensorflow": 0.0,
+    "pass_rate_Scipy": 1.0,
+    "pass_rate_Sklearn": 0.0,
+    "pass_rate_Pytorch": 0.0,
+    "fail_logic_error": 2,
+    "fail_no_result_assigned": 2
+  }
+}

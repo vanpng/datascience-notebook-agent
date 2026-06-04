@@ -1,0 +1,54 @@
+{
+  "benchmark": "devtest50",
+  "total": 2,
+  "passed": 0,
+  "failed": 2,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "mean_latency_s": 37.3392976304749,
+  "results": [
+    {
+      "problem_id": "sales_shape",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "sales_by_region = sales.groupby('region')[['units', 'price']].sum()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 34.910215930081904,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "(12, 4)"
+      }
+    },
+    {
+      "problem_id": "sales_total_units",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "sales_by_region = sales.groupby('region')[['units', 'price']].sum()\nsales_by_product = sales.groupby('product')[['units', 'price']].sum()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 2,
+      "latency_s": 39.7683793308679,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "aggregation",
+        "expected": "92"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "format_compliance_rate": 1.0,
+    "format_compliant": 2,
+    "format_noncompliant": 0,
+    "pass_aggregation": 0.0,
+    "pass_exploration": 0.0
+  }
+}

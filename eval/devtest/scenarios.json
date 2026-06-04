@@ -1,0 +1,628 @@
+{
+  "scenarios": [
+    {
+      "id": "sales_total_revenue",
+      "query": "Compute revenue as units times price and print the total revenue across all rows.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\nprint(list(sales.columns))\nprint(sales.head())\n",
+          "stdout": "['region', 'product', 'units', 'price']\n  region product  units  price\n0  North  Widget     10    2.5\n1  South  Gadget      5    4.0\n2  North  Widget      8    2.5\n3   East   Gizmo     12    3.0\n4   West  Widget      7    2.5",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "aggregation",
+        "dataset": "sales",
+        "setup_code": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\n",
+        "expected": "266.5"
+      }
+    },
+    {
+      "id": "sales_avg_units_widget",
+      "query": "What is the average number of units sold for the product 'Widget'? Print the average.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\nprint(list(sales.columns))\nprint(sales.head())\n",
+          "stdout": "['region', 'product', 'units', 'price']\n  region product  units  price\n0  North  Widget     10    2.5\n1  South  Gadget      5    4.0\n2  North  Widget      8    2.5\n3   East   Gizmo     12    3.0\n4   West  Widget      7    2.5",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "filtering",
+        "dataset": "sales",
+        "setup_code": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\n",
+        "expected": "10.2"
+      }
+    },
+    {
+      "id": "sales_top_product_units",
+      "query": "Which product has the highest total units sold? Print the product name.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\nprint(list(sales.columns))\nprint(sales.head())\n",
+          "stdout": "['region', 'product', 'units', 'price']\n  region product  units  price\n0  North  Widget     10    2.5\n1  South  Gadget      5    4.0\n2  North  Widget      8    2.5\n3   East   Gizmo     12    3.0\n4   West  Widget      7    2.5",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "contains",
+        "intent": "aggregation",
+        "dataset": "sales",
+        "setup_code": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\n",
+        "expected": "Widget"
+      }
+    },
+    {
+      "id": "sales_bar_units_region",
+      "query": "Plot a bar chart of total units sold by region.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\nprint(list(sales.columns))\nprint(sales.head())\n",
+          "stdout": "['region', 'product', 'units', 'price']\n  region product  units  price\n0  North  Widget     10    2.5\n1  South  Gadget      5    4.0\n2  North  Widget      8    2.5\n3   East   Gizmo     12    3.0\n4   West  Widget      7    2.5",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "plot",
+        "intent": "visualization",
+        "dataset": "sales",
+        "setup_code": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\n",
+        "plot_markers": [
+          "plt.show",
+          ".savefig",
+          ".plot(",
+          "sns.",
+          "plt.bar",
+          "plt.hist",
+          "plt.scatter",
+          "plt.pie",
+          "plt.boxplot",
+          "plt.plot"
+        ],
+        "expected": "<plot>"
+      }
+    },
+    {
+      "id": "sales_hist_units",
+      "query": "Plot a histogram of the units column.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\nprint(list(sales.columns))\nprint(sales.head())\n",
+          "stdout": "['region', 'product', 'units', 'price']\n  region product  units  price\n0  North  Widget     10    2.5\n1  South  Gadget      5    4.0\n2  North  Widget      8    2.5\n3   East   Gizmo     12    3.0\n4   West  Widget      7    2.5",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "plot",
+        "intent": "visualization",
+        "dataset": "sales",
+        "setup_code": "import pandas as pd\nsales = pd.DataFrame({\n    'region': ['North','South','North','East','West','South','North','East','West','South','North','East'],\n    'product': ['Widget','Gadget','Widget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget','Gizmo','Widget','Gadget'],\n    'units': [10, 5, 8, 12, 7, 3, 9, 15, 6, 4, 11, 2],\n    'price': [2.5, 4.0, 2.5, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0, 3.0, 2.5, 4.0],\n})\n",
+        "plot_markers": [
+          "plt.show",
+          ".savefig",
+          ".plot(",
+          "sns.",
+          "plt.bar",
+          "plt.hist",
+          "plt.scatter",
+          "plt.pie",
+          "plt.boxplot",
+          "plt.plot"
+        ],
+        "expected": "<plot>"
+      }
+    },
+    {
+      "id": "emp_highest_paid",
+      "query": "Which employee has the highest salary? Print their name.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\nprint(list(employees.columns))\nprint(employees.head())\n",
+          "stdout": "['name', 'department', 'salary', 'age', 'years']\n    name department  salary  age  years\n0  Alice        Eng   95000   30      3\n1    Bob      Sales   60000   45     10\n2  Carol        Eng  105000   38      8\n3   Dave         HR   55000   29      2\n4    Eve      Sales   62000   50     15",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "contains",
+        "intent": "exploration",
+        "dataset": "employees",
+        "setup_code": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\n",
+        "expected": "Ivan"
+      }
+    },
+    {
+      "id": "emp_top_dept_salary",
+      "query": "Which department has the highest average salary? Print the department name.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\nprint(list(employees.columns))\nprint(employees.head())\n",
+          "stdout": "['name', 'department', 'salary', 'age', 'years']\n    name department  salary  age  years\n0  Alice        Eng   95000   30      3\n1    Bob      Sales   60000   45     10\n2  Carol        Eng  105000   38      8\n3   Dave         HR   55000   29      2\n4    Eve      Sales   62000   50     15",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "contains",
+        "intent": "aggregation",
+        "dataset": "employees",
+        "setup_code": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\n",
+        "expected": "Eng"
+      }
+    },
+    {
+      "id": "emp_corr_age_years",
+      "query": "What is the Pearson correlation between age and years of tenure? Print the correlation rounded to 2 decimals.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\nprint(list(employees.columns))\nprint(employees.head())\n",
+          "stdout": "['name', 'department', 'salary', 'age', 'years']\n    name department  salary  age  years\n0  Alice        Eng   95000   30      3\n1    Bob      Sales   60000   45     10\n2  Carol        Eng  105000   38      8\n3   Dave         HR   55000   29      2\n4    Eve      Sales   62000   50     15",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "statistics",
+        "dataset": "employees",
+        "setup_code": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\n",
+        "expected": "0.99"
+      }
+    },
+    {
+      "id": "emp_bar_salary_dept",
+      "query": "Plot a bar chart of the average salary by department.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\nprint(list(employees.columns))\nprint(employees.head())\n",
+          "stdout": "['name', 'department', 'salary', 'age', 'years']\n    name department  salary  age  years\n0  Alice        Eng   95000   30      3\n1    Bob      Sales   60000   45     10\n2  Carol        Eng  105000   38      8\n3   Dave         HR   55000   29      2\n4    Eve      Sales   62000   50     15",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "plot",
+        "intent": "visualization",
+        "dataset": "employees",
+        "setup_code": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\n",
+        "plot_markers": [
+          "plt.show",
+          ".savefig",
+          ".plot(",
+          "sns.",
+          "plt.bar",
+          "plt.hist",
+          "plt.scatter",
+          "plt.pie",
+          "plt.boxplot",
+          "plt.plot"
+        ],
+        "expected": "<plot>"
+      }
+    },
+    {
+      "id": "emp_scatter_age_salary",
+      "query": "Create a scatter plot of age versus salary.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\nprint(list(employees.columns))\nprint(employees.head())\n",
+          "stdout": "['name', 'department', 'salary', 'age', 'years']\n    name department  salary  age  years\n0  Alice        Eng   95000   30      3\n1    Bob      Sales   60000   45     10\n2  Carol        Eng  105000   38      8\n3   Dave         HR   55000   29      2\n4    Eve      Sales   62000   50     15",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "plot",
+        "intent": "visualization",
+        "dataset": "employees",
+        "setup_code": "import pandas as pd\nemployees = pd.DataFrame({\n    'name': ['Alice','Bob','Carol','Dave','Eve','Frank','Grace','Heidi','Ivan','Judy'],\n    'department': ['Eng','Sales','Eng','HR','Sales','Eng','HR','Sales','Eng','HR'],\n    'salary': [95000, 60000, 105000, 55000, 62000, 99000, 58000, 64000, 110000, 60000],\n    'age': [30, 45, 38, 29, 50, 41, 35, 28, 47, 33],\n    'years': [3, 10, 8, 2, 15, 9, 5, 1, 12, 4],\n})\n",
+        "plot_markers": [
+          "plt.show",
+          ".savefig",
+          ".plot(",
+          "sns.",
+          "plt.bar",
+          "plt.hist",
+          "plt.scatter",
+          "plt.pie",
+          "plt.boxplot",
+          "plt.plot"
+        ],
+        "expected": "<plot>"
+      }
+    },
+    {
+      "id": "stu_avg_math",
+      "query": "What is the average math score of all students? Print the average.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\nprint(list(students.columns))\nprint(students.head())\n",
+          "stdout": "['name', 'gender', 'math', 'science', 'english']\n   name gender  math  science  english\n0   Ann      F    78       82       75\n1   Ben      M    85       79       80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "aggregation",
+        "dataset": "students",
+        "setup_code": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\n",
+        "expected": "76.9"
+      }
+    },
+    {
+      "id": "stu_top_math",
+      "query": "Which student has the highest math score? Print their name.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\nprint(list(students.columns))\nprint(students.head())\n",
+          "stdout": "['name', 'gender', 'math', 'science', 'english']\n   name gender  math  science  english\n0   Ann      F    78       82       75\n1   Ben      M    85       79       80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "contains",
+        "intent": "exploration",
+        "dataset": "students",
+        "setup_code": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\n",
+        "expected": "Gia"
+      }
+    },
+    {
+      "id": "stu_max_total",
+      "query": "Add a 'total' column that sums math, science and english, then print the highest total score.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\nprint(list(students.columns))\nprint(students.head())\n",
+          "stdout": "['name', 'gender', 'math', 'science', 'english']\n   name gender  math  science  english\n0   Ann      F    78       82       75\n1   Ben      M    85       79       80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "preprocessing",
+        "dataset": "students",
+        "setup_code": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\n",
+        "expected": "278"
+      }
+    },
+    {
+      "id": "stu_count_sci90",
+      "query": "How many students scored at least 90 in science? Print the count.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\nprint(list(students.columns))\nprint(students.head())\n",
+          "stdout": "['name', 'gender', 'math', 'science', 'english']\n   name gender  math  science  english\n0   Ann      F    78       82       75\n1   Ben      M    85       79       80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "filtering",
+        "dataset": "students",
+        "setup_code": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\n",
+        "expected": "2"
+      }
+    },
+    {
+      "id": "stu_corr_math_sci",
+      "query": "What is the correlation between math and science scores? Print it rounded to 2 decimals.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\nprint(list(students.columns))\nprint(students.head())\n",
+          "stdout": "['name', 'gender', 'math', 'science', 'english']\n   name gender  math  science  english\n0   Ann      F    78       82       75\n1   Ben      M    85       79       80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "statistics",
+        "dataset": "students",
+        "setup_code": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\n",
+        "expected": "0.96"
+      }
+    },
+    {
+      "id": "stu_count_math_below70",
+      "query": "How many students have a math score below 70? Print the count.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\nprint(list(students.columns))\nprint(students.head())\n",
+          "stdout": "['name', 'gender', 'math', 'science', 'english']\n   name gender  math  science  english\n0   Ann      F    78       82       75\n1   Ben      M    85       79       80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "filtering",
+        "dataset": "students",
+        "setup_code": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\n",
+        "expected": "3"
+      }
+    },
+    {
+      "id": "stu_hist_math",
+      "query": "Plot a histogram of the math scores.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\nprint(list(students.columns))\nprint(students.head())\n",
+          "stdout": "['name', 'gender', 'math', 'science', 'english']\n   name gender  math  science  english\n0   Ann      F    78       82       75\n1   Ben      M    85       79       80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "plot",
+        "intent": "visualization",
+        "dataset": "students",
+        "setup_code": "import pandas as pd\nstudents = pd.DataFrame({\n    'name': ['Ann','Ben','Cara','Dan','Ella','Finn','Gia','Hugo','Iris','Jack'],\n    'gender': ['F','M','F','M','F','M','F','M','F','M'],\n    'math': [78, 85, 92, 60, 73, 88, 95, 50, 81, 67],\n    'science': [82, 79, 90, 65, 70, 85, 99, 55, 78, 72],\n    'english': [75, 80, 88, 70, 68, 90, 84, 60, 79, 74],\n})\n",
+        "plot_markers": [
+          "plt.show",
+          ".savefig",
+          ".plot(",
+          "sns.",
+          "plt.bar",
+          "plt.hist",
+          "plt.scatter",
+          "plt.pie",
+          "plt.boxplot",
+          "plt.plot"
+        ],
+        "expected": "<plot>"
+      }
+    },
+    {
+      "id": "cust_missing_age",
+      "query": "How many missing values are in the age column? Print the count.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\nprint(list(customers.columns))\nprint(customers.head())\n",
+          "stdout": "['customer_id', 'age', 'spend', 'segment']\n   customer_id   age  spend segment\n0            1  25.0  120.0       A\n1            2   NaN  200.0       B\n2            3  34.0    NaN       A\n3            4  45.0  340.0       C\n4            5   NaN  150.0       B",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "exploration",
+        "dataset": "customers",
+        "setup_code": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\n",
+        "expected": "3"
+      }
+    },
+    {
+      "id": "cust_missing_total",
+      "query": "What is the total number of missing values across the whole DataFrame? Print the total.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\nprint(list(customers.columns))\nprint(customers.head())\n",
+          "stdout": "['customer_id', 'age', 'spend', 'segment']\n   customer_id   age  spend segment\n0            1  25.0  120.0       A\n1            2   NaN  200.0       B\n2            3  34.0    NaN       A\n3            4  45.0  340.0       C\n4            5   NaN  150.0       B",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "exploration",
+        "dataset": "customers",
+        "setup_code": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\n",
+        "expected": "6"
+      }
+    },
+    {
+      "id": "cust_mean_spend",
+      "query": "What is the mean spend, ignoring missing values? Print the mean.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\nprint(list(customers.columns))\nprint(customers.head())\n",
+          "stdout": "['customer_id', 'age', 'spend', 'segment']\n   customer_id   age  spend segment\n0            1  25.0  120.0       A\n1            2   NaN  200.0       B\n2            3  34.0    NaN       A\n3            4  45.0  340.0       C\n4            5   NaN  150.0       B",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "statistics",
+        "dataset": "customers",
+        "setup_code": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\n",
+        "expected": "197.22222222222223"
+      }
+    },
+    {
+      "id": "cust_fillna_age_mean",
+      "query": "Fill the missing ages with the mean age, then print the average age after filling.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\nprint(list(customers.columns))\nprint(customers.head())\n",
+          "stdout": "['customer_id', 'age', 'spend', 'segment']\n   customer_id   age  spend segment\n0            1  25.0  120.0       A\n1            2   NaN  200.0       B\n2            3  34.0    NaN       A\n3            4  45.0  340.0       C\n4            5   NaN  150.0       B",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "preprocessing",
+        "dataset": "customers",
+        "setup_code": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\n",
+        "expected": "35.888888888888886"
+      }
+    },
+    {
+      "id": "cust_count_segA",
+      "query": "How many customers are in segment 'A'? Print the count.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\nprint(list(customers.columns))\nprint(customers.head())\n",
+          "stdout": "['customer_id', 'age', 'spend', 'segment']\n   customer_id   age  spend segment\n0            1  25.0  120.0       A\n1            2   NaN  200.0       B\n2            3  34.0    NaN       A\n3            4  45.0  340.0       C\n4            5   NaN  150.0       B",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "exploration",
+        "dataset": "customers",
+        "setup_code": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\n",
+        "expected": "4"
+      }
+    },
+    {
+      "id": "cust_top_spend_segment",
+      "query": "Which segment has the highest average spend (ignoring missing values)? Print the segment label.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\nprint(list(customers.columns))\nprint(customers.head())\n",
+          "stdout": "['customer_id', 'age', 'spend', 'segment']\n   customer_id   age  spend segment\n0            1  25.0  120.0       A\n1            2   NaN  200.0       B\n2            3  34.0    NaN       A\n3            4  45.0  340.0       C\n4            5   NaN  150.0       B",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "contains",
+        "intent": "aggregation",
+        "dataset": "customers",
+        "setup_code": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\n",
+        "expected": "C"
+      }
+    },
+    {
+      "id": "cust_bar_spend_segment",
+      "query": "Plot a bar chart of the average spend by segment.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\nprint(list(customers.columns))\nprint(customers.head())\n",
+          "stdout": "['customer_id', 'age', 'spend', 'segment']\n   customer_id   age  spend segment\n0            1  25.0  120.0       A\n1            2   NaN  200.0       B\n2            3  34.0    NaN       A\n3            4  45.0  340.0       C\n4            5   NaN  150.0       B",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "plot",
+        "intent": "visualization",
+        "dataset": "customers",
+        "setup_code": "import pandas as pd\nimport numpy as np\ncustomers = pd.DataFrame({\n    'customer_id': list(range(1, 13)),\n    'age': [25, np.nan, 34, 45, np.nan, 52, 23, 38, np.nan, 41, 29, 36],\n    'spend': [120.0, 200.0, np.nan, 340.0, 150.0, 90.0, np.nan, 410.0, 75.0, 260.0, 130.0, np.nan],\n    'segment': ['A','B','A','C','B','C','A','C','B','A','B','C'],\n})\n",
+        "plot_markers": [
+          "plt.show",
+          ".savefig",
+          ".plot(",
+          "sns.",
+          "plt.bar",
+          "plt.hist",
+          "plt.scatter",
+          "plt.pie",
+          "plt.boxplot",
+          "plt.plot"
+        ],
+        "expected": "<plot>"
+      }
+    },
+    {
+      "id": "ts_peak_day",
+      "query": "On which date was the visitor count the highest? Print the date.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nts = pd.DataFrame({\n    'date': pd.date_range('2023-01-01', periods=14, freq='D'),\n    'visitors': [100, 120, 90, 140, 160, 130, 110, 95, 105, 150, 170, 125, 115, 135],\n})\nprint(list(ts.columns))\nprint(ts.head())\n",
+          "stdout": "['date', 'visitors']\n        date  visitors\n0 2023-01-01       100\n1 2023-01-02       120\n2 2023-01-03        90\n3 2023-01-04       140\n4 2023-01-05       160",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "contains",
+        "intent": "exploration",
+        "dataset": "timeseries",
+        "setup_code": "import pandas as pd\nts = pd.DataFrame({\n    'date': pd.date_range('2023-01-01', periods=14, freq='D'),\n    'visitors': [100, 120, 90, 140, 160, 130, 110, 95, 105, 150, 170, 125, 115, 135],\n})\n",
+        "expected": "2023-01-11"
+      }
+    },
+    {
+      "id": "ts_avg_visitors",
+      "query": "What is the average daily number of visitors? Print the average.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nts = pd.DataFrame({\n    'date': pd.date_range('2023-01-01', periods=14, freq='D'),\n    'visitors': [100, 120, 90, 140, 160, 130, 110, 95, 105, 150, 170, 125, 115, 135],\n})\nprint(list(ts.columns))\nprint(ts.head())\n",
+          "stdout": "['date', 'visitors']\n        date  visitors\n0 2023-01-01       100\n1 2023-01-02       120\n2 2023-01-03        90\n3 2023-01-04       140\n4 2023-01-05       160",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "statistics",
+        "dataset": "timeseries",
+        "setup_code": "import pandas as pd\nts = pd.DataFrame({\n    'date': pd.date_range('2023-01-01', periods=14, freq='D'),\n    'visitors': [100, 120, 90, 140, 160, 130, 110, 95, 105, 150, 170, 125, 115, 135],\n})\n",
+        "expected": "124.64285714285714"
+      }
+    },
+    {
+      "id": "ts_rolling7_last",
+      "query": "Compute a 7-day rolling mean of visitors and print the last (most recent) rolling-mean value.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nts = pd.DataFrame({\n    'date': pd.date_range('2023-01-01', periods=14, freq='D'),\n    'visitors': [100, 120, 90, 140, 160, 130, 110, 95, 105, 150, 170, 125, 115, 135],\n})\nprint(list(ts.columns))\nprint(ts.head())\n",
+          "stdout": "['date', 'visitors']\n        date  visitors\n0 2023-01-01       100\n1 2023-01-02       120\n2 2023-01-03        90\n3 2023-01-04       140\n4 2023-01-05       160",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "numeric",
+        "intent": "preprocessing",
+        "dataset": "timeseries",
+        "setup_code": "import pandas as pd\nts = pd.DataFrame({\n    'date': pd.date_range('2023-01-01', periods=14, freq='D'),\n    'visitors': [100, 120, 90, 140, 160, 130, 110, 95, 105, 150, 170, 125, 115, 135],\n})\n",
+        "expected": "127.85714285714286"
+      }
+    },
+    {
+      "id": "prod_top_category_count",
+      "query": "Which category has the most products? Print the category name.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nproducts = pd.DataFrame({\n    'product': ['A','B','C','D','E','F','G','H','I','J'],\n    'category': ['Electronics','Home','Electronics','Toys','Home','Electronics','Toys','Home','Electronics','Toys'],\n    'price': [299, 49, 199, 25, 89, 599, 15, 120, 350, 30],\n    'stock': [10, 50, 5, 200, 30, 3, 150, 40, 8, 100],\n})\nprint(list(products.columns))\nprint(products.head())\n",
+          "stdout": "['product', 'category', 'price', 'stock']\n  product     category  price  stock\n0       A  Electronics    299     10\n1       B         Home     49     50\n2       C  Electronics    199      5\n3       D         Toys     25    200\n4       E         Home     89     30",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "contains",
+        "intent": "exploration",
+        "dataset": "products",
+        "setup_code": "import pandas as pd\nproducts = pd.DataFrame({\n    'product': ['A','B','C','D','E','F','G','H','I','J'],\n    'category': ['Electronics','Home','Electronics','Toys','Home','Electronics','Toys','Home','Electronics','Toys'],\n    'price': [299, 49, 199, 25, 89, 599, 15, 120, 350, 30],\n    'stock': [10, 50, 5, 200, 30, 3, 150, 40, 8, 100],\n})\n",
+        "expected": "Electronics"
+      }
+    },
+    {
+      "id": "prod_top_avg_price_cat",
+      "query": "Which category has the highest average price? Print the category name.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nproducts = pd.DataFrame({\n    'product': ['A','B','C','D','E','F','G','H','I','J'],\n    'category': ['Electronics','Home','Electronics','Toys','Home','Electronics','Toys','Home','Electronics','Toys'],\n    'price': [299, 49, 199, 25, 89, 599, 15, 120, 350, 30],\n    'stock': [10, 50, 5, 200, 30, 3, 150, 40, 8, 100],\n})\nprint(list(products.columns))\nprint(products.head())\n",
+          "stdout": "['product', 'category', 'price', 'stock']\n  product     category  price  stock\n0       A  Electronics    299     10\n1       B         Home     49     50\n2       C  Electronics    199      5\n3       D         Toys     25    200\n4       E         Home     89     30",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "contains",
+        "intent": "aggregation",
+        "dataset": "products",
+        "setup_code": "import pandas as pd\nproducts = pd.DataFrame({\n    'product': ['A','B','C','D','E','F','G','H','I','J'],\n    'category': ['Electronics','Home','Electronics','Toys','Home','Electronics','Toys','Home','Electronics','Toys'],\n    'price': [299, 49, 199, 25, 89, 599, 15, 120, 350, 30],\n    'stock': [10, 50, 5, 200, 30, 3, 150, 40, 8, 100],\n})\n",
+        "expected": "Electronics"
+      }
+    },
+    {
+      "id": "prod_pie_category",
+      "query": "Create a pie chart of the number of products per category.",
+      "seed_cells": [
+        {
+          "source": "import pandas as pd\nproducts = pd.DataFrame({\n    'product': ['A','B','C','D','E','F','G','H','I','J'],\n    'category': ['Electronics','Home','Electronics','Toys','Home','Electronics','Toys','Home','Electronics','Toys'],\n    'price': [299, 49, 199, 25, 89, 599, 15, 120, 350, 30],\n    'stock': [10, 50, 5, 200, 30, 3, 150, 40, 8, 100],\n})\nprint(list(products.columns))\nprint(products.head())\n",
+          "stdout": "['product', 'category', 'price', 'stock']\n  product     category  price  stock\n0       A  Electronics    299     10\n1       B         Home     49     50\n2       C  Electronics    199      5\n3       D         Toys     25    200\n4       E         Home     89     30",
+          "success": true
+        }
+      ],
+      "metadata": {
+        "check": "plot",
+        "intent": "visualization",
+        "dataset": "products",
+        "setup_code": "import pandas as pd\nproducts = pd.DataFrame({\n    'product': ['A','B','C','D','E','F','G','H','I','J'],\n    'category': ['Electronics','Home','Electronics','Toys','Home','Electronics','Toys','Home','Electronics','Toys'],\n    'price': [299, 49, 199, 25, 89, 599, 15, 120, 350, 30],\n    'stock': [10, 50, 5, 200, 30, 3, 150, 40, 8, 100],\n})\n",
+        "plot_markers": [
+          "plt.show",
+          ".savefig",
+          ".plot(",
+          "sns.",
+          "plt.bar",
+          "plt.hist",
+          "plt.scatter",
+          "plt.pie",
+          "plt.boxplot",
+          "plt.plot"
+        ],
+        "expected": "<plot>"
+      }
+    }
+  ]
+}

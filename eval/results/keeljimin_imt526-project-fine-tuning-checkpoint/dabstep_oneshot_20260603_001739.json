@@ -1,0 +1,195 @@
+{
+  "benchmark": "dabstep_oneshot",
+  "total": 10,
+  "passed": 0,
+  "failed": 10,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "mean_latency_s": 4.708741531870328,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the payments data\npayments = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv')\n\n# Count the number of transactions per issuing country\ntransaction_counts = payments['issuing_country'].value_counts().sort_values(ascending=False)\n\n# Get the country with the highest number of transactions\nmost_common_issuing_country = transaction_counts.iloc[0]\n\nprint(most_common_issuing_country)",
+      "stdout": "29622",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.1066869921050966,
+      "metadata": {
+        "level": "easy",
+        "task_id": "5",
+        "predicted": "29622",
+        "score_reason": "mismatch",
+        "expected": "NL"
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the payments data\npayments = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv')\n\n# Filter for fraudulent transactions\nfraudulent_payments = payments[payments['has_fraudulent_dispute'] == True]\n\n# Group by ip_country and count the number of fraudulent transactions\nfraud_country_counts = fraudulent_payments['ip_country'].value_counts().sort_values(ascending=False)\n\n# Get the top country\ntop_fraud_country = fraud_country_counts.index[0]\n\n# Display the result\nprint(f\"{top_fraud_country}\")",
+      "stdout": "NL",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.235683642094955,
+      "metadata": {
+        "level": "easy",
+        "task_id": "49",
+        "predicted": "NL",
+        "score_reason": "mismatch",
+        "expected": "B. BE"
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the payments data\npayments = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv')\n\n# Filter for Martinis_Fine_Steakhouse\nmartinis_payments = payments[payments['merchant'] == 'Martinis_Fine_Steakhouse']\n\n# Check for fraudulent disputes\nhas_fraud = martinis_payments['has_fraudulent_dispute'].any()\n\n# Check merchant data for additional context\nmerchant_data = pd.read_json('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_data.json')\nmartinis_data = merchant_data[merchant_data['merchant'] == 'Martinis_Fine_Steakhouse']\n\n# Determine if the merchant is in danger of getting a high-fraud rate fine\nis_in_danger = has_fraud\n\nprint(is_in_danger)",
+      "stdout": "True",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.075822233920917,
+      "metadata": {
+        "level": "easy",
+        "task_id": "70",
+        "predicted": "True",
+        "score_reason": "mismatch",
+        "expected": "Not Applicable"
+      }
+    },
+    {
+      "problem_id": "dabstep_1273",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\n\n# Load the data\npayments = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv')\nacquirer_countries = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/acquirer_countries.csv')\nfees = pd.read_json('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/fees.json')\nmerchant_data = pd.read_json('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_data.json')\n\n# Display the first few rows of each DataFrame to understand the data structure\nprint(payments.head())\nprint(acquirer_countries.head())\nprint(fees.head())\nprint(merchant_data.head())",
+      "stdout": "psp_reference               merchant  ... aci  acquirer_country\n0    20034594130         Crossfit_Hanna  ...   F                NL\n1    36926127356         Crossfit_Hanna  ...   F                NL\n2    31114608278  Belles_cookbook_store  ...   F                US\n3    68442235288         Crossfit_Hanna  ...   D                NL\n4    81404384199         Crossfit_Hanna  ...   F                NL\n\n[5 rows x 21 columns]\n   Unnamed: 0                   acquirer country_code\n0           0                  gringotts           GB\n1           1  the_savings_and_loan_bank           US\n2           2        bank_of_springfield           US\n3           3            dagoberts_vault           NL\n4           4      dagoberts_geldpakhuis           NL\n   ID   card_scheme account_type  ... fixed_amount rate intracountry\n0   1  TransactPlus           []  ...         0.10   19          NaN\n1   2    GlobalCard           []  ...         0.13   86          0.0\n2   3  TransactPlus           []  ...         0.09   16          0.0\n3   4        NexPay           []  ...         0.11   25          1.0\n4   5    GlobalCard           []  ...         0.13   69          NaN\n\n[5 rows x 12 columns]\n                   merchant capture_delay  ... merchant_category_code  account_type\n0            Crossfit_Hanna        manual  ...                   7997             F\n1  Martinis_Fine_Steakhouse     immediate  ...                   5812             H\n2     Belles_cookbook_store             1  ...                   5942             R\n3      Golfclub_Baron_Friso             2  ...                   7993             F\n4                   Rafa_AI             7  ...                   7372             D\n\n[5 rows x 5 columns]",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.943990278989077,
+      "metadata": {
+        "level": "hard",
+        "task_id": "1273",
+        "predicted": "[5 rows x 5 columns]",
+        "score_reason": "mismatch",
+        "expected": "0.120132"
+      }
+    },
+    {
+      "problem_id": "dabstep_1305",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport json\nimport numpy as np\n\n# Load the data\npayments = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv')\nacquirer_countries = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/acquirer_countries.csv')\nmerchant_category_codes = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_category_codes.csv')\nfees = json.load(open('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/fees.json'))\nmerchant_data = json.load(open('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_data.json'))\n\n# Find the MCC code for \"Eating Places and Restaurants\"\nmcc_row = merchant_category_codes[merchant_category_codes['description'] == 'Eating Places and Restaurants']\nmcc_code = mcc_row['mcc'].values[0] if not mcc_row.empty else None\n\n# Filter fees for card_scheme 'GlobalCard', account_type 'H', and the identified MCC code\nfees_for_globalcard_h = [fee for fee in fees if fee['card_scheme'] == 'GlobalCard' and fee['account_type'] == 'H' and fee['merchant_category_code'] == mcc_code]\n\n# Calculate the average fee for the specified scenario\nif fees_for_globalcard_h:\n    average_fee = np.mean([fee['rate'] for fee in fees_for_globalcard_h])\nelse:\n    average_fee = 0.0\n\nprint(average_fee)",
+      "stdout": "0.0",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.424632067792118,
+      "metadata": {
+        "level": "hard",
+        "task_id": "1305",
+        "predicted": "0.0",
+        "score_reason": "mismatch",
+        "expected": "0.123217"
+      }
+    },
+    {
+      "problem_id": "dabstep_1464",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Load the fees data\nfees = [...]  # This would be the actual data loaded from the file\n\n# Filter fees for account_type = 'R' and aci = 'B'\nresult = [fee['ID'] for fee in fees if fee['account_type'] == 'R' and fee['aci'] == 'B']\n\n# Convert the list to a comma-separated string\nprint(','.join(result))",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/claude-1208432/tmp8xusmekg.py\", line 15, in <module>\n    result = [fee['ID'] for fee in fees if fee['account_type'] == 'R' and fee['aci'] == 'B']\n  File \"/tmp/claude-1208432/tmp8xusmekg.py\", line 15, in <listcomp>\n    result = [fee['ID'] for fee in fees if fee['account_type'] == 'R' and fee['aci'] == 'B']\nTypeError: 'ellipsis' object is not subscriptable",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.3331506110262126,
+      "metadata": {
+        "level": "hard",
+        "task_id": "1464",
+        "score_reason": "no_output",
+        "predicted": ""
+      }
+    },
+    {
+      "problem_id": "dabstep_1681",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the data\npayments = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv')\nfees = pd.read_json('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/fees.json')\nacquirer_countries = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/acquirer_countries.csv')\nmerchant_data = pd.read_json('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_data.json')\n\n# Filter payments for the 10th of the year 2023\npayments_2023_10 = payments[(payments['year'] == 2023) & (payments['day_of_year'] == 10)]\n\n# Filter fees for Belles_cookbook_store\nbelles_cookbook_store_payments = payments_2023_10[payments_2023_10['merchant'] == 'Belles_cookbook_store']\n\n# Get the card schemes from the Belles_cookbook_store payments\ncard_schemes = belles_cookbook_store_payments['card_scheme'].unique()\n\n# Filter fees by card schemes\napplicable_fees = [fee['ID'] for fee in fees if fee['card_scheme'] in card_schemes]\n\nprint(applicable_fees)",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/claude-1208432/tmpczwowrpb.py\", line 29, in <module>\n    applicable_fees = [fee['ID'] for fee in fees if fee['card_scheme'] in card_schemes]\n  File \"/tmp/claude-1208432/tmpczwowrpb.py\", line 29, in <listcomp>\n    applicable_fees = [fee['ID'] for fee in fees if fee['card_scheme'] in card_schemes]\nTypeError: string indices must be integers",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.186778116039932,
+      "metadata": {
+        "level": "hard",
+        "task_id": "1681",
+        "score_reason": "no_output",
+        "predicted": ""
+      }
+    },
+    {
+      "problem_id": "dabstep_1753",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the data files\npayments = pd.read_csv(\"/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv\")\nacquirer_countries = pd.read_csv(\"/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/acquirer_countries.csv\")\nmerchant_category_codes = pd.read_csv(\"/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_category_codes.csv\")\nfees = pd.read_json(\"/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/fees.json\")\nmerchant_data = pd.read_json(\"/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_data.json\")\n\n# Display the structure of the data\nprint(\"Payments DataFrame shape:\", payments.shape)\nprint(\"Acquirer Countries DataFrame shape:\", acquirer_countries.shape)\nprint(\"Merchant Category Codes DataFrame shape:\", merchant_category_codes.shape)\nprint(\"Fees DataFrame shape:\", fees.shape)\nprint(\"Merchant Data DataFrame shape:\", merchant_data.shape)\n\n# Check the first few rows of each DataFrame\nprint(\"\\nFirst few rows of Payments:\")\nprint(payments.head())\n\nprint(\"\\nFirst few rows of Acquirer Countries:\")\nprint(acquirer_countries.head())\n\nprint(\"\\nFirst few rows of Merchant Category Codes:\")\nprint(merchant_category_codes.head())\n\nprint(\"\\nFirst few rows of Fees:\")\nprint(fees.head())\n\nprint(\"\\nFirst few rows of Merchant Data:\")\nprint(merchant_data.head())",
+      "stdout": "Payments DataFrame shape: (138236, 21)\nAcquirer Countries DataFrame shape: (8, 3)\nMerchant Category Codes DataFrame shape: (769, 3)\nFees DataFrame shape: (1000, 12)\nMerchant Data DataFrame shape: (30, 5)\n\nFirst few rows of Payments:\n   psp_reference               merchant  ... aci  acquirer_country\n0    20034594130         Crossfit_Hanna  ...   F                NL\n1    36926127356         Crossfit_Hanna  ...   F                NL\n2    31114608278  Belles_cookbook_store  ...   F                US\n3    68442235288         Crossfit_Hanna  ...   D                NL\n4    81404384199         Crossfit_Hanna  ...   F                NL\n\n[5 rows x 21 columns]\n\nFirst few rows of Acquirer Countries:\n   Unnamed: 0                   acquirer country_code\n0           0                  gringotts           GB\n1           1  the_savings_and_loan_bank           US\n2           2        bank_of_springfield           US\n3           3            dagoberts_vault           NL\n4           4      dagoberts_geldpakhuis           NL\n\nFirst few rows of Merchant Category Codes:\n   Unnamed: 0   mcc                                        description\n0           0  1520   General Contractors - Residential and Commercial\n1           1  1711  Heating, Plumbing, and Air Conditioning Contra...\n2           2  1731                             Electrical Contractors\n3           3  1740  Masonry, Stonework, Tile-Setting, Plastering, ...\n4           4  1750                              Carpentry Contractors\n\nFirst few rows of Fees:\n   ID   card_scheme account_type  ... fixed_amount rate intracountry\n0   1  TransactPlus           []  ...         0.10   19          NaN\n1   2    GlobalCard           []  ...         0.13   86          0.0\n2   3  TransactPlus           []  ...         0.09   16          0.0\n3   4        NexPay           []  ...         0.11   25          1.0\n4   5    GlobalCard           []  ...         0.13   69          NaN\n\n[5 rows x 12 columns]\n\nFirst few rows of Merchant Data:\n                   merchant capture_delay  ... merchant_category_code  account_type\n0            Crossfit_Hanna        manual  ...                   7997             F\n1  Martinis_Fine_Steakhouse     immediate  ...                   5812             H\n2     Belles_cookbook_store             1  ...                   5942             R\n3      Golfclub_Baron_Friso             2  ...                   7993             F\n4                   Rafa_AI             7  ...                   7372             D\n\n[5 rows x 5 columns]",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.342334193876013,
+      "metadata": {
+        "level": "hard",
+        "task_id": "1753",
+        "predicted": "[5 rows x 5 columns]",
+        "score_reason": "mismatch",
+        "expected": "384, 394, 276, 150, 536, 286, 163, 36, 680, 939, 428, 813, 556, 51, 53, 572, 960, 64, 709, 454, 595, 725, 473, 347, 477, 608, 868, 741, 231, 107, 626, 249, 123, 381"
+      }
+    },
+    {
+      "problem_id": "dabstep_1871",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport json\n\n# Load the data\npayments = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv')\nfees = pd.read_json('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/fees.json')\nmerchant_data = pd.read_json('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_data.json')\n\n# Check the structure of the data\nprint(\"Payments DataFrame shape:\", payments.shape)\nprint(\"Fees DataFrame shape:\", len(fees))\nprint(\"Merchant Data DataFrame shape:\", len(merchant_data))\n\n# Display first few rows of each dataset\nprint(\"\\nFirst few rows of payments:\")\nprint(payments.head())\n\nprint(\"\\nFirst few rows of fees:\")\nprint(fees[:5])\n\nprint(\"\\nFirst few rows of merchant_data:\")\nprint(merchant_data[:5])",
+      "stdout": "Payments DataFrame shape: (138236, 21)\nFees DataFrame shape: 1000\nMerchant Data DataFrame shape: 30\n\nFirst few rows of payments:\n   psp_reference               merchant  ... aci  acquirer_country\n0    20034594130         Crossfit_Hanna  ...   F                NL\n1    36926127356         Crossfit_Hanna  ...   F                NL\n2    31114608278  Belles_cookbook_store  ...   F                US\n3    68442235288         Crossfit_Hanna  ...   D                NL\n4    81404384199         Crossfit_Hanna  ...   F                NL\n\n[5 rows x 21 columns]\n\nFirst few rows of fees:\n   ID   card_scheme account_type  ... fixed_amount rate intracountry\n0   1  TransactPlus           []  ...         0.10   19          NaN\n1   2    GlobalCard           []  ...         0.13   86          0.0\n2   3  TransactPlus           []  ...         0.09   16          0.0\n3   4        NexPay           []  ...         0.11   25          1.0\n4   5    GlobalCard           []  ...         0.13   69          NaN\n\n[5 rows x 12 columns]\n\nFirst few rows of merchant_data:\n                   merchant capture_delay  ... merchant_category_code  account_type\n0            Crossfit_Hanna        manual  ...                   7997             F\n1  Martinis_Fine_Steakhouse     immediate  ...                   5812             H\n2     Belles_cookbook_store             1  ...                   5942             R\n3      Golfclub_Baron_Friso             2  ...                   7993             F\n4                   Rafa_AI             7  ...                   7372             D\n\n[5 rows x 5 columns]",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.93047753488645,
+      "metadata": {
+        "level": "hard",
+        "task_id": "1871",
+        "predicted": "[5 rows x 5 columns]",
+        "score_reason": "mismatch",
+        "expected": "-0.94810300000017"
+      }
+    },
+    {
+      "problem_id": "dabstep_2697",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the data\npayments = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/payments.csv')\nacquirer_countries = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/acquirer_countries.csv')\nmerchant_category_codes = pd.read_csv('/gpfs/projects/imt526a/group3/ds-notebook-agent/.cache/huggingface/hub/datasets--adyen--DABstep/snapshots/6ede6d04250ed58e271def054bfd8af2da217047/data/context/merchant_category_codes.csv')\n\n# Display the first few rows of each DataFrame to understand the structure\nprint(\"Payments DataFrame:\")\nprint(payments.head())\nprint(\"\\nAcquirer Countries DataFrame:\")\nprint(acquirer_countries.head())\nprint(\"\\nMerchant Category Codes DataFrame:\")\nprint(merchant_category_codes.head())",
+      "stdout": "Payments DataFrame:\n   psp_reference               merchant  ... aci  acquirer_country\n0    20034594130         Crossfit_Hanna  ...   F                NL\n1    36926127356         Crossfit_Hanna  ...   F                NL\n2    31114608278  Belles_cookbook_store  ...   F                US\n3    68442235288         Crossfit_Hanna  ...   D                NL\n4    81404384199         Crossfit_Hanna  ...   F                NL\n\n[5 rows x 21 columns]\n\nAcquirer Countries DataFrame:\n   Unnamed: 0                   acquirer country_code\n0           0                  gringotts           GB\n1           1  the_savings_and_loan_bank           US\n2           2        bank_of_springfield           US\n3           3            dagoberts_vault           NL\n4           4      dagoberts_geldpakhuis           NL\n\nMerchant Category Codes DataFrame:\n   Unnamed: 0   mcc                                        description\n0           0  1520   General Contractors - Residential and Commercial\n1           1  1711  Heating, Plumbing, and Air Conditioning Contra...\n2           2  1731                             Electrical Contractors\n3           3  1740  Masonry, Stonework, Tile-Setting, Plastering, ...\n4           4  1750                              Carpentry Contractors",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.507859647972509,
+      "metadata": {
+        "level": "hard",
+        "task_id": "2697",
+        "predicted": "4           4  1750                              Carpentry Contractors",
+        "score_reason": "mismatch",
+        "expected": "E:13.57"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_easy": 0.0,
+    "pass_rate_hard": 0.0,
+    "fail_mismatch": 8,
+    "fail_no_output": 2
+  }
+}

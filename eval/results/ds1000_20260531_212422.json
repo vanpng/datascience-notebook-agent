@@ -1,0 +1,179 @@
+{
+  "benchmark": "ds1000",
+  "total": 10,
+  "passed": 0,
+  "failed": 10,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "mean_latency_s": 7.170274345809593,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file\n df = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.670041916018818,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df.head()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2dwxewc5.py\", line 58, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2dwxewc5.py\", line 56, in <module>\n    test_execution('df.head()')\n  File \"/var/folders/h8/h8_405",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file\n df = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.37926504103234,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df.head()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk4imb3zg.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk4imb3zg.py\", line 57, in <module>\n    test_execution('df.head()')\n  File \"/var/folders/h8/h8_405",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.311026583018247,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.319405458983965,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\n df = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm data loading\n print(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.99854325002525,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "print(df.head())",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgdcvuqzu.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgdcvuqzu.py\", line 123, in <module>\n    test_execution('print(df.head())')\n  File \"/var/folders/",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.210223500034772,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_6",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.055222625029273,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_7",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# No action required as 'df' is already available in the context\n# and 'pandas' is already imported",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.181057541980408,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "# No action required as 'df' is already available in the context\n# and 'pandas' is already imported",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8fh0hna1.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8fh0hna1.py\", line 60, in <module>\n    test_execution(\"# No action required as 'df' is already av",
+        "score_reason": "empty_or_comments"
+      }
+    },
+    {
+      "problem_id": "Pandas_8",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# No action required as data is already available in the context\n# The variable 'df' is available for use",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.771890166972298,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "# No action required as data is already available in the context\n# The variable 'df' is available for use",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpemzvo16b.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpemzvo16b.py\", line 60, in <module>\n    test_execution(\"# No action required as data is already av",
+        "score_reason": "empty_or_comments"
+      }
+    },
+    {
+      "problem_id": "Pandas_9",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# No action required as 'df' is already available in the context\n# and 'pandas' is already imported",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.806067375000566,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "# No action required as 'df' is already available in the context\n# and 'pandas' is already imported",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzl7o03iq.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzl7o03iq.py\", line 60, in <module>\n    test_execution(\"# No action required as 'df' is already av",
+        "score_reason": "empty_or_comments"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.0,
+    "fail_no_code": 4,
+    "fail_data_loading_hallucination": 3,
+    "fail_empty_or_comments": 3
+  }
+}

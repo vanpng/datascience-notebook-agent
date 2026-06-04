@@ -1,0 +1,63 @@
+{
+  "benchmark": "dabstep",
+  "total": 3,
+  "passed": 0,
+  "failed": 0,
+  "errors": 3,
+  "pass_rate": 0.0,
+  "mean_latency_s": 39.50693187534731,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp__q49w63.py\", line 12, in <module>\n    df = pd.read_csv(data_path)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: '/absolute/path/to/titanic.csv'\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp__q49w63.py\", line 12, in <module>\n    df = pd.read_csv(data_path)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: '/absolute/path/to/titanic.csv'\n",
+      "debug_attempts": 3,
+      "latency_s": 37.519052375049796,
+      "metadata": {
+        "level": "easy",
+        "score_reason": "agent_error",
+        "predicted": ""
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1qt3ohuc.py\", line 11, in <module>\n    df = pd.read_csv('/Users/vanpham/Documents/imt526/ds-notebook-agent/titanic.csv')\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/vanpham/Documents/imt526/ds-notebook-agent/titanic.csv'\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1qt3ohuc.py\", line 11, in <module>\n    df = pd.read_csv('/Users/vanpham/Documents/imt526/ds-notebook-agent/titanic.csv')\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/vanpham/Documents/imt526/ds-notebook-agent/titanic.csv'\n",
+      "debug_attempts": 3,
+      "latency_s": 39.80569941701833,
+      "metadata": {
+        "level": "easy",
+        "score_reason": "agent_error",
+        "predicted": ""
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp9c_whfgd.py\", line 11, in <module>\n    df = pd.read_csv('/absolute/path/to/titanic.csv')\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: '/absolute/path/to/titanic.csv'\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp9c_whfgd.py\", line 11, in <module>\n    df = pd.read_csv('/absolute/path/to/titanic.csv')\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: '/absolute/path/to/titanic.csv'\n",
+      "debug_attempts": 3,
+      "latency_s": 41.19604383397382,
+      "metadata": {
+        "level": "easy",
+        "score_reason": "agent_error",
+        "predicted": ""
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_easy": 0.0,
+    "fail_agent_error": 3
+  }
+}

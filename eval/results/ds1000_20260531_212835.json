@@ -1,0 +1,1604 @@
+{
+  "benchmark": "ds1000",
+  "total": 100,
+  "passed": 0,
+  "failed": 100,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "mean_latency_s": 14.402510669941549,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Confirm data loading\nprint(df.shape)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 17.77597895800136,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpao_y36ej.py\", line 58, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpao_y36ej.py\", line 56, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from a ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.634799082996324,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_i_03282.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_i_03282.py\", line 57, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from a ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 17.718048500013538,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6qo578ow.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6qo578ow.py\", line 121, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the datase",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.533077000000048,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmly9vgyv.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmly9vgyv.py\", line 121, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the datase",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\n df = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm data loading\n print(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.324926457949914,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpg2uqv64_.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpg2uqv64_.py\", line 123, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the datase",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 18.13197529205354,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpxthvr_zu.py\", line 129, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpxthvr_zu.py\", line 127, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the datase",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_6",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.31527029100107,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpuvidvm_z.py\", line 133, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpuvidvm_z.py\", line 131, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the datase",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_7",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.235864541959018,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk72g6ry5.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk72g6ry5.py\", line 60, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_8",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.036093625007197,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpqa5d4hl6.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpqa5d4hl6.py\", line 60, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_9",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 20.199217707966454,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_10",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Group the DataFrame by the 'name' column and create a dictionary where the keys are the 'name' values and the values are lists of tuples containing 'v1', 'v2', and 'v3' values.\nname_groups = df.groupby('name')\nname_dict = {name: list(df[df['name'] == name][['v1', 'v2', 'v3']].itertuples(index=False, name=None)) for name in name_groups.groups}\n\n# Iterate through the grouped data and build the nested dictionary structure by using the 'v1' and 'v2' values as keys and the 'v3' values as the corresponding values.\nresult = {}\nfor name, group in name_groups:\n    result[name] = {}\n    for row in group.itertuples(index=False, name=None):\n        v1, v2, v3 = row\n        if v1 not in result[name]:\n            result[name][v1] = {}\n        result[name][v1][v2] = v3\n\nresult",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 24.501194500015117,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkbxvrn5e.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkbxvrn5e.py\", line 60, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Group the DataFra",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_11",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.652717416000087,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_snn7p2l.py\", line 79, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_snn7p2l.py\", line 77, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_12",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\n df = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm data loading\n print(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.464835499995388,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp36ti39lh.py\", line 80, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp36ti39lh.py\", line 78, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_13",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Convert the 'datetime' column to a naive datetime\ndf['datetime'] = df['datetime'].dt.tz_localize(None)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.429138750012498,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjpc1j20j.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjpc1j20j.py\", line 79, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Convert the 'date",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_14",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.52904616703745,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmprb3s7s9w.py\", line 80, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmprb3s7s9w.py\", line 78, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_15",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import re\n\n# Extract key-value pairs from the 'message' column\ndf['message'] = df['message'].str.extract(r'\\{([^\\}]+)\\}', expand=False)\n\n# Split the extracted key-value pairs into separate columns\nresult = df['message'].str.split(', ').apply(pd.Series).rename(columns=lambda x: x.split('=')[0], values=lambda x: x.split('=')[1])\n\n# Combine with original DataFrame\nresult = pd.concat([df.drop('message', axis=1), result], axis=1)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 16.268337125016842,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpq6n8h99m.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpq6n8h99m.py\", line 79, in <module>\n    test_execution(\"import re\\n\\n# Extract key-value pairs fro",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_16",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.388094166992232,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpuk1_6_zf.py\", line 110, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpuk1_6_zf.py\", line 108, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_17",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.927694708982017,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpodp3592e.py\", line 110, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpodp3592e.py\", line 108, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_18",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Load sample data for demonstration\nimport pandas as pd\ndf = pd.DataFrame({\"Product\": [\"A\", \"B\", \"C\", \"D\"], \"Sales\": [100, 200, 150, 300]})\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.11537379201036,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbqxrb865.py\", line 115, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbqxrb865.py\", line 113, in <module>\n    test_execution('# Load sample data for demonstration\\nim",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_19",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 21.62767499999609,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp4dticzkl.py\", line 84, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp4dticzkl.py\", line 82, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from a ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_20",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# No action required as 'df' is already available in the context\n# If data loading or creation is needed, add the appropriate code here",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.751070458034519,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpet7t9w74.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpet7t9w74.py\", line 65, in <module>\n    test_execution(\"# No action required as 'df' is already av",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_21",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.575744499976281,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_1p6n5gl.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_1p6n5gl.py\", line 65, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_22",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.109031666012015,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6vskvt_x.py\", line 74, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6vskvt_x.py\", line 72, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_23",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Load the dataset\nimport pandas as pd\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.065689124981873,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp5z_bohe5.py\", line 54, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp5z_bohe5.py\", line 52, in <module>\n    test_execution(\"# Load the dataset\\nimport pandas as pd\\nd",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_24",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.790286333998665,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpe1557522.py\", line 54, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpe1557522.py\", line 52, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_25",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Confirm data loading\nprint(df.shape)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.61735320801381,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmgrm8jwu.py\", line 58, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmgrm8jwu.py\", line 56, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from a ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_26",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.396577208011877,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpwbmgss4z.py\", line 74, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpwbmgss4z.py\", line 72, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_27",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.68846187501913,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2cg9jwiw.py\", line 74, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2cg9jwiw.py\", line 72, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_28",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.038070749957114,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpdb5tg9tm.py\", line 75, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpdb5tg9tm.py\", line 73, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_29",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.155190290999599,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpy62dxh2u.py\", line 86, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpy62dxh2u.py\", line 84, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_30",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.092377665976528,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp46nchlzy.py\", line 52, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp46nchlzy.py\", line 50, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_31",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.40948908298742,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmptz27kfsj.py\", line 52, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmptz27kfsj.py\", line 50, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_32",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.434378832986113,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp4k33puyc.py\", line 69, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp4k33puyc.py\", line 67, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_33",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.78790375002427,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjlcix7hw.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjlcix7hw.py\", line 57, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_34",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "val_columns = [col for col in df.columns if 'val' in col]\nresult = df.groupby('group')[val_columns].sum()\n\n# Ensure 'group' and 'group_color' columns are retained\nresult = df.groupby('group')[val_columns].sum().reset_index()\n\n# Add 'group_color' column if it exists\nif 'group_color' in df.columns:\n    result['group_color'] = df['group_color'].loc[df['group'].values].values\n\nresult",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 21.585591915994883,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp5m7z0s59.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp5m7z0s59.py\", line 57, in <module>\n    test_execution(\"val_columns = [col for col in df.columns i",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_35",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.011805832968093,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmc6mmpgl.py\", line 73, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmc6mmpgl.py\", line 71, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_36",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.238744708010927,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpnsmzd3ir.py\", line 80, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpnsmzd3ir.py\", line 78, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_37",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.801596666045953,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpw1yl68cv.py\", line 80, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpw1yl68cv.py\", line 78, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_38",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.723286415974144,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppkv5e0v_.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppkv5e0v_.py\", line 79, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_39",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Load sample data for demonstration\nimport pandas as pd\ndf = pd.DataFrame({\"PassengerClass\": [1, 2, 3, 1, 2, 3], \"Survived\": [1, 0, 1, 0, 1, 0]})\n\n# Group by Pclass and compute mean of Survived\nsurvival_by_class = df.groupby('PassengerClass')['Survived'].mean()\n\n# Plot as a bar chart\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nsurvival_by_class.plot(kind='bar', ax=ax, color='steelblue', edgecolor='white')\nax.set_xlabel('Passenger Class')\nax.set_ylabel('Survival Rate')\nax.set_title('Survival Rate by Passenger Class')\nax.set_xticklabels(ax.get_xticklabels(), rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 16.055677708005533,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpymfnftd0.py\", line 64, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpymfnftd0.py\", line 62, in <module>\n    test_execution('# Load sample data for demonstration\\nimpo",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_40",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.461569375009276,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpc_gtyvsq.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpc_gtyvsq.py\", line 57, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_41",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.739905415975954,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpg2dyqg66.py\", line 65, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpg2dyqg66.py\", line 63, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_42",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 17.660290334024467,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpriyycgo7.py\", line 91, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpriyycgo7.py\", line 89, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_43",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.223136750049889,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpz87xg_yw.py\", line 91, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpz87xg_yw.py\", line 89, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_44",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.886219541018363,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmb6f60tr.py\", line 76, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmb6f60tr.py\", line 74, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_45",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.16491654101992,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_46",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# No code can be generated as the plan is incomplete and requires data loading or creation steps.",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.360134750022553,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpanzobxfb.py\", line 76, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpanzobxfb.py\", line 74, in <module>\n    test_execution('# No code can be generated as the plan is ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_47",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Create a sample DataFrame with the required columns\n df = pd.DataFrame({'label': ['A', 'B', 'C', 'D'], 'value': [10, 5, 15, 2]})\n thresh = 10\n\n# Filter rows where 'value' is less than the threshold\n filtered_rows = df[df['value'] < thresh]\n\n# Sum the 'value' of the filtered rows\n summed_value = filtered_rows['value'].sum()\n\n# Create a new row with label 'X' and the summed value\n new_row = pd.DataFrame({'label': ['X'], 'value': [summed_value]})\n\n# Append the new row to the original DataFrame\n result = pd.concat([df, new_row], ignore_index=True)\n\n# Display the result\n result",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 35.86294570902828,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkexp3sco.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkexp3sco.py\", line 60, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Create a sample D",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_48",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 17.53808512497926,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpshhdxoxz.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpshhdxoxz.py\", line 60, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from a ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 22.277755374962,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp13pt7_sd.py\", line 66, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp13pt7_sd.py\", line 64, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_50",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load sample data for demonstration\n df = pd.DataFrame({\n    'PassengerClass': [1, 2, 3, 1, 2, 3, 1, 2, 3, 1],\n    'Survived': [1, 0, 1, 0, 1, 0, 1, 0, 1, 0]\n})\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 16.88338912499603,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkbdn8bib.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkbdn8bib.py\", line 57, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load sample data ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_51",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.920577166019939,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpxyq8fy6k.py\", line 60, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpxyq8fy6k.py\", line 58, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_52",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.044762458011974,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_bd090tz.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_bd090tz.py\", line 60, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_53",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.5815129590337165,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_54",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.21662608301267,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpux5jwj7g.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpux5jwj7g.py\", line 79, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_55",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.430204042000696,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8fwzb1em.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8fwzb1em.py\", line 79, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_56",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 21.068651292007416,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp9j6ehnry.py:14: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_57",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 22.484611458028667,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2mzq1efe.py:13: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_58",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Load the dataset\nimport pandas as pd\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 22.56636879197322,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzc7plu1n.py:14: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_59",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 23.477075916016474,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp00mqauh6.py:20: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_60",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Load the dataset\nimport pandas as pd\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 21.404014999978244,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp5f4cihy3.py:20: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_61",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.40264429198578,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmprxio259m.py\", line 63, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmprxio259m.py\", line 61, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_62",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.282463667041156,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppe7vcbuf.py\", line 63, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppe7vcbuf.py\", line 61, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_63",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Generate a sample dataset\ndata = {\n    'PassengerClass': [1, 2, 3, 1, 2, 3, 1, 2, 3, 1],\n    'Survived': [1, 0, 1, 0, 1, 0, 1, 0, 1, 0]\n}\n\ndf = pd.DataFrame(data)\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 19.77137491700705,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpelljp3ew.py\", line 65, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpelljp3ew.py\", line 63, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Generate a sample",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_64",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.405390499974601,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8nvxzv4_.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8nvxzv4_.py\", line 65, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_65",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.277624457958154,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzb9ik1am.py\", line 72, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzb9ik1am.py\", line 70, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_66",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.089972165995277,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpti497ywm.py\", line 71, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpti497ywm.py\", line 69, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_67",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.381248457997572,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpj32ofthd.py\", line 72, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpj32ofthd.py\", line 70, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_68",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.122371292032767,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp02mu3bw3.py\", line 52, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp02mu3bw3.py\", line 50, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from a ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_69",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.81499658303801,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpr13rwt_i.py\", line 56, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpr13rwt_i.py\", line 54, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from a ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.424035042000469,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_71",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load dataset\ndf = pd.read_csv('titanic.csv')\n\n# Confirm data loading\nprint(df.shape)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.292389500013087,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp39qahlvq.py\", line 56, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp39qahlvq.py\", line 54, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load dataset\\ndf ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_72",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load dataset\ndf = pd.read_csv('titanic.csv')\n\n# Group by Pclass and compute mean of Survived\nsurvival_by_class = df.groupby('Pclass')['Survived'].mean()\n\n# Plot as a bar chart\nfig, ax = plt.subplots()\nsurvival_by_class.plot(kind='bar', ax=ax, color='steelblue', edgecolor='white')\nax.set_xlabel('Passenger Class')\nax.set_ylabel('Survival Rate')\nax.set_title('Survival Rate by Passenger Class')\nax.set_xticklabels(ax.get_xticklabels(), rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.534448167018127,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpfwrfcwh1.py\", line 54, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpfwrfcwh1.py\", line 52, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load dataset\\ndf ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_73",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 18.45000287500443,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_74",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 17.958192083984613,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_75",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 22.483086042047944,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_76",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.547568874957506,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp39jdienj.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp39jdienj.py\", line 49, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_77",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.00425733299926,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvza0bgiz.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvza0bgiz.py\", line 49, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_78",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 16.38511708297301,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpij1_yf07.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpij1_yf07.py\", line 49, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_79",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# No action required as 'df' is already available in the notebook context\n# If data loading or preprocessing is needed, add the appropriate code here",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.137977333040908,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp0prultk1.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp0prultk1.py\", line 49, in <module>\n    test_execution(\"# No action required as 'df' is already av",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_80",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.95089612499578,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbdllxncl.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbdllxncl.py\", line 60, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_81",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# No code can be generated as the plan is incomplete and requires data loading or creation steps.",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.923170875001233,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpoc1jsw90.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpoc1jsw90.py\", line 60, in <module>\n    test_execution('# No code can be generated as the plan is ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_82",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.560460916021839,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpekpj9wb_.py:9: FutureWarning: The 'method' keyword in Series.replace is deprecated and will be removed in a future version.\n  df[\"A\"].replace(to_replace=0, method=\"ffill\", inplace=True)\n/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpekpj9wb_.p",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_83",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.152737666969188,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpquhr3xqe.py:9: FutureWarning: The 'method' keyword in Series.replace is deprecated and will be removed in a future version.\n  df[\"A\"].replace(to_replace=0, method=\"bfill\", inplace=True)\n/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpquhr3xqe.p",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_84",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Fill zeros with the previous non-zero value using forward fill\nffilled = df.fillna(method='ffill')\n\n# Fill zeros with the next non-zero value using backward fill\nbfilled = df.fillna(method='bfill')\n\n# Take the maximum of the forward-filled and backward-filled values\nresult = pd.DataFrame({col: pd.where(df[col].isna(), pd.where(ffilled[col].notna(), ffilled[col], bfilled[col]), df[col]) for col in df.columns})",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 19.75766649999423,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpdfa5k41c.py:9: FutureWarning: The 'method' keyword in Series.replace is deprecated and will be removed in a future version.\n  l = df[\"A\"].replace(to_replace=0, method=\"ffill\")\n/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpdfa5k41c.py:10: Futu",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_85",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.383353834040463,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_86",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport re\n\n# Create a sample DataFrame for demonstration\ndata = {\n    'text': [\"The quick brown fox jumps over the lazy dog\", \"Hello world!\", \"Data science is fun\"]\n}\n\ndf = pd.DataFrame(data)\n\n# Preprocess the text data (example: convert to lowercase)\ndf['text'] = df['text'].str.lower()\n\ndf",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 20.124456499994267,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_45gqi7z.py:12: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_op",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_87",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport re\n\n# Create a sample DataFrame for demonstration\ndata = {\\'text\\': [\\'The quick brown fox jumps over the lazy dog\\', \\'Hello, world!\\', \\'Data science is fun\\']}\ndf = pd.DataFrame(data)\n\n# Preprocessing step: remove punctuation and convert to lowercase\ndf[\\'text\\'] = df[\\'text\\'].str.lower()\ndf[\\'text\\'] = df[\\'text\\'].str.replace(r'[\\W_]+', ' ', regex=True)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 21.19161974999588,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk59y65yk.py:10: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_op",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_88",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 18.458726415992714,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_89",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data using pandas\n# Assuming the data is in a CSV file named 'data.csv'\ndf = pd.read_csv('data.csv')\n\n# Check the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.150008541997522,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8rth7kx2.py\", line 73, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8rth7kx2.py\", line 71, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data using p",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_90",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 17.507616374990903,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_91",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.396673750015907,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_cmlx1le.py\", line 57, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_cmlx1le.py\", line 55, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_92",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.651172207959462,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbaw937vk.py\", line 57, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbaw937vk.py\", line 55, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_93",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data\n df = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.923256584035698,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpppgep4ix.py\", line 60, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpppgep4ix.py\", line 58, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data\\n df = ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_94",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load sample data for demonstration\n df = pd.DataFrame({\n    'A': [1, 2, 3],\n    'B': [4, 5, 6]\n})\n\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.871816541999578,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbpu70var.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbpu70var.py\", line 65, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load sample data ",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_95",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.881718458957039,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpsbiatpw1.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpsbiatpw1.py\", line 65, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_96",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.711561666976195,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgrhu3mog.py\", line 82, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgrhu3mog.py\", line 80, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data from CS",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_97",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.233470832987223,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeyue9ca_.py\", line 71, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeyue9ca_.py\", line 69, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_98",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.155932875000872,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpnr71qc1i.py\", line 71, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpnr71qc1i.py\", line 69, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_99",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.109150125004817,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1it6pq6q.py\", line 75, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1it6pq6q.py\", line 73, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load the dataset\\",
+        "score_reason": "test_fail"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.0
+  }
+}

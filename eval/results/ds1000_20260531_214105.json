@@ -1,0 +1,1716 @@
+{
+  "benchmark": "ds1000",
+  "total": 100,
+  "passed": 21,
+  "failed": 79,
+  "errors": 0,
+  "pass_rate": 0.21,
+  "mean_latency_s": 6.750227042079205,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Shuffle the DataFrame according to the List\nresult = df.iloc[List]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.258568540972192,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.iloc[List]",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Shuffle the DataFrame according to the List\ndf_shuffled = df.iloc[List]\n\n# Compute the original Type values\noriginal_types = df['Type']\n\n# Compute the Type values of the shuffled DataFrame\nshuffled_types = df_shuffled['Type']\n\n# Find the indices where the Type values differ\ndifferent_indices = original_types != shuffled_types\n\n# Count the number of rows with different Type\nresult = different_indices.sum()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.4797763749957085,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df_shuffled = df.iloc[List]\n\n# Compute the original Type values\noriginal_types = df['Type']\n\n# Compute the Type values of the shuffled DataFrame\nshuffled_types = df_shuffled['Type']\n\n# Find the indices where the Type values differ\ndifferent_indices = original_types != shuffled_types\n\n# Count the number of rows with different Type\nresult = different_indices.sum()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzw2j9sd3.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzw2j9sd3.py\", line 57, in <module>\n    test_execution(\"df_shuffled = df.iloc[List]\\n\\n# Compute t",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Identify values that appear at least 2 times in each column\nqu1_values = df['Qu1'].value_counts() >= 2\nqu2_values = df['Qu2'].value_counts() >= 2\nqu3_values = df['Qu3'].value_counts() >= 2\n\n# Replace values that appear less than 2 times with 'others' in each column\ndf['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not qu1_values[x] else x)\ndf['Qu2'] = df['Qu2'].apply(lambda x: 'other' if not qu2_values[x] else x)\ndf['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not qu3_values[x] else x)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.170239500002936,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "qu1_values = df['Qu1'].value_counts() >= 2\nqu2_values = df['Qu2'].value_counts() >= 2\nqu3_values = df['Qu3'].value_counts() >= 2\n\n# Replace values that appear less than 2 times with 'others' in each column\ndf['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not qu1_values[x] else x)\ndf['Qu2'] = df['Qu2'].apply(lambda x: 'other' if not qu2_values[x] else x)\ndf['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not qu3_values[x] else x)\n\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Identify values that appear 3 or more times in each column\nqu1_counts = pd.value_counts(df['Qu1']) >= 3\nqu2_counts = pd.value_counts(df['Qu2']) >= 3\nqu3_counts = pd.value_counts(df['Qu3']) >= 3\n\n# Replace values that do not meet the threshold with 'others'\ndf['Qu1'] = np.where(qu1_counts[df['Qu1']], df['Qu1'], 'other')\ndf['Qu2'] = np.where(qu2_counts[df['Qu2']], df['Qu2'], 'other')\ndf['Qu3'] = np.where(qu3_counts[df['Qu3']], df['Qu3'], 'other')\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.451798582973424,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "qu1_counts = pd.value_counts(df['Qu1']) >= 3\nqu2_counts = pd.value_counts(df['Qu2']) >= 3\nqu3_counts = pd.value_counts(df['Qu3']) >= 3\n\n# Replace values that do not meet the threshold with 'others'\ndf['Qu1'] = np.where(qu1_counts[df['Qu1']], df['Qu1'], 'other')\ndf['Qu2'] = np.where(qu2_counts[df['Qu2']], df['Qu2'], 'other')\ndf['Qu3'] = np.where(qu3_counts[df['Qu3']], df['Qu3'], 'other')\n\nresult = df",
+        "test_stderr": "<string>:5: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.\n<string>:6: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.\n<string>:7",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\ndef f(df):\n    # Define a function to replace values with 'others' if their count is less than 2\n    def replace_low_count_values(series):\n        value_counts = series.value_counts()\n        mask = value_counts >= 2\n        return series.mask(~mask, 'others')\n    \n    # Apply the function to each column\n    df['Qu1'] = replace_low_count_values(df['Qu1'])\n    df['Qu2'] = replace_low_count_values(df['Qu2'])\n    df['Qu3'] = replace_low_count_values(df['Qu3'])\n    \n    # Return the modified DataFrame\n    result = df.copy()\n    return result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.434284915972967,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Define a function to replace values with 'others' if their count is less than 2\n    def replace_low_count_values(series):\n        value_counts = series.value_counts()\n        mask = value_counts >= 2\n        return series.mask(~mask, 'others')\n    \n    # Apply the function to each column\n    df['Qu1'] = replace_low_count_values(df['Qu1'])\n    df['Qu2'] = replace_low_count_values(df['Qu2'])\n    df['Qu3'] = replace_low_count_values(df['Qu3'])\n    \n    # Return the modified DataFrame\n    resu",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_ym7cfot.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_ym7cfot.py\", line 123, in <module>\n    test_execution(\"    # Define a function to replace value",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_5",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Determine which values in each column meet the value count threshold\nqu1_counts = pd.value_counts(df['Qu1']) >= 3\nqu2_counts = pd.value_counts(df['Qu2']) >= 2\nqu3_counts = pd.value_counts(df['Qu3']) >= 2\n\n# Replace values that do not meet the threshold with 'others'\ndf['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not qu1_counts.loc[x] else x)\ndf['Qu2'] = df['Qu2'].apply(lambda x: 'other' if not qu2_counts.loc[x] else x)\ndf['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not qu3_counts.loc[x] else x)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.519942249986343,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "qu1_counts = pd.value_counts(df['Qu1']) >= 3\nqu2_counts = pd.value_counts(df['Qu2']) >= 2\nqu3_counts = pd.value_counts(df['Qu3']) >= 2\n\n# Replace values that do not meet the threshold with 'others'\ndf['Qu1'] = df['Qu1'].apply(lambda x: 'other' if not qu1_counts.loc[x] else x)\ndf['Qu2'] = df['Qu2'].apply(lambda x: 'other' if not qu2_counts.loc[x] else x)\ndf['Qu3'] = df['Qu3'].apply(lambda x: 'other' if not qu3_counts.loc[x] else x)\n\nresult = df",
+        "test_stderr": "<string>:5: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.\n<string>:6: FutureWarning: pandas.value_counts is deprecated and will be removed in a future version. Use pd.Series(obj).value_counts() instead.\n<string>:7",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_6",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Define a function to replace values based on value counts\ndef replace_values(df, column, min_count, reserve_values=None):\n    value_counts = df[column].value_counts()\n    mask = value_counts >= min_count\n    if reserve_values is not None:\n        mask[reserve_values] = True\n    # Create a mapping for values to keep or replace\n    mapping = \n    for value in value_counts.index:\n        if mask[value]:\n            mapping[value] = value\n        else:\n            mapping[value] = 'others'\n    # Apply the mapping\n    return df[column].replace(mapping)\n\n# Apply the function to each column\ndf['Qu1'] = replace_values(df, 'Qu1', 3, reserve_values=['apple'])\ndf['Qu2'] = replace_values(df, 'Qu2', 2)\ndf['Qu3'] = replace_values(df, 'Qu3', 2, reserve_values=['apple'])\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.256270750018302,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "def replace_values(df, column, min_count, reserve_values=None):\n    value_counts = df[column].value_counts()\n    mask = value_counts >= min_count\n    if reserve_values is not None:\n        mask[reserve_values] = True\n    # Create a mapping for values to keep or replace\n    mapping = \n    for value in value_counts.index:\n        if mask[value]:\n            mapping[value] = value\n        else:\n            mapping[value] = 'others'\n    # Apply the mapping\n    return df[column].replace(mapping)\n\n# A",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7utj7fbn.py\", line 133, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7utj7fbn.py\", line 131, in <module>\n    test_execution(\"def replace_values(df, column, min_count",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_7",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Create a mask to identify rows to keep based on the 'keep_if_dup' column\nkeep_mask = df['keep_if_dup'] == 'Yes'\n\n# Use the mask to filter the dataframe, keeping the first occurrence of each 'url' where 'keep_if_dup' is 'Yes'\nresult = df[keep_mask | (df['url'].duplicated(keep_first=True, subset=['url']) & ~keep_mask)]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.123559792002197,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "keep_mask = df['keep_if_dup'] == 'Yes'\n\n# Use the mask to filter the dataframe, keeping the first occurrence of each 'url' where 'keep_if_dup' is 'Yes'\nresult = df[keep_mask | (df['url'].duplicated(keep_first=True, subset=['url']) & ~keep_mask)]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmbbrklyv.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmbbrklyv.py\", line 60, in <module>\n    test_execution(\"keep_mask = df['keep_if_dup'] == 'Yes'\\n\\n",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_8",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Filter rows where 'drop_if_dup' is 'No' or keep the first occurrence of 'url' when 'drop_if_dup' is 'Yes'\nresult = df.drop_duplicates(subset='url', keep='first', subset=['drop_if_dup'])\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.2316395419766195,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.drop_duplicates(subset='url', keep='first', subset=['drop_if_dup'])",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkvv_v83g.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkvv_v83g.py\", line 60, in <module>\n    test_execution(\"result = df.drop_duplicates(subset='url', ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_9",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Keep duplicates if 'keep_if_dup' is 'Yes'\ndf['keep_if_dup'] = df['keep_if_dup'].map()\ndf = df[df['keep_if_dup'] | df.duplicated('url', keep='last')]\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.13380741601577,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['keep_if_dup'] = df['keep_if_dup'].map()\ndf = df[df['keep_if_dup'] | df.duplicated('url', keep='last')]\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_cs_u3gl.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_cs_u3gl.py\", line 60, in <module>\n    test_execution(\"df['keep_if_dup'] = df['keep_if_dup'].map(",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_10",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Group by 'name' and create a nested dictionary\nresult = df.set_index('name').to_dict('index')\n\n# Flatten the dictionary to the desired structure\nnested_dict = \n        for col in df.columns[1:]:\n            nested_dict[name][key][df.columns[1]] = row[col]\n\nresult = nested_dict\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.2963819580036215,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.set_index('name').to_dict('index')\n\n# Flatten the dictionary to the desired structure\nnested_dict = \n        for col in df.columns[1:]:\n            nested_dict[name][key][df.columns[1]] = row[col]\n\nresult = nested_dict",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpe3twqzwh.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpe3twqzwh.py\", line 60, in <module>\n    test_execution(\"result = df.set_index('name').to_dict('ind",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_11",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Remove time zone information from the datetime column\ndf['datetime'] = df['datetime'].dt.tz_localize(None)\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.6927982500055805,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['datetime'] = df['datetime'].dt.tz_localize(None)\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_12",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\nimport pandas as pd\n\ndef f(df):\n    # Remove timezone information from the datetime column\n    df['datetime'] = df['datetime'].dt.tz_localize(None)\n    result = df\n    return result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.184258624969516,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Remove timezone information from the datetime column\n    df['datetime'] = df['datetime'].dt.tz_localize(None)\n    result = df\n    return result",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_13",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Remove timezone information from the datetime column\ndf['datetime'] = df['datetime'].dt.tz_localize(None)\n\n# Format the datetime column to the desired format\ndf['datetime'] = df['datetime'].dt.strftime('%d-%b-%Y %H:%M:%S')\n\n# Sort the datetime column in ascending order\ndf.sort_values(by='datetime', inplace=True)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.841737665992696,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['datetime'] = df['datetime'].dt.tz_localize(None)\n\n# Format the datetime column to the desired format\ndf['datetime'] = df['datetime'].dt.strftime('%d-%b-%Y %H:%M:%S')\n\n# Sort the datetime column in ascending order\ndf.sort_values(by='datetime', inplace=True)\n\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_14",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Remove time zone information from the 'datetime' column\ndf['datetime'] = df['datetime'].dt.tz_localize(None)\n\n# Sort the 'datetime' column in ascending order\ndf = df.sort_values('datetime')\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.000446459045634,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['datetime'] = df['datetime'].dt.tz_localize(None)\n\n# Sort the 'datetime' column in ascending order\ndf = df.sort_values('datetime')\n\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_15",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Extract key-value pairs from the 'message' column\ndef extract_key_value_pairs(message):\n    # Remove the brackets and split the string by commas\n    message = message.strip('[]')\n    pairs = message.split(', ')\n    key_value_pairs = \n    for pair in pairs:\n        key, value = pair.split(': ')\n        key_value_pairs[key] = value\n    return key_value_pairs\n\n# Apply the function to the 'message' column\ndf['message'] = df['message'].apply(extract_key_value_pairs)\n\n# Expand the 'message' column into separate columns\nexpanded_df = df.join(df['message'].apply(pd.Series))\n\n# Drop the original 'message' column\nexpanded_df = expanded_df.drop(columns=['message'])\n\n# Rename columns to match the expected output\nexpanded_df.columns = ['name', 'status', 'number', 'job', 'money', 'wife', 'group', 'kids']\n\n# Fill missing values with 'none'\nexpanded_df = expanded_df.fillna('none')\n\nresult = expanded_df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.334540416952223,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "def extract_key_value_pairs(message):\n    # Remove the brackets and split the string by commas\n    message = message.strip('[]')\n    pairs = message.split(', ')\n    key_value_pairs = \n    for pair in pairs:\n        key, value = pair.split(': ')\n        key_value_pairs[key] = value\n    return key_value_pairs\n\n# Apply the function to the 'message' column\ndf['message'] = df['message'].apply(extract_key_value_pairs)\n\n# Expand the 'message' column into separate columns\nexpanded_df = df.join(df['messa",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkc_x6ynz.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkc_x6ynz.py\", line 79, in <module>\n    test_execution(\"def extract_key_value_pairs(message):\\n   ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_16",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Multiply scores corresponding to products in the 'products' list by 10\ndf.loc[df['product'].isin(products), 'score'] *= 10\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.982405958988238,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df.loc[df['product'].isin(products), 'score'] *= 10\n\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_17",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Multiply scores not in the products list by 10\nmask = ~df['product'].isin(products)\ndf['score'] = df['score'] * 10 * mask + df['score'] * (1 - mask)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.235120291996282,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "mask = ~df['product'].isin(products)\ndf['score'] = df['score'] * 10 * mask + df['score'] * (1 - mask)\n\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_18",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Create a mask for products in the target lists\nmask = df['product'].isin([item for sublist in products for item in sublist])\n\n# Multiply the scores where the mask is True by 10\ndf['score'] = df['score'] * 10\n\n# Store the result in the variable 'result'\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.838016916997731,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "mask = df['product'].isin([item for sublist in products for item in sublist])\n\n# Multiply the scores where the mask is True by 10\ndf['score'] = df['score'] * 10\n\n# Store the result in the variable 'result'\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppo0vht8i.py\", line 115, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppo0vht8i.py\", line 113, in <module>\n    test_execution(\"mask = df['product'].isin([item for subl",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_19",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Min-Max Normalize scores for specified products\nproduct_mask = df['product'].isin(products)\nproduct_scores = df.loc[product_mask, 'score']\nproduct_scores = (product_scores - product_scores.min()) / (product_scores.max() - product_scores.min())\n\n# Replace the scores in the original dataframe\ndf.loc[product_mask, 'score'] = product_scores\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.145937084045727,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "product_mask = df['product'].isin(products)\nproduct_scores = df.loc[product_mask, 'score']\nproduct_scores = (product_scores - product_scores.min()) / (product_scores.max() - product_scores.min())\n\n# Replace the scores in the original dataframe\ndf.loc[product_mask, 'score'] = product_scores\n\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_20",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Create a new column 'category' by finding the column with value 1 in each row\ndf['category'] = df.apply(lambda row: row.index[row == 1].item(), axis=1)\n\n# Drop the original binary columns (A, B, C, D) as they are no longer needed\ndf = df.drop(columns=['A', 'B', 'C', 'D'])\n\n# Store the result in the variable 'result'\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.274231541028712,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['category'] = df.apply(lambda row: row.index[row == 1].item(), axis=1)\n\n# Drop the original binary columns (A, B, C, D) as they are no longer needed\ndf = df.drop(columns=['A', 'B', 'C', 'D'])\n\n# Store the result in the variable 'result'\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1_oqehla.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1_oqehla.py\", line 65, in <module>\n    test_execution(\"df['category'] = df.apply(lambda row: row.",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_21",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Convert binary columns to a categorical column indicating which column has a 1\ndf['category'] = df.apply(lambda row: row.index[row == 1].str[0], axis=1)\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.40016762498999,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['category'] = df.apply(lambda row: row.index[row == 1].str[0], axis=1)\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgn7fdwa4.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgn7fdwa4.py\", line 65, in <module>\n    test_execution(\"df['category'] = df.apply(lambda row: row.",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_22",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Convert binary columns to a categorical column of lists\ndf['category'] = df.loc[:, df.columns != 'category'].apply(lambda row: row[row == 1].index.tolist(), axis=1)\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.367213292047381,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['category'] = df.loc[:, df.columns != 'category'].apply(lambda row: row[row == 1].index.tolist(), axis=1)\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_23",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Convert the 'Date' column to datetime format\ndf['Date'] = pd.to_datetime(df['Date'])\n\n# Extract the month name and year in the desired format\ndf['Date'] = df['Date'].dt.to_period(\"M\").astype(str).str.replace(\"-\", \"-\")\n\n# Store the result in the 'result' variable\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.506980542035308,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['Date'] = pd.to_datetime(df['Date'])\n\n# Extract the month name and year in the desired format\ndf['Date'] = df['Date'].dt.to_period(\"M\").astype(str).str.replace(\"-\", \"-\")\n\n# Store the result in the 'result' variable\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpy3wcfuo6.py\", line 54, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpy3wcfuo6.py\", line 52, in <module>\n    test_execution('df[\\'Date\\'] = pd.to_datetime(df[\\'Date\\']",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_24",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Convert the 'Date' column to datetime format\ndf['Date'] = pd.to_datetime(df['Date'])\n\n# Extract the month name, day, and year from the date\ndf['Formatted Date'] = df['Date'].dt.strftime('%d-%b-%Y')\n\n# Drop the original 'Date' column and store the result\nresult = df.drop(columns=['Date'])\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.662155583035201,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['Date'] = pd.to_datetime(df['Date'])\n\n# Extract the month name, day, and year from the date\ndf['Formatted Date'] = df['Date'].dt.strftime('%d-%b-%Y')\n\n# Drop the original 'Date' column and store the result\nresult = df.drop(columns=['Date'])",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8r_7jzmb.py\", line 54, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8r_7jzmb.py\", line 52, in <module>\n    test_execution(\"df['Date'] = pd.to_datetime(df['Date'])\\n\\",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_25",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Convert the 'Date' column to datetime format\ndf['Date'] = pd.to_datetime(df['Date'])\n\n# Convert the List to datetime format\nList = pd.to_datetime(List)\n\n# Create a new DataFrame to store the results\nresult = pd.DataFrame(columns=['Date'])\n\n# Iterate over each date in the DataFrame\nfor index, row in df.iterrows():\n    date = row['Date']\n    \n    # Check if the date is between the two dates in List\n    if List[0] <= date <= List[1]:\n        # Extract the month name, day, and year\n        month_name = date.strftime('%B')\n        day = date.strftime('%d')\n        year = date.strftime('%Y')\n        day_of_week = date.strftime('%A')\n        \n        # Format the date as specified\n        formatted_date = f\", ignore_index=True)\n\n# Display the result\nresult\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.237113624985795,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['Date'] = pd.to_datetime(df['Date'])\n\n# Convert the List to datetime format\nList = pd.to_datetime(List)\n\n# Create a new DataFrame to store the results\nresult = pd.DataFrame(columns=['Date'])\n\n# Iterate over each date in the DataFrame\nfor index, row in df.iterrows():\n    date = row['Date']\n    \n    # Check if the date is between the two dates in List\n    if List[0] <= date <= List[1]:\n        # Extract the month name, day, and year\n        month_name = date.strftime('%B')\n        day = date.st",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp3zl3j9h0.py\", line 58, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp3zl3j9h0.py\", line 56, in <module>\n    test_execution('df[\\'Date\\'] = pd.to_datetime(df[\\'Date\\']",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_26",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Shift the first column such that the last row moves to the first row\nshifted_df = df.iloc[1:]  # Remove the first row\nshifted_df = shifted_df.append(df.iloc[0])  # Add the first row at the end\n\n# Assign the result to the variable 'result'\nresult = shifted_df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.305333416967187,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "shifted_df = df.iloc[1:]  # Remove the first row\nshifted_df = shifted_df.append(df.iloc[0])  # Add the first row at the end\n\n# Assign the result to the variable 'result'\nresult = shifted_df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp0tddbbba.py\", line 74, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp0tddbbba.py\", line 72, in <module>\n    test_execution(\"shifted_df = df.iloc[1:]  # Remove the fir",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_27",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Shift the first column by 1 row, with the last row moving to the top\nshifted_df = df.iloc[1:]  # Remove the first row\nshifted_df = shifted_df.append(df.iloc[0])  # Add the first row at the end\n\n# Assign the result to the variable 'result'\nresult = shifted_df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.374789458990563,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "shifted_df = df.iloc[1:]  # Remove the first row\nshifted_df = shifted_df.append(df.iloc[0])  # Add the first row at the end\n\n# Assign the result to the variable 'result'\nresult = shifted_df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6b7uo42a.py\", line 74, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6b7uo42a.py\", line 72, in <module>\n    test_execution(\"shifted_df = df.iloc[1:]  # Remove the fir",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_28",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Shift the first column down by 1 row and wrap around\ndf['#1'] = df['#1'].shift(1, axis=0).shift(-1, axis=0)\n\n# Shift the second column up by 1 row and wrap around\ndf['#2'] = df['#2'].shift(-1, axis=0).shift(1, axis=0)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.74477387504885,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['#1'] = df['#1'].shift(1, axis=0).shift(-1, axis=0)\n\n# Shift the second column up by 1 row and wrap around\ndf['#2'] = df['#2'].shift(-1, axis=0).shift(1, axis=0)\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppqxi4oeo.py\", line 75, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppqxi4oeo.py\", line 73, in <module>\n    test_execution(\"df['#1'] = df['#1'].shift(1, axis=0).shift",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_29",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Shift the first column by rotating the values\ndf['#1'] = df['#1'].shift(-1)\n\n# The last row of the first column is moved to the first row\ndf = df.reindex(index=[df.index[-1]] + list(df.index[:-1]))\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.873168500023894,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['#1'] = df['#1'].shift(-1)\n\n# The last row of the first column is moved to the first row\ndf = df.reindex(index=[df.index[-1]] + list(df.index[:-1]))\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpr4g39sqf.py\", line 86, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpr4g39sqf.py\", line 84, in <module>\n    test_execution(\"df['#1'] = df['#1'].shift(-1)\\n\\n# The las",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_30",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Rename all columns by adding 'X' to the end of each column name\ndf.columns = [col + 'X' for col in df.columns]\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.653286915970966,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df.columns = [col + 'X' for col in df.columns]\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_31",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\n# Rename all columns by adding 'X' to the beginning of each column name\ndf.columns = ['X' + col for col in df.columns]\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.1916005830280483,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df.columns = ['X' + col for col in df.columns]\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_32",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Rename columns to add 'X' to all column names\ndf.columns = ['X' + col for col in df.columns]\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.729745415970683,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df.columns = ['X' + col for col in df.columns]\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmnunwi50.py\", line 69, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmnunwi50.py\", line 67, in <module>\n    test_execution(\"df.columns = ['X' + col for col in df.colu",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_33",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Select all columns that start with 'val' and compute their mean\nvalue_columns = [col for col in df.columns if col.startswith('val')]\n\n# Group by 'group' and compute the mean for value columns, keeping 'group_color' as first value\nresult = df.groupby('group').agg()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.810212084033992,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "value_columns = [col for col in df.columns if col.startswith('val')]\n\n# Group by 'group' and compute the mean for value columns, keeping 'group_color' as first value\nresult = df.groupby('group').agg()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6qlg6k2c.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6qlg6k2c.py\", line 57, in <module>\n    test_execution(\"value_columns = [col for col in df.columns",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_34",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Select all columns that start with 'val' and exclude 'group' and 'group_color'\nvalue_columns = [col for col in df.columns if col.startswith('val')]\n\n# Group by 'group' and aggregate 'group_color' as first value, and sum all value columns\nresult = df.groupby('group').agg()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.032015124976169,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "value_columns = [col for col in df.columns if col.startswith('val')]\n\n# Group by 'group' and aggregate 'group_color' as first value, and sum all value columns\nresult = df.groupby('group').agg()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpubw0ds7c.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpubw0ds7c.py\", line 57, in <module>\n    test_execution(\"value_columns = [col for col in df.columns",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_35",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Identify columns ending with '2' for mean calculation\nvalue_columns_with_2 = [col for col in df.columns if col.endswith('2')]\n\n# Identify all other value columns for sum calculation\nvalue_columns_other = [col for col in df.columns if not col.startswith('group') and not col.endswith('2')]\n\n# Group by 'group' and apply appropriate aggregation\nresult = df.groupby('group').agg()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.535716124984901,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "value_columns_with_2 = [col for col in df.columns if col.endswith('2')]\n\n# Identify all other value columns for sum calculation\nvalue_columns_other = [col for col in df.columns if not col.startswith('group') and not col.endswith('2')]\n\n# Group by 'group' and apply appropriate aggregation\nresult = df.groupby('group').agg()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp68depc2c.py\", line 73, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp68depc2c.py\", line 71, in <module>\n    test_execution(\"value_columns_with_2 = [col for col in df.",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_36",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Filter the DataFrame to include only the rows in row_list\nfiltered_df = df.loc[row_list]\n\n# Select the columns in column_list\nselected_columns = filtered_df[column_list]\n\n# Calculate the mean of the selected columns\nresult = selected_columns.mean()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.6004437080118805,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "filtered_df = df.loc[row_list]\n\n# Select the columns in column_list\nselected_columns = filtered_df[column_list]\n\n# Calculate the mean of the selected columns\nresult = selected_columns.mean()",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_37",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Filter the DataFrame to include only the specified rows\nfiltered_df = df.loc[row_list]\n\n# Select the specified columns\nselected_columns = filtered_df[column_list]\n\n# Calculate the sum of the selected columns\nresult = selected_columns.sum()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.342237624980044,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "filtered_df = df.loc[row_list]\n\n# Select the specified columns\nselected_columns = filtered_df[column_list]\n\n# Calculate the sum of the selected columns\nresult = selected_columns.sum()",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_38",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Filter the DataFrame to include only the specified rows\nfiltered_df = df.loc[row_list]\n\n# Select the specified columns\nselected_columns = filtered_df[column_list]\n\n# Calculate the sum of the selected columns\nresult = selected_columns.sum()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.7292537500034086,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "filtered_df = df.loc[row_list]\n\n# Select the specified columns\nselected_columns = filtered_df[column_list]\n\n# Calculate the sum of the selected columns\nresult = selected_columns.sum()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmplrx7mw6h.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmplrx7mw6h.py\", line 79, in <module>\n    test_execution('filtered_df = df.loc[row_list]\\n\\n# Select",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_39",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Compute value counts for each column\nresult = df.apply(lambda col: col.value_counts()).T\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.301333707990125,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.apply(lambda col: col.value_counts()).T",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpj79kvhyv.py\", line 64, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpj79kvhyv.py\", line 62, in <module>\n    test_execution('result = df.apply(lambda col: col.value_co",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_40",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# [insert your code here]\nresult = df.isnull().sum()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.0243324580369517,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.isnull().sum()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp34a4ezzf.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp34a4ezzf.py\", line 57, in <module>\n    test_execution('result = df.isnull().sum()')\n  File \"/var/",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_41",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Compute value counts for each column\nvalue_counts = df.apply(lambda col: col.value_counts().to_string(), axis=0)\n\n# Format the result as a string\nresult = \"\"\nfor col in df.columns:\n    result += f\"---- \\n\"\n\nresult = result.replace(\"null\", \"NaN\")\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.696860249969177,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "value_counts = df.apply(lambda col: col.value_counts().to_string(), axis=0)\n\n# Format the result as a string\nresult = \"\"\nfor col in df.columns:\n    result += f\"---- \\n\"\n\nresult = result.replace(\"null\", \"NaN\")",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbm_hvlqt.py\", line 65, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbm_hvlqt.py\", line 63, in <module>\n    test_execution('value_counts = df.apply(lambda col: col.va",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_42",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Merge the first and second row by combining the first row as headers and the second row as data\ndf = df.iloc[[0]].concat([df.iloc[1:]], axis=1).reset_index(drop=True)\n\n# Drop the 'Unnamed: 2' column\ndf = df.drop('Unnamed: 2', axis=1)\n\n# Rename columns to match the desired output\ndf.columns = ['Sample type', 'Concentration', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.567248000006657,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = df.iloc[[0]].concat([df.iloc[1:]], axis=1).reset_index(drop=True)\n\n# Drop the 'Unnamed: 2' column\ndf = df.drop('Unnamed: 2', axis=1)\n\n# Rename columns to match the desired output\ndf.columns = ['Sample type', 'Concentration', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpfk4agri2.py\", line 91, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpfk4agri2.py\", line 89, in <module>\n    test_execution(\"df = df.iloc[[0]].concat([df.iloc[1:]], ax",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_43",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Merge the first and second row by combining the first row as headers and the second row as data\ndf = df.iloc[1:].copy()\ndf.columns = df.iloc[0]\nresult = df.drop(df.index[0])\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.919574707979336,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = df.iloc[1:].copy()\ndf.columns = df.iloc[0]\nresult = df.drop(df.index[0])",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7r9h3416.py\", line 91, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp7r9h3416.py\", line 89, in <module>\n    test_execution('df = df.iloc[1:].copy()\\ndf.columns = df.i",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_44",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nimport numpy as np\n\n# Reorder the columns to achieve the desired result\ndf = df[[col for col in df.columns if col != '0'] + ['0']]\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.32156341697555,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = df[[col for col in df.columns if col != '0'] + ['0']]\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpqud0dvjp.py\", line 76, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpqud0dvjp.py\", line 74, in <module>\n    test_execution(\"df = df[[col for col in df.columns if col ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_45",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nimport numpy as np\n\n# Reorder the columns so that null values come first, then non-null values\ndf = df.apply(lambda row: pd.concat([row.isnull().values.astype(float), row.notnull().values.astype(float)]), axis=1)\ndf = df.apply(lambda x: pd.Series(x, index=df.columns))\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.161905665998347,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = df.apply(lambda row: pd.concat([row.isnull().values.astype(float), row.notnull().values.astype(float)]), axis=1)\ndf = df.apply(lambda x: pd.Series(x, index=df.columns))\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbr_ow9m4.py\", line 78, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbr_ow9m4.py\", line 76, in <module>\n    test_execution('df = df.apply(lambda row: pd.concat([row.i",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_46",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nimport numpy as np\n\n# The given DataFrame\ndf = pd.DataFrame([[3, 1, 2], [np.nan, 1, 2], [np.nan, np.nan, 2]], columns=['0', '1', '2'])\n\n# Efficient approach using numpy to handle NaN values\n# Replace NaN values with a placeholder (e.g., 0) and then shift the non-NaN values\ndf_filled = df.fillna(0)\ndf_shifted = df_filled.shift(1, axis=1)\n\n# Replace the placeholder (0) with NaN in the first column\ndf_shifted.iloc[:, 0] = np.nan\n\nresult = df_shifted\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.9988579580094665,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.DataFrame([[3, 1, 2], [np.nan, 1, 2], [np.nan, np.nan, 2]], columns=['0', '1', '2'])\n\n# Efficient approach using numpy to handle NaN values\n# Replace NaN values with a placeholder (e.g., 0) and then shift the non-NaN values\ndf_filled = df.fillna(0)\ndf_shifted = df_filled.shift(1, axis=1)\n\n# Replace the placeholder (0) with NaN in the first column\ndf_shifted.iloc[:, 0] = np.nan\n\nresult = df_shifted",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpao0pozjb.py\", line 76, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpao0pozjb.py\", line 74, in <module>\n    test_execution(\"df = pd.DataFrame([[3, 1, 2], [np.nan, 1, ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_47",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Identify rows where 'value' is less than the threshold\nlow_value_rows = df[df['value'] < thresh]\n\n# Sum the 'value' of these rows\nsum_low_values = low_value_rows['value'].sum()\n\n# Create a new index for the aggregated row\nnew_index = pd.Index(['X'], name='lab')\n\n# Create a new DataFrame for the aggregated row\naggregated_row = pd.DataFrame(, index=new_index)\n\n# Concatenate the original DataFrame (excluding low-value rows) with the aggregated row\nresult = pd.concat([df[df['value'] >= thresh], aggregated_row], axis=0)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.116697582998313,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "low_value_rows = df[df['value'] < thresh]\n\n# Sum the 'value' of these rows\nsum_low_values = low_value_rows['value'].sum()\n\n# Create a new index for the aggregated row\nnew_index = pd.Index(['X'], name='lab')\n\n# Create a new DataFrame for the aggregated row\naggregated_row = pd.DataFrame(, index=new_index)\n\n# Concatenate the original DataFrame (excluding low-value rows) with the aggregated row\nresult = pd.concat([df[df['value'] >= thresh], aggregated_row], axis=0)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2_3cqdfz.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2_3cqdfz.py\", line 60, in <module>\n    test_execution(\"low_value_rows = df[df['value'] < thresh]\\",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_48",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Filter rows where 'value' is less than the threshold\nlow_value_rows = df[df['value'] < thresh]\n\n# Calculate the average of the 'value' column for these rows\naverage_value = low_value_rows['value'].mean()\n\n# Create a new row for the aggregated values\naggregated_row = pd.DataFrame()\n\n# Concatenate the aggregated row with the remaining rows\nresult = pd.concat([df[df['value'] >= thresh], aggregated_row], axis=0).sort_index()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.880061833013315,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "low_value_rows = df[df['value'] < thresh]\n\n# Calculate the average of the 'value' column for these rows\naverage_value = low_value_rows['value'].mean()\n\n# Create a new row for the aggregated values\naggregated_row = pd.DataFrame()\n\n# Concatenate the aggregated row with the remaining rows\nresult = pd.concat([df[df['value'] >= thresh], aggregated_row], axis=0).sort_index()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpaicmx1za.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpaicmx1za.py\", line 60, in <module>\n    test_execution(\"low_value_rows = df[df['value'] < thresh]\\",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Identify rows where 'value' is not in the given section [section_left, section_right]\nmask = ~(df['value'].between(section_left, section_right))\n\n# Filter rows to be aggregated\nrows_to_aggregate = df[mask]\n\n# Calculate the average value of the rows to be aggregated\naverage_value = rows_to_aggregate['value'].mean()\n\n# Create a new row for the aggregated value\naggregated_row = pd.DataFrame()\n\n# Concatenate the aggregated row with the remaining rows\nresult = pd.concat([df[~mask], aggregated_row), axis=0).reset_index(drop=True)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.642408167012036,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "mask = ~(df['value'].between(section_left, section_right))\n\n# Filter rows to be aggregated\nrows_to_aggregate = df[mask]\n\n# Calculate the average value of the rows to be aggregated\naverage_value = rows_to_aggregate['value'].mean()\n\n# Create a new row for the aggregated value\naggregated_row = pd.DataFrame()\n\n# Concatenate the aggregated row with the remaining rows\nresult = pd.concat([df[~mask], aggregated_row), axis=0).reset_index(drop=True)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpycq0rq74.py\", line 66, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpycq0rq74.py\", line 64, in <module>\n    test_execution(\"mask = ~(df['value'].between(section_left,",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_50",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport numpy as np\n\n# Create inverse columns\ndf['inv_A'] = 1 / df['A']\ndf['inv_B'] = 1 / df['B']\n\n# Assign result\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.9110596670070663,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['inv_A'] = 1 / df['A']\ndf['inv_B'] = 1 / df['B']\n\n# Assign result\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppo0a2mwe.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppo0a2mwe.py\", line 57, in <module>\n    test_execution(\"df['inv_A'] = 1 / df['A']\\ndf['inv_B'] = 1",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_51",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport numpy as np\n\n# Compute exponentials of each column\nexp_columns = \n\n# Add exponential columns to the dataframe\ndf_exp = df.copy()\ndf_exp.update(exp_columns)\n\n# Rename exponential columns with 'exp_' prefix\ndf_exp = df_exp.add_prefix('exp_')\n\n# Combine original and exponential columns\nresult = pd.concat([df, df_exp], axis=1)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.056273541005794,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "exp_columns = \n\n# Add exponential columns to the dataframe\ndf_exp = df.copy()\ndf_exp.update(exp_columns)\n\n# Rename exponential columns with 'exp_' prefix\ndf_exp = df_exp.add_prefix('exp_')\n\n# Combine original and exponential columns\nresult = pd.concat([df, df_exp], axis=1)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgd8y5aeq.py\", line 60, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgd8y5aeq.py\", line 58, in <module>\n    test_execution(\"exp_columns = \\n\\n# Add exponential column",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_52",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Create inverse columns\ndf['inv_A'] = 1 / df['A']\ndf['inv_B'] = 1 / df['B']\n\n# Keep 0 in inv_A as requested\ndf['inv_A'] = df['A'].apply(lambda x: 1 / x if x != 0 else 0)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.722361583029851,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['inv_A'] = 1 / df['A']\ndf['inv_B'] = 1 / df['B']\n\n# Keep 0 in inv_A as requested\ndf['inv_A'] = df['A'].apply(lambda x: 1 / x if x != 0 else 0)\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp68itxd77.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp68itxd77.py\", line 60, in <module>\n    test_execution(\"df['inv_A'] = 1 / df['A']\\ndf['inv_B'] = 1",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_53",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport numpy as np\n\n# Apply sigmoid function to each column and add as new columns with 'sigmoid_' prefix\ndf = df.apply(lambda x: pd.Series(np.sigmoid(x), index=[f'sigmoid_' for col in x.index]), axis=0)\n\n# Combine original columns and new sigmoid columns\nresult = pd.concat([df.loc[:, df.columns.str.startswith('A')], df], axis=1)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.936038208019454,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = df.apply(lambda x: pd.Series(np.sigmoid(x), index=[f'sigmoid_' for col in x.index]), axis=0)\n\n# Combine original columns and new sigmoid columns\nresult = pd.concat([df.loc[:, df.columns.str.startswith('A')], df], axis=1)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk5nstg8d.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk5nstg8d.py\", line 60, in <module>\n    test_execution(\"df = df.apply(lambda x: pd.Series(np.sigmo",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_54",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Find the column-wise maximum and its last occurrence\nmax_positions = df.idxmax()\nlast_max_index = max_positions.max()\n\n# Find the column-wise minimum\nmin_positions = df.idxmin()\n\n# Create a mask where the index is less than or equal to the last occurrence of the maximum\nmask = df.index <= last_max_index\n\n# Apply the mask to the DataFrame to ignore values after the last maximum\nmasked_df = df[mask]\n\n# Find the last occurrence of the column-wise maximum up to the minimum\nresult = masked_df.idxmax()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.304262958001345,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "max_positions = df.idxmax()\nlast_max_index = max_positions.max()\n\n# Find the column-wise minimum\nmin_positions = df.idxmin()\n\n# Create a mask where the index is less than or equal to the last occurrence of the maximum\nmask = df.index <= last_max_index\n\n# Apply the mask to the DataFrame to ignore values after the last maximum\nmasked_df = df[mask]\n\n# Find the last occurrence of the column-wise maximum up to the minimum\nresult = masked_df.idxmax()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8z526mh1.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8z526mh1.py\", line 79, in <module>\n    test_execution('max_positions = df.idxmax()\\nlast_max_inde",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_55",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Find the column-wise maximum values\ncolumn_wise_max = df.max(axis=0)\n\n# Create a mask where the value is equal to the column-wise maximum\nmask = df == column_wise_max\n\n# Find the first occurrence of the maximum in each column\nfirst_occurrence = mask.idxmax()\n\n# Find the minimum index in the first occurrence\nmin_index = first_occurrence.min()\n\n# Get the row index where the minimum occurs\nresult = df.loc[min_index]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.118643041991163,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "column_wise_max = df.max(axis=0)\n\n# Create a mask where the value is equal to the column-wise maximum\nmask = df == column_wise_max\n\n# Find the first occurrence of the maximum in each column\nfirst_occurrence = mask.idxmax()\n\n# Find the minimum index in the first occurrence\nmin_index = first_occurrence.min()\n\n# Get the row index where the minimum occurs\nresult = df.loc[min_index]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpv7kdlt1x.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpv7kdlt1x.py\", line 79, in <module>\n    test_execution('column_wise_max = df.max(axis=0)\\n\\n# Crea",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_56",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Get the minimum and maximum dates\nmin_date = df['dt'].min()\nmax_date = df['dt'].max()\n\n# Create a date range from min_date to max_date\ndate_range = pd.date_range(start=min_date, end=max_date, freq='D')\n\n# Create a DataFrame with all dates in the range\nexpanded_df = pd.DataFrame()\n\n# Merge with the original DataFrame on 'dt' and fill missing 'val' values with 0\nresult = pd.merge(expanded_df, df, on='dt', how='left').fillna(0)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.058972458005883,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "min_date = df['dt'].min()\nmax_date = df['dt'].max()\n\n# Create a date range from min_date to max_date\ndate_range = pd.date_range(start=min_date, end=max_date, freq='D')\n\n# Create a DataFrame with all dates in the range\nexpanded_df = pd.DataFrame()\n\n# Merge with the original DataFrame on 'dt' and fill missing 'val' values with 0\nresult = pd.merge(expanded_df, df, on='dt', how='left').fillna(0)",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmph_54d08z.py:14: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_57",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Get the minimum and maximum dates\nmin_date = df['dt'].min()\nmax_date = df['dt'].max()\n\n# Create a date range from min_date to max_date\ndate_range = pd.date_range(start=min_date, end=max_date, freq='D')\n\n# Create a DataFrame with all dates, user, and val=0\nexpanded_df = pd.DataFrame()\n\n# Fill in the val column with the original values where available\nexpanded_df['val'] = 0\nfor user in expanded_df['user'].unique():\n    user_df = df[df['user'] == user]\n    expanded_df.loc[expanded_df['user'] == user, 'val'] = user_df.set_index('dt')['val'].reindex(expanded_df[expanded_df['user'] == user]['dt']).values\n\nresult = expanded_df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.72362704097759,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "min_date = df['dt'].min()\nmax_date = df['dt'].max()\n\n# Create a date range from min_date to max_date\ndate_range = pd.date_range(start=min_date, end=max_date, freq='D')\n\n# Create a DataFrame with all dates, user, and val=0\nexpanded_df = pd.DataFrame()\n\n# Fill in the val column with the original values where available\nexpanded_df['val'] = 0\nfor user in expanded_df['user'].unique():\n    user_df = df[df['user'] == user]\n    expanded_df.loc[expanded_df['user'] == user, 'val'] = user_df.set_index('dt'",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkka5h1b1.py:13: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_58",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Get the minimum and maximum dates\nmin_date = df['dt'].min()\nmax_date = df['dt'].max()\n\n# Create a date range from min_date to max_date\ndate_range = pd.date_range(start=min_date, end=max_date, freq='D')\n\n# Create a DataFrame with the expanded date range\nexpanded_df = pd.DataFrame(, inplace=True)\n\n# Sort the DataFrame by 'dt' to ensure the correct order\nexpanded_df.sort_values(by='dt', inplace=True)\n\nresult = expanded_df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.699931624985766,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "min_date = df['dt'].min()\nmax_date = df['dt'].max()\n\n# Create a date range from min_date to max_date\ndate_range = pd.date_range(start=min_date, end=max_date, freq='D')\n\n# Create a DataFrame with the expanded date range\nexpanded_df = pd.DataFrame(, inplace=True)\n\n# Sort the DataFrame by 'dt' to ensure the correct order\nexpanded_df.sort_values(by='dt', inplace=True)\n\nresult = expanded_df",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpxfwxl6j5.py:14: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_59",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Ensure 'dt' column is in datetime format\ndf['dt'] = pd.to_datetime(df['dt'])\n\n# Group by 'user' to find the max 'val' for each user\nmax_vals = df.groupby('user')['val'].max().reset_index()\nmax_vals.columns = ['user', 'max_val']\n\n# Create a date range for each user between the min and max date\ndate_ranges = []\nfor _, row in max_vals.iterrows():\n    date_range = pd.date_range(start=row['dt'].min(), end=row['dt'].max(), freq='D')\n    date_ranges.append(date_range)\n\n# Create a DataFrame with the expanded date ranges\nexpanded_dates = pd.DataFrame()\n\n# Join with the max values to fill the 'val' column\nexpanded_dates = pd.merge(expanded_dates, max_vals[['user', 'max_val']], on='user')\nexpanded_dates.columns = ['dt', 'user', 'val']\n\n# Sort the DataFrame by 'dt' to ensure the correct order\nexpanded_dates = expanded_dates.sort_values('dt').reset_index(drop=True)\n\nresult = expanded_dates\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.672584042011295,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['dt'] = pd.to_datetime(df['dt'])\n\n# Group by 'user' to find the max 'val' for each user\nmax_vals = df.groupby('user')['val'].max().reset_index()\nmax_vals.columns = ['user', 'max_val']\n\n# Create a date range for each user between the min and max date\ndate_ranges = []\nfor _, row in max_vals.iterrows():\n    date_range = pd.date_range(start=row['dt'].min(), end=row['dt'].max(), freq='D')\n    date_ranges.append(date_range)\n\n# Create a DataFrame with the expanded date ranges\nexpanded_dates = pd.Dat",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1j1mlmf5.py:20: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_60",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Ensure 'dt' is in datetime format\ndf['dt'] = pd.to_datetime(df['dt'])\n\n# Find the minimum and maximum dates\ndate_range = pd.date_range(start=df['dt'].min(), end=df['dt'].max(), freq='D')\n\n# Expand the 'dt' column to include all dates in the range\nexpanded_df = pd.DataFrame()\n\n# Group by 'user' and take the maximum 'val' for each user\nmax_val_per_user = df.groupby('user')['val'].max().reset_index()\n\n# Merge the expanded dates with the maximum values per user\nresult = expanded_df.merge(max_val_per_user, on='user', how='left')\n\n# Rename columns to match the desired output\nresult.columns = ['dt', 'user', 'val']\n\n# Convert 'dt' to the desired format\nresult['dt'] = result['dt'].dt.strftime('%d-%b-%Y')\n\n# Ensure the 'val' column is integer type\nresult['val'] = result['val'].astype(int)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.88555958395591,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['dt'] = pd.to_datetime(df['dt'])\n\n# Find the minimum and maximum dates\ndate_range = pd.date_range(start=df['dt'].min(), end=df['dt'].max(), freq='D')\n\n# Expand the 'dt' column to include all dates in the range\nexpanded_df = pd.DataFrame()\n\n# Group by 'user' and take the maximum 'val' for each user\nmax_val_per_user = df.groupby('user')['val'].max().reset_index()\n\n# Merge the expanded dates with the maximum values per user\nresult = expanded_df.merge(max_val_per_user, on='user', how='left')\n\n# R",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp68g0m6zi.py:20: FutureWarning: The previous implementation of stack is deprecated and will be removed in a future version of pandas. See the What's New notes for pandas 2.1.0 for details. Specify future_stack=True to adopt the new implementation an",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_61",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Assign unique IDs based on 'name' column\ndf['name'] = df['name'].factorize()[0] + 1\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.200099667010363,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['name'] = df['name'].factorize()[0] + 1\n\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_62",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Assign a unique ID to each group of 'name' in the 'a' column\ndf['a'] = df.groupby('name').cumcount() + 1\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.05073579098098,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['a'] = df.groupby('name').cumcount() + 1\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpffqm8dhg.py\", line 63, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpffqm8dhg.py\", line 61, in <module>\n    test_execution(\"df['a'] = df.groupby('name').cumcount() + ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_63",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\ndef f(df):\n    # Assign a unique ID to each unique name\n    df['id'] = df['name'].factorize()[0] + 1\n    result = df.drop(columns=['name'])\n    return result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.5680478339781985,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Assign a unique ID to each unique name\n    df['id'] = df['name'].factorize()[0] + 1\n    result = df.drop(columns=['name'])\n    return result",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpf7yjo0b8.py\", line 65, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpf7yjo0b8.py\", line 63, in <module>\n    test_execution(\"    # Assign a unique ID to each unique na",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_64",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Create a unique ID by combining 'name' and 'a' columns\ndf['ID'] = df.apply(lambda row: (row['name'], row['a']), axis=1)\n\n# Convert the tuple to a unique integer ID\ndf['ID'] = df['ID'].apply(lambda x: hash(x))\n\n# Drop the original 'name' and 'a' columns\ndf = df.drop(columns=['name', 'a'])\n\n# Rename 'ID' to the desired column name\ndf = df.rename(columns=)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.879376458993647,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['ID'] = df.apply(lambda row: (row['name'], row['a']), axis=1)\n\n# Convert the tuple to a unique integer ID\ndf['ID'] = df['ID'].apply(lambda x: hash(x))\n\n# Drop the original 'name' and 'a' columns\ndf = df.drop(columns=['name', 'a'])\n\n# Rename 'ID' to the desired column name\ndf = df.rename(columns=)\n\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpv0q1pyct.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpv0q1pyct.py\", line 65, in <module>\n    test_execution(\"df['ID'] = df.apply(lambda row: (row['name",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_65",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Repartition the date columns into two columns: date and value\ndf_long = df.melt(id_vars='user', value_vars=['01/12/15', '02/12/15'], var_name='date', value_name='value')\ndf_long['date'] = pd.to_datetime(df_long['date']).dt.strftime('%m/%d/%y')  # Format date as desired\ndf_long = df_long.merge(df[['user', 'someBool']], on='user', how='left')\n\nresult = df_long\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.658644250012003,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df_long = df.melt(id_vars='user', value_vars=['01/12/15', '02/12/15'], var_name='date', value_name='value')\ndf_long['date'] = pd.to_datetime(df_long['date']).dt.strftime('%m/%d/%y')  # Format date as desired\ndf_long = df_long.merge(df[['user', 'someBool']], on='user', how='left')\n\nresult = df_long",
+        "test_stderr": "<string>:6: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\nTraceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp870qtuxe.",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_66",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Identify the columns to repartition\nvalue_columns = ['01/12/15', 'someBool']\n\n# Create a new DataFrame with the user column and the first value column\nresult = df[['user', value_columns[0]]].copy()\n\n# Iterate over the remaining value columns and append rows to the result\nfor col in value_columns[1:]:\n    result = pd.concat([result, df[['user', col]]], ignore_index=True)\n\n# Rename the columns to match the desired output\nresult.columns = ['user', 'value']\n\n# Add the 'others' column by taking the column name\nresult['others'] = result.apply(lambda row: row.name, axis=1)\n\n# Drop the index column\nresult = result.reset_index(drop=True)\n\n# Rename the columns to match the desired output\nresult.columns = ['user', 'others', 'value']\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.862005834002048,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "value_columns = ['01/12/15', 'someBool']\n\n# Create a new DataFrame with the user column and the first value column\nresult = df[['user', value_columns[0]]].copy()\n\n# Iterate over the remaining value columns and append rows to the result\nfor col in value_columns[1:]:\n    result = pd.concat([result, df[['user', col]]], ignore_index=True)\n\n# Rename the columns to match the desired output\nresult.columns = ['user', 'value']\n\n# Add the 'others' column by taking the column name\nresult['others'] = result",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmplscd1h8b.py\", line 71, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmplscd1h8b.py\", line 69, in <module>\n    test_execution(\"value_columns = ['01/12/15', 'someBool']\\n",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_67",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Repartition the date columns into 'date' and 'value' columns\ndf_long = pd.melt(df, id_vars='user', value_vars=['01/12/15', '02/12/15'], var_name='date', value_name='value')\n\n# Convert 'date' to datetime format\ndf_long['date'] = pd.to_datetime(df_long['date'])\n\n# Drop rows where 'value' is NaN\ndf_long = df_long.dropna(subset=['value'])\n\n# Rename 'someBool' to 'someBool' (already correct)\ndf_long = df_long.rename(columns=)\n\n# Set the correct order of columns\ndf_long = df_long[['user', 'date', 'value', 'someBool']]\n\nresult = df_long\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.11174075002782,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df_long = pd.melt(df, id_vars='user', value_vars=['01/12/15', '02/12/15'], var_name='date', value_name='value')\n\n# Convert 'date' to datetime format\ndf_long['date'] = pd.to_datetime(df_long['date'])\n\n# Drop rows where 'value' is NaN\ndf_long = df_long.dropna(subset=['value'])\n\n# Rename 'someBool' to 'someBool' (already correct)\ndf_long = df_long.rename(columns=)\n\n# Set the correct order of columns\ndf_long = df_long[['user', 'date', 'value', 'someBool']]\n\nresult = df_long",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpoo0paftv.py\", line 72, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpoo0paftv.py\", line 70, in <module>\n    test_execution(\"df_long = pd.melt(df, id_vars='user', valu",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_68",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nimport numpy as np\n\n# Select rows where 'c' column is greater than 0.5\nfiltered_df = df[df['c'] > 0.5]\n\n# Select columns 'b' and 'e'\nselected_columns = ['b', 'e']\nselected_data = filtered_df[selected_columns]\n\n# Convert to numpy array without copying data (using .values)\nresult = selected_data.values\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.730611915991176,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "filtered_df = df[df['c'] > 0.5]\n\n# Select columns 'b' and 'e'\nselected_columns = ['b', 'e']\nselected_data = filtered_df[selected_columns]\n\n# Convert to numpy array without copying data (using .values)\nresult = selected_data.values",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk9v7m01x.py\", line 52, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpk9v7m01x.py\", line 50, in <module>\n    test_execution(\"filtered_df = df[df['c'] > 0.5]\\n\\n# Selec",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_69",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nimport numpy as np\n\n# Select rows where 'c' column is greater than 0.45\nfiltered_df = df[df['c'] > 0.45]\n\n# Select columns 'a', 'b', and 'e'\nselected_columns = ['a', 'b', 'e']\nselected_data = filtered_df[selected_columns]\n\n# Convert to numpy array without copying data (using .values)\nresult = selected_data.values\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.327437333005946,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "filtered_df = df[df['c'] > 0.45]\n\n# Select columns 'a', 'b', and 'e'\nselected_columns = ['a', 'b', 'e']\nselected_data = filtered_df[selected_columns]\n\n# Convert to numpy array without copying data (using .values)\nresult = selected_data.values",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp0roerzyk.py\", line 56, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp0roerzyk.py\", line 54, in <module>\n    test_execution(\"filtered_df = df[df['c'] > 0.45]\\n\\n# Sele",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_70",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\nimport pandas as pd\nimport numpy as np\n\ndef f(df, columns):\n    # Filter rows where column 'c' is greater than 0.5\n    filtered_df = df[df['c'] > 0.5]\n    \n    # Select specified columns\n    selected_columns = filtered_df[columns]\n    \n    # Convert to numpy array\n    result = selected_columns.to_numpy()\n    \n    return result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.845338916988112,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Filter rows where column 'c' is greater than 0.5\n    filtered_df = df[df['c'] > 0.5]\n    \n    # Select specified columns\n    selected_columns = filtered_df[columns]\n    \n    # Convert to numpy array\n    result = selected_columns.to_numpy()\n    \n    return result",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_71",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\nimport pandas as pd\n\ndef f(df, columns=['b', 'e']):\n    # Filter rows where column 'c' is greater than 0.5\n    filtered_df = df[df['c'] > 0.5]\n    \n    # Select the specified columns\n    selected_columns = filtered_df[columns]\n    \n    # Compute the sum of the two columns for each row\n    selected_columns['sum'] = selected_columns[columns].sum(axis=1)\n    \n    # Store the result in the variable 'result'\n    result = selected_columns\n    return result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.748904875013977,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Filter rows where column 'c' is greater than 0.5\n    filtered_df = df[df['c'] > 0.5]\n    \n    # Select the specified columns\n    selected_columns = filtered_df[columns]\n    \n    # Compute the sum of the two columns for each row\n    selected_columns['sum'] = selected_columns[columns].sum(axis=1)\n    \n    # Store the result in the variable 'result'\n    result = selected_columns\n    return result",
+        "test_stderr": "<string>:12: SettingWithCopyWarning: \nA value is trying to be set on a copy of a slice from a DataFrame.\nTry using .loc[row_indexer,col_indexer] = value instead\n\nSee the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_72",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n### BEGIN SOLUTION\nresult = df[df['c'] > 0.5][columns]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.244262083957437,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df[df['c'] > 0.5][columns]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmprqhxuxqn.py\", line 54, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmprqhxuxqn.py\", line 52, in <module>\n    test_execution(\"result = df[df['c'] > 0.5][columns]\")\n  Fi",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_73",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nfrom datetime import datetime, timedelta\n\n# Convert 'date' column to datetime format\ndf['date'] = pd.to_datetime(df['date'])\n\n# Sort the dataframe by date to ensure we process rows in order\ndf = df.sort_values('date').reset_index(drop=True)\n\n# Initialize a list to keep track of indices to keep\nkeep_indices = []\n\n# Iterate through each row\nfor i, row in df.iterrows():\n    # Check if this row is not within X days of any previously kept row\n    if all((row['date'] - df.loc[j, 'date']).days > X for j in keep_indices):\n        keep_indices.append(i)\n\n# Keep only the rows with indices in keep_indices\nresult = df.loc[keep_indices]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.839916750031989,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['date'] = pd.to_datetime(df['date'])\n\n# Sort the dataframe by date to ensure we process rows in order\ndf = df.sort_values('date').reset_index(drop=True)\n\n# Initialize a list to keep track of indices to keep\nkeep_indices = []\n\n# Iterate through each row\nfor i, row in df.iterrows():\n    # Check if this row is not within X days of any previously kept row\n    if all((row['date'] - df.loc[j, 'date']).days > X for j in keep_indices):\n        keep_indices.append(i)\n\n# Keep only the rows with indices",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkfbgj4mo.py:11: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  df[\"date\"] = pd.to_datetime(df[\"date\"])\n<strin",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_74",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nfrom datetime import timedelta\n\n# Convert 'date' column to datetime format\ndf['date'] = pd.to_datetime(df['date'])\n\n# Sort the dataframe by date to ensure we process rows in order\ndf = df.sort_values('date').reset_index(drop=True)\n\n# Create a boolean mask to identify rows that are not overlapping with any other row\nmask = pd.Series([True] * len(df))\n\nfor i in range(len(df)):\n    # Get the current date\n    current_date = df.loc[i, 'date']\n    \n    # Find all dates within X weeks of the current date\n    overlap_dates = df.loc[(df['date'] > current_date - timedelta(weeks=X)) & (df['date'] < current_date + timedelta(weeks=X)), 'date']\n    \n    # If there are overlapping dates, mark the current row as False (to be removed)\n    if not overlap_dates.empty:\n        mask[i] = False\n\n# Apply the mask to keep only non-overlapping rows\nresult = df[mask]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.672305917018093,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['date'] = pd.to_datetime(df['date'])\n\n# Sort the dataframe by date to ensure we process rows in order\ndf = df.sort_values('date').reset_index(drop=True)\n\n# Create a boolean mask to identify rows that are not overlapping with any other row\nmask = pd.Series([True] * len(df))\n\nfor i in range(len(df)):\n    # Get the current date\n    current_date = df.loc[i, 'date']\n    \n    # Find all dates within X weeks of the current date\n    overlap_dates = df.loc[(df['date'] > current_date - timedelta(weeks=",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpfjk8s3rw.py:11: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  df[\"date\"] = pd.to_datetime(df[\"date\"])\n<strin",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_75",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nimport numpy as np\nfrom datetime import datetime, timedelta\n\n# Convert 'date' column to datetime format\ndf['date'] = pd.to_datetime(df['date'], format='%m/%d/%y')\n\n# Sort the dataframe by date to process in order\ndf = df.sort_values('date').reset_index(drop=True)\n\n# Initialize a list to keep track of indices to keep\nkeep_indices = []\n\n# Iterate through each row\nfor i, row in df.iterrows():\n    # Check if this row's date is more than X weeks apart from all previously kept rows\n    if all((row['date'] - df.loc[keep_index, 'date']).days > X * 7 for keep_index in keep_indices):\n        keep_indices.append(i)\n\n# Keep only the rows with indices in keep_indices\nresult = df.loc[keep_indices].reset_index(drop=True)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.717738082981668,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['date'] = pd.to_datetime(df['date'], format='%m/%d/%y')\n\n# Sort the dataframe by date to process in order\ndf = df.sort_values('date').reset_index(drop=True)\n\n# Initialize a list to keep track of indices to keep\nkeep_indices = []\n\n# Iterate through each row\nfor i, row in df.iterrows():\n    # Check if this row's date is more than X weeks apart from all previously kept rows\n    if all((row['date'] - df.loc[keep_index, 'date']).days > X * 7 for keep_index in keep_indices):\n        keep_indices.ap",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpemhoy4r3.py:10: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.\n  df[\"date\"] = pd.to_datetime(df[\"date\"])\nTraceb",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_76",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Bin the 'col1' column by grouping every 3 rows\nresult = df['col1'].rolling(window=3).mean()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.032760875008535,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df['col1'].rolling(window=3).mean()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp4je7forp.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp4je7forp.py\", line 49, in <module>\n    test_execution(\"result = df['col1'].rolling(window=3).mean",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_77",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Bin the dataframe for every 3 rows\nresult = df.groupby(df.index // 3).sum()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.4832896669977345,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.groupby(df.index // 3).sum()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2e1wd_1x.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp2e1wd_1x.py\", line 49, in <module>\n    test_execution('result = df.groupby(df.index // 3).sum()')",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_78",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Create a new DataFrame with the desired values\nresult = pd.DataFrame()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.2383447080501355,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = pd.DataFrame()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpnxunmcyn.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpnxunmcyn.py\", line 49, in <module>\n    test_execution('result = pd.DataFrame()')\n  File \"/var/fol",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_79",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport numpy as np\n\n# Create bins for every 3 rows from back to front\nbins = np.arange(0, len(df), 3)\n\n# Create a new column with the binned values\ndf['col1'] = pd.cut(df['col1'], bins=bins, labels=False)\n\n# Convert the binned values to the desired format\ndf['col1'] = df['col1'].apply(lambda x: np.mean(df['col1'][x*3:(x+1)*3]))\n\nresult = df['col1'].tolist()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.173536832968239,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "bins = np.arange(0, len(df), 3)\n\n# Create a new column with the binned values\ndf['col1'] = pd.cut(df['col1'], bins=bins, labels=False)\n\n# Convert the binned values to the desired format\ndf['col1'] = df['col1'].apply(lambda x: np.mean(df['col1'][x*3:(x+1)*3]))\n\nresult = df['col1'].tolist()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgrmec6k8.py\", line 51, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpgrmec6k8.py\", line 49, in <module>\n    test_execution(\"bins = np.arange(0, len(df), 3)\\n\\n# Creat",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_80",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Define the window sizes\nwindow_sizes = [3, 2, 3, 2]\n\n# Initialize the result DataFrame\nresult = pd.DataFrame(columns=['col1'])\n\n# Process the data in chunks based on the window sizes\ncurrent_index = 0\nwhile current_index < len(df):\n    # Get the current window size\n    window_size = window_sizes[current_index % len(window_sizes)]\n    \n    # Extract the current window\n    window = df.iloc[current_index:current_index + window_size]\n    \n    # Compute the aggregate (sum or average)\n    if window_size % 2 == 1:  # Odd window size, compute sum\n        aggregate = window['col1'].sum()\n    else:  # Even window size, compute average\n        aggregate = window['col1'].mean()\n    \n    # Add the aggregate to the result DataFrame\n    result = result.append(, ignore_index=True)\n    \n    # Move to the next window\n    current_index += window_size\n\n# Ensure the result has the same length as the original DataFrame\nresult = result.reindex(range(len(df)), fill_value=0)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.58924937498523,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "window_sizes = [3, 2, 3, 2]\n\n# Initialize the result DataFrame\nresult = pd.DataFrame(columns=['col1'])\n\n# Process the data in chunks based on the window sizes\ncurrent_index = 0\nwhile current_index < len(df):\n    # Get the current window size\n    window_size = window_sizes[current_index % len(window_sizes)]\n    \n    # Extract the current window\n    window = df.iloc[current_index:current_index + window_size]\n    \n    # Compute the aggregate (sum or average)\n    if window_size % 2 == 1:  # Odd wind",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp4gf82g2m.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp4gf82g2m.py\", line 60, in <module>\n    test_execution(\"window_sizes = [3, 2, 3, 2]\\n\\n# Initializ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_81",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Define the window sizes\nwindow_sizes = [3, 2, 3, 2]\n\n# Initialize the result DataFrame\nresult = pd.DataFrame(columns=['col1'])\n\n# Process the data\nfor i in range(0, len(df), 3):\n    # Get the current window\n    window = df.iloc[i:i+3]\n    \n    # Calculate the sum for the first 3 rows\n    if len(window) == 3:\n        sum_val = window['col1'].sum()\n        result = result.append(, ignore_index=True)\n\n# Ensure the result has the same length as the original DataFrame\nresult = result.reindex(range(len(df)), fill_value=0)\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.934012791025452,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "window_sizes = [3, 2, 3, 2]\n\n# Initialize the result DataFrame\nresult = pd.DataFrame(columns=['col1'])\n\n# Process the data\nfor i in range(0, len(df), 3):\n    # Get the current window\n    window = df.iloc[i:i+3]\n    \n    # Calculate the sum for the first 3 rows\n    if len(window) == 3:\n        sum_val = window['col1'].sum()\n        result = result.append(, ignore_index=True)\n\n# Ensure the result has the same length as the original DataFrame\nresult = result.reindex(range(len(df)), fill_value=0)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp3p13zz5z.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp3p13zz5z.py\", line 60, in <module>\n    test_execution(\"window_sizes = [3, 2, 3, 2]\\n\\n# Initializ",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_82",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Fill zeros with previous non-zero value\ndf['A'] = df['A'].replace(0, method='ffill')\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.6614872079808265,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['A'] = df['A'].replace(0, method='ffill')\n\nresult = df",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpchk9xgyx.py:9: FutureWarning: The 'method' keyword in Series.replace is deprecated and will be removed in a future version.\n  df[\"A\"].replace(to_replace=0, method=\"ffill\", inplace=True)\n/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpchk9xgyx.p",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_83",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Fill zeros with the posterior non-zero value\ndf['A'] = df['A'].replace(0, method='ffill')\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.610892832977697,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['A'] = df['A'].replace(0, method='ffill')\n\nresult = df",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpngv5tuxw.py:9: FutureWarning: The 'method' keyword in Series.replace is deprecated and will be removed in a future version.\n  df[\"A\"].replace(to_replace=0, method=\"bfill\", inplace=True)\n/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpngv5tuxw.p",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_84",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Fill zeros with the maximum of previous and next non-zero values\ndf['A'] = df['A'].replace(0, pd.NA)\ndf['A'] = df['A'].fillna(method='ffill')  # Forward fill to replace zeros with previous non-zero value\ndf['A'] = df['A'].fillna(method='bfill')  # Backward fill to replace remaining zeros with next non-zero value\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.187313083035406,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['A'] = df['A'].replace(0, pd.NA)\ndf['A'] = df['A'].fillna(method='ffill')  # Forward fill to replace zeros with previous non-zero value\ndf['A'] = df['A'].fillna(method='bfill')  # Backward fill to replace remaining zeros with next non-zero value\n\nresult = df",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppmjysibe.py:9: FutureWarning: The 'method' keyword in Series.replace is deprecated and will be removed in a future version.\n  l = df[\"A\"].replace(to_replace=0, method=\"ffill\")\n/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppmjysibe.py:10: Futu",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_85",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport re\n\n# Extract number and time from 'duration' column\ndf['number'] = df['duration'].str.extract(r'(\\d+)', expand=False)\ndf['time'] = df['duration'].str.extract(r'(\\w+)', expand=False)\n\n# Define a mapping for time to days\ntime_to_days = \n\n# Map time to days using the mapping\ndf['time_days'] = df['time'].map(time_to_days)\n\n# Convert 'number' to integer\ndf['number'] = df['number'].astype(int)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.413260166998953,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['number'] = df['duration'].str.extract(r'(\\d+)', expand=False)\ndf['time'] = df['duration'].str.extract(r'(\\w+)', expand=False)\n\n# Define a mapping for time to days\ntime_to_days = \n\n# Map time to days using the mapping\ndf['time_days'] = df['time'].map(time_to_days)\n\n# Convert 'number' to integer\ndf['number'] = df['number'].astype(int)\n\nresult = df",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1won13q1.py:10: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_op",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_86",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport re\n\n# Extract 'time' and 'number' from the 'duration' column\ndf['time'] = df['duration'].str.extract(r'(\\w+)', expand=False)\ndf['number'] = df['duration'].str.extract(r'(\\d+)', expand=False)\n\n# Map 'time' to 'time_day' based on the value\ndf['time_day'] = df['time'].map()\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.133287250006106,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['time'] = df['duration'].str.extract(r'(\\w+)', expand=False)\ndf['number'] = df['duration'].str.extract(r'(\\d+)', expand=False)\n\n# Map 'time' to 'time_day' based on the value\ndf['time_day'] = df['time'].map()\n\nresult = df",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjjescdnj.py:12: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_op",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_87",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport re\n\ndef f(df):\n    # Extract numbers and time units\n    df['number'] = df['duration'].str.extract(r'(\\d+)', expand=False)\n    df['time'] = df['duration'].str.extract(r'(\\w+)', expand=False)\n    \n    # Define a mapping for time units to days\n    time_to_days = \n    \n    # Create time_days column by mapping time units to days\n    df['time_days'] = df['time'].map(time_to_days)\n    \n    # Convert 'number' to integer\n    df['number'] = df['number'].astype(int)\n    \n    # Store the result in the variable 'result'\n    result = df\n    return result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.767471792001743,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Extract numbers and time units\n    df['number'] = df['duration'].str.extract(r'(\\d+)', expand=False)\n    df['time'] = df['duration'].str.extract(r'(\\w+)', expand=False)\n    \n    # Define a mapping for time units to days\n    time_to_days = \n    \n    # Create time_days column by mapping time units to days\n    df['time_days'] = df['time'].map(time_to_days)\n    \n    # Convert 'number' to integer\n    df['number'] = df['number'].astype(int)\n    \n    # Store the result in the variable 'result'\n  ",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp8y4e6xb5.py:10: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_op",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_88",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport re\n\n# Extract 'time' and 'number' from the 'duration' column\ndf['time'] = df['duration'].str.extract(r'(\\w+)', expand=False)\ndf['number'] = df['duration'].str.extract(r'(\\d+)', expand=False).astype(int)\n\n# Create 'time_day' column based on the 'time' column\ndf['time_day'] = df.apply(lambda row: .get(row['time'], 0) * row['number'], axis=1)\n\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.11317337496439,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['time'] = df['duration'].str.extract(r'(\\w+)', expand=False)\ndf['number'] = df['duration'].str.extract(r'(\\d+)', expand=False).astype(int)\n\n# Create 'time_day' column based on the 'time' column\ndf['time_day'] = df.apply(lambda row: .get(row['time'], 0) * row['number'], axis=1)\n\nresult = df",
+        "test_stderr": "/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpu0_vx1hw.py:13: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_op",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_89",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "```python\nimport numpy as np\n\n# Create a boolean mask for each column to check if values are equal between df1 and df2\ncolumn_masks = [df1[column] != df2[column] for column in columns_check_list]\n\n# Use np.any to check if any of the masks are True (i.e., values are not equal)\n# This will give a boolean array indicating which rows have differences\ndifferences = np.any(column_masks, axis=0)\n\n# Convert the boolean array to a list of booleans\nresult = differences.tolist()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.942142541985959,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "column_masks = [df1[column] != df2[column] for column in columns_check_list]\n\n# Use np.any to check if any of the masks are True (i.e., values are not equal)\n# This will give a boolean array indicating which rows have differences\ndifferences = np.any(column_masks, axis=0)\n\n# Convert the boolean array to a list of booleans\nresult = differences.tolist()",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_90",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport numpy as np\n\n# Create a boolean array indicating if values are equal across the specified columns\nequal_values = np.all(df1[columns_check_list] == df2[columns_check_list], axis=1)\n\n# Create a boolean array indicating if all values are equal for each row\nall_equal = np.all(equal_values, axis=0)\n\n# Create a list of booleans indicating if all values are equal for each row\nresult = all_equal.tolist()\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.767865624977276,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "equal_values = np.all(df1[columns_check_list] == df2[columns_check_list], axis=1)\n\n# Create a boolean array indicating if all values are equal for each row\nall_equal = np.all(equal_values, axis=0)\n\n# Create a list of booleans indicating if all values are equal for each row\nresult = all_equal.tolist()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmps62g1b5g.py\", line 73, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmps62g1b5g.py\", line 71, in <module>\n    test_execution('equal_values = np.all(df1[columns_check_li",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_91",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Convert the date level of the MultiIndex to datetime\ndf.index = df.index.set_levels([df.index.levels[0], pd.to_datetime(df.index.levels[1])], level=1)\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.48063883400755,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df.index = df.index.set_levels([df.index.levels[0], pd.to_datetime(df.index.levels[1])], level=1)\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmponjhn8ni.py\", line 57, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmponjhn8ni.py\", line 55, in <module>\n    test_execution('df.index = df.index.set_levels([df.index.l",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_92",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Convert the datetime level of the MultiIndex to datetime type\ndf.index = df.index.set_levels([df.index.levels[0], pd.to_datetime(df.index.levels[1])], level=1)\nresult = df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.9166706670075655,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df.index = df.index.set_levels([df.index.levels[0], pd.to_datetime(df.index.levels[1])], level=1)\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmph0lvrhc_.py\", line 57, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmph0lvrhc_.py\", line 55, in <module>\n    test_execution('df.index = df.index.set_levels([df.index.l",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_93",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\nimport numpy as np\n\ndef f(df):\n    # Parse the date strings into datetime objects\n    date_strings = df.index.get_level_values(1)\n    dates = pd.to_datetime(date_strings).astype('datetime64[ns]')\n    \n    # Extract x and y values\n    x = df['x'].values\n    y = df['y'].values\n    \n    # Create a numpy array with the desired output\n    result = np.column_stack((dates, x, y))\n    \n    return result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.7686672089621425,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Parse the date strings into datetime objects\n    date_strings = df.index.get_level_values(1)\n    dates = pd.to_datetime(date_strings).astype('datetime64[ns]')\n    \n    # Extract x and y values\n    x = df['x'].values\n    y = df['y'].values\n    \n    # Create a numpy array with the desired output\n    result = np.column_stack((dates, x, y))\n    \n    return result",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp25hcx7dc.py\", line 60, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp25hcx7dc.py\", line 58, in <module>\n    test_execution(\"    # Parse the date strings into datetime",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_94",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\ndef f(df):\n    # Parse the date index using pd.to_datetime\n    df.index = pd.to_datetime(df.index)\n    \n    # Swap the two levels of the multi-index\n    df = df.swaplevel(i=0)\n    \n    # Sort the index to ensure the dates are in order\n    df = df.sort_index()\n    \n    # Return the modified DataFrame\n    return df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.6927443749736995,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Parse the date index using pd.to_datetime\n    df.index = pd.to_datetime(df.index)\n    \n    # Swap the two levels of the multi-index\n    df = df.swaplevel(i=0)\n    \n    # Sort the index to ensure the dates are in order\n    df = df.sort_index()\n    \n    # Return the modified DataFrame\n    return df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpymdbvr_x.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpymdbvr_x.py\", line 65, in <module>\n    test_execution('    # Parse the date index using pd.to_dat",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_95",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Reshape the DataFrame from wide to long format\ndf = pd.melt(df, id_vars='Country', value_name='Value', var_name='Year')\n# Rename columns to match the desired output\ndf = df.rename(columns=)\n# Filter to keep only var1 and var2\ndf = df[df['Variable'].isin(['var1', 'var2'])]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.5021172919659875,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.melt(df, id_vars='Country', value_name='Value', var_name='Year')\n# Rename columns to match the desired output\ndf = df.rename(columns=)\n# Filter to keep only var1 and var2\ndf = df[df['Variable'].isin(['var1', 'var2'])]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzgcqrt39.py\", line 67, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpzgcqrt39.py\", line 65, in <module>\n    test_execution(\"df = pd.melt(df, id_vars='Country', value_",
+        "score_reason": "no_result_assigned"
+      }
+    },
+    {
+      "problem_id": "Pandas_96",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Reshape the dataframe to long format\ndf_long = pd.melt(df, id_vars='Country', value_vars=['2000', '2001', '2002', '2003', '2004', '2005'], var_name='year', value_name='Value')\n\n# Sort by year in descending order\ndf_long = df_long.sort_values(by='year', ascending=False)\n\n# Rename 'Value' to 'var1' and 'var2' as per the problem statement\ndf_long = df_long.rename(columns=)\n\n# Select the required columns\nresult = df_long[['Country', 'Variable', 'year', 'var1']]\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.083136249973904,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df_long = pd.melt(df, id_vars='Country', value_vars=['2000', '2001', '2002', '2003', '2004', '2005'], var_name='year', value_name='Value')\n\n# Sort by year in descending order\ndf_long = df_long.sort_values(by='year', ascending=False)\n\n# Rename 'Value' to 'var1' and 'var2' as per the problem statement\ndf_long = df_long.rename(columns=)\n\n# Select the required columns\nresult = df_long[['Country', 'Variable', 'year', 'var1']]",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpaz9gd4_n.py\", line 82, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpaz9gd4_n.py\", line 80, in <module>\n    test_execution(\"df_long = pd.melt(df, id_vars='Country', v",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_97",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Filter rows where the absolute value of all columns starting with 'Value' is less than 1\nvalue_columns = [col for col in df.columns if col.startswith('Value')]\ndf_filtered = df[value_columns].abs() < 1\ndf_result = df[df_filtered.all(axis=1)]\n\nresult = df_result\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.7676340420148335,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "value_columns = [col for col in df.columns if col.startswith('Value')]\ndf_filtered = df[value_columns].abs() < 1\ndf_result = df[df_filtered.all(axis=1)]\n\nresult = df_result",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpohboqv52.py\", line 71, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpohboqv52.py\", line 69, in <module>\n    test_execution(\"value_columns = [col for col in df.columns",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_98",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\n# Identify columns starting with 'Value'\nvalue_columns = [col for col in df.columns if col.startswith('Value')]\n\n# Filter rows where the absolute value of any 'Value' column is greater than 1\nfiltered_df = df[df[value_columns].abs().gt(1).any(axis=1)]\n\n# Store the result in the specified variable\nresult = filtered_df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.334587834018748,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "value_columns = [col for col in df.columns if col.startswith('Value')]\n\n# Filter rows where the absolute value of any 'Value' column is greater than 1\nfiltered_df = df[df[value_columns].abs().gt(1).any(axis=1)]\n\n# Store the result in the specified variable\nresult = filtered_df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6ecwnsx7.py\", line 71, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6ecwnsx7.py\", line 69, in <module>\n    test_execution(\"value_columns = [col for col in df.columns",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_99",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "```python\nimport pandas as pd\n\n# Identify columns that start with 'Value'\nvalue_columns = [col for col in df.columns if col.startswith('Value')]\n\n# Filter rows where the absolute value of any 'Value' column is more than 1\nfiltered_df = df[(df[value_columns].abs() <= 1).any(axis=1)]\n\n# Remove 'Value_' prefix from column names\nfiltered_df.columns = [col.replace('Value_', '') if col.startswith('Value_') else col for col in filtered_df.columns]\n\nresult = filtered_df\n```",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.269125541031826,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "value_columns = [col for col in df.columns if col.startswith('Value')]\n\n# Filter rows where the absolute value of any 'Value' column is more than 1\nfiltered_df = df[(df[value_columns].abs() <= 1).any(axis=1)]\n\n# Remove 'Value_' prefix from column names\nfiltered_df.columns = [col.replace('Value_', '') if col.startswith('Value_') else col for col in filtered_df.columns]\n\nresult = filtered_df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpme4iafto.py\", line 75, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpme4iafto.py\", line 73, in <module>\n    test_execution(\"value_columns = [col for col in df.columns",
+        "score_reason": "logic_error"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.21,
+    "fail_logic_error": 78,
+    "fail_no_result_assigned": 1
+  }
+}

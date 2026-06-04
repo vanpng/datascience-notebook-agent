@@ -1,0 +1,74 @@
+{
+  "benchmark": "ds1000",
+  "total": 5,
+  "passed": 0,
+  "failed": 0,
+  "errors": 5,
+  "pass_rate": 0.0,
+  "mean_latency_s": 25.979692349990366,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "",
+      "agent_error": "All debug attempts exhausted. Last error:\n",
+      "debug_attempts": 3,
+      "latency_s": 17.409909833048005,
+      "metadata": {}
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "",
+      "agent_error": "All debug attempts exhausted. Last error:\n",
+      "debug_attempts": 3,
+      "latency_s": 25.6065454169875,
+      "metadata": {}
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "",
+      "agent_error": "All debug attempts exhausted. Last error:\n",
+      "debug_attempts": 3,
+      "latency_s": 28.071825124963652,
+      "metadata": {}
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "",
+      "agent_error": "All debug attempts exhausted. Last error:\n",
+      "debug_attempts": 3,
+      "latency_s": 32.41340391599806,
+      "metadata": {}
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpaovqyuyh.py\", line 7\n    _sys.stdout = _sys.__stdout__\n    ^\nIndentationError: expected an indented block after function definition on line 6\n",
+      "agent_error": "All debug attempts exhausted. Last error:\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpaovqyuyh.py\", line 7\n    _sys.stdout = _sys.__stdout__\n    ^\nIndentationError: expected an indented block after function definition on line 6\n",
+      "debug_attempts": 3,
+      "latency_s": 26.396777458954602,
+      "metadata": {}
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_unknown": 0.0
+  }
+}

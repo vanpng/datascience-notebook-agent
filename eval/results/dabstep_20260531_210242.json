@@ -1,0 +1,58 @@
+{
+  "benchmark": "dabstep",
+  "total": 3,
+  "passed": 1,
+  "failed": 2,
+  "errors": 0,
+  "pass_rate": 0.3333333333333333,
+  "mean_latency_s": 30.26160023600096,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Count occurrences of each issuing country\ncountry_counts = payments['issuing_country'].value_counts()\n\n# Find the country with the highest count\nmost_common_country = country_counts.idxmax()\n\n# Print the country code\nprint(most_common_country)",
+      "stdout": "NL\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.692212124995422,
+      "metadata": {
+        "score_reason": "numeric_match"
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Filter payments where 'has_fraudulent_dispute' is True\nfraudulent_ip_countries = payments[payments['has_fraudulent_dispute']].groupby('ip_country').size().reset_index(name='count')\n\n# Find the top country from the given options (NL, BE, ES, FR)\ntop_country = fraudulent_ip_countries[fraudulent_ip_countries['ip_country'].isin(['NL', 'BE', 'ES', 'FR'])].sort_values('count', ascending=False).iloc[0]['ip_country']\n\n# Print the result in the format 'X. Y'\nprint(f'{top_country}')",
+      "stdout": "NL\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 37.46934287500335,
+      "metadata": {
+        "score_reason": "mismatch",
+        "predicted": "NL",
+        "expected": "B. BE"
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Load data\npayments = pd.read_csv(r'/tmp/dabstep_data/payments.csv')\nwith open(r'/tmp/dabstep_data/fees.json') as _f:\n    fees = json.load(_f)\nwith open(r'/tmp/dabstep_data/merchant_data.json') as _f:\n    merchant_data = json.load(_f)\nacquirer_countries = pd.read_csv(r'/tmp/dabstep_data/acquirer_countries.csv')\nmerchant_category_codes = pd.read_csv(r'/tmp/dabstep_data/merchant_category_codes.csv')\n\n# Find merchant_category_code for Martinis_Fine_Steakhouse\nmerchant_category_code = None\nfor merchant in merchant_data:\n    if merchant['merchant'] == 'Martinis_Fine_Steakhouse':\n        merchant_category_code = merchant['merchant_category_code']\n        break\n\n# Check fees for high-fraud level\nhigh_fraud_level = False\nif merchant_category_code:\n    for fee in fees:\n        if fee['merchant_category_code'] == merchant_category_code and fee['monthly_fraud_level'] > 0.8:\n            high_fraud_level = True\n            break\n\n# Determine result\nresult = 'yes' if high_fraud_level else 'no'\nprint(f\"The merchant 'Martinis_Fine_Steakhouse' is in danger of getting a high-fraud rate fine: {result}\")",
+      "stdout": "The merchant 'Martinis_Fine_Steakhouse' is in danger of getting a high-fraud rate fine: no\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 38.623245708004106,
+      "metadata": {
+        "score_reason": "mismatch",
+        "predicted": "The merchant 'Martinis_Fine_Steakhouse' is in danger of getting a high-fraud rate fine: no",
+        "expected": "Not Applicable"
+      }
+    }
+  ],
+  "extra_metrics": {}
+}

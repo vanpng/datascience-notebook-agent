@@ -1,0 +1,66 @@
+{
+  "benchmark": "dabstep",
+  "total": 3,
+  "passed": 0,
+  "failed": 3,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "mean_latency_s": 24.55860594434974,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Load data\npayments = pd.read_csv(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/payments.csv')\nwith open(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/fees.json') as _f:\n    fees = json.load(_f)\nwith open(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/merchant_data.json') as _f:\n    merchant_data = json.load(_f)\nacquirer_countries = pd.read_csv(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/acquirer_countries.csv')\nmerchant_category_codes = pd.read_csv(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/merchant_category_codes.csv')\n\n# Display basic information about the data\nprint(\"Payments DataFrame:\")\nprint(payments.head())\nprint(\"\\nAcquirer Countries DataFrame:\")\nprint(acquirer_countries.head())\nprint(\"\\nMerchant Category Codes DataFrame:\")\nprint(merchant_category_codes.head())\nprint(\"\\nFees Data:\")\nprint(fees[:5])\nprint(\"\\nMerchant Data:\")\nprint(merchant_data[:5])",
+      "stdout": "Payments DataFrame:\n   psp_reference               merchant  ... aci  acquirer_country\n0    20034594130         Crossfit_Hanna  ...   F                NL\n1    36926127356         Crossfit_Hanna  ...   F                NL\n2    31114608278  Belles_cookbook_store  ...   F                US\n3    68442235288         Crossfit_Hanna  ...   D                NL\n4    81404384199         Crossfit_Hanna  ...   F                NL\n\n[5 rows x 21 columns]\n\nAcquirer Countries DataFrame:\n   Unnamed: 0                   acquirer country_code\n0           0                  gringotts           GB\n1           1  the_savings_and_loan_bank           US\n2           2        bank_of_springfield           US\n3           3            dagoberts_vault           NL\n4           4      dagoberts_geldpakhuis           NL\n\nMerchant Category Codes DataFrame:\n   Unnamed: 0   mcc                                        description\n0           0  1520   General Contractors - Residential and Commercial\n1           1  1711  Heating, Plumbing, and Air Conditioning Contra...\n2           2  1731                             Electrical Contractors\n3           3  1740  Masonry, Stonework, Tile-Setting, Plastering, ...\n4           4  1750                              Carpentry Contractors\n\nFees Data:\n[{'ID': 1, 'card_scheme': 'TransactPlus', 'account_type': [], 'capture_delay': None, 'monthly_fraud_level': None, 'monthly_volume': None, 'merchant_category_code': [8000, 8011, 8021, 8031, 8041, 7299, 9399, 8742], 'is_credit': False, 'aci': ['C', 'B'], 'fixed_amount': 0.1, 'rate': 19, 'intracountry': None}, {'ID': 2, 'card_scheme': 'GlobalCard', 'account_type': [], 'capture_delay': None, 'monthly_fraud_level': '>8.3%', 'monthly_volume': None, 'merchant_category_code': [3000, 3001, 3002, 3003, 7011, 7032, 7512, 7513], 'is_credit': None, 'aci': ['B'], 'fixed_amount': 0.13, 'rate': 86, 'intracountry': 0.0}, {'ID': 3, 'card_scheme': 'TransactPlus', 'account_type': [], 'capture_delay': '>5', 'monthly_fraud_level': None, 'monthly_volume': None, 'merchant_category_code': [4111, 4121, 4131, 4411, 4511, 4789, 7513, 7523], 'is_credit': True, 'aci': ['C', 'A'], 'fixed_amount': 0.09, 'rate': 16, 'intracountry': 0.0}, {'ID': 4, 'card_scheme': 'NexPay', 'account_type': [], 'capture_delay': None, 'monthly_fraud_level': None, 'monthly_volume': None, 'merchant_category_code': [8062, 8011, 8021, 7231, 7298, 7991, 8049], 'is_credit': None, 'aci': ['C', 'A'], 'fixed_amount': 0.11, 'rate': 25, 'intracountry': 1.0}, {'ID': 5, 'card_scheme': 'GlobalCard', 'account_type': [], 'capture_delay': '<3', 'monthly_fraud_level': None, 'monthly_volume': '>5m', 'merchant_category_code': [5411, 5412, 5499, 5912, 5812, 5813, 5911, 5983], 'is_credit': False, 'aci': [], 'fixed_amount': 0.13, 'rate': 69, 'intracountry': None}]\n\nMerchant Data:\n[{'merchant': 'Crossfit_Hanna', 'capture_delay': 'manual', 'acquirer': ['gringotts', 'the_savings_and_loan_bank', 'bank_of_springfield', 'dagoberts_vault'], 'merchant_category_code': 7997, 'account_type': 'F'}, {'merchant': 'Martinis_Fine_Steakhouse', 'capture_delay': 'immediate', 'acquirer': ['dagoberts_geldpakhuis', 'bank_of_springfield'], 'merchant_category_code': 5812, 'account_type': 'H'}, {'merchant': 'Belles_cookbook_store', 'capture_delay': '1', 'acquirer': ['lehman_brothers'], 'merchant_category_code': 5942, 'account_type': 'R'}, {'merchant': 'Golfclub_Baron_Friso', 'capture_delay': '2', 'acquirer': ['medici'], 'merchant_category_code': 7993, 'account_type': 'F'}, {'merchant': 'Rafa_AI', 'capture_delay': '7', 'acquirer': ['tellsons_bank'], 'merchant_category_code': 7372, 'account_type': 'D'}]\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 27.26347920804983,
+      "metadata": {
+        "level": "easy",
+        "predicted": "[{'merchant': 'Crossfit_Hanna', 'capture_delay': 'manual', 'acquirer': ['gringotts', 'the_savings_and_loan_bank', 'bank_of_springfield', 'dagoberts_vault'], 'merchant_category_code': 7997, 'account_ty",
+        "score_reason": "mismatch",
+        "expected": "NL"
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Load data\npayments = pd.read_csv(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/payments.csv')\nwith open(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/fees.json') as _f:\n    fees = json.load(_f)\nwith open(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/merchant_data.json') as _f:\n    merchant_data = json.load(_f)\nacquirer_countries = pd.read_csv(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/acquirer_countries.csv')\nmerchant_category_codes = pd.read_csv(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/merchant_category_codes.csv')\n\n# Display basic information about the data\nprint(\"Payments DataFrame:\")\nprint(payments.head())\nprint(\"\\nAcquirer Countries DataFrame:\")\nprint(acquirer_countries.head())\nprint(\"\\nMerchant Category Codes DataFrame:\")\nprint(merchant_category_codes.head())\nprint(\"\\nFees Data:\")\nprint(fees[:5])\nprint(\"\\nMerchant Data:\")\nprint(merchant_data[:5])",
+      "stdout": "Payments DataFrame:\n   psp_reference               merchant  ... aci  acquirer_country\n0    20034594130         Crossfit_Hanna  ...   F                NL\n1    36926127356         Crossfit_Hanna  ...   F                NL\n2    31114608278  Belles_cookbook_store  ...   F                US\n3    68442235288         Crossfit_Hanna  ...   D                NL\n4    81404384199         Crossfit_Hanna  ...   F                NL\n\n[5 rows x 21 columns]\n\nAcquirer Countries DataFrame:\n   Unnamed: 0                   acquirer country_code\n0           0                  gringotts           GB\n1           1  the_savings_and_loan_bank           US\n2           2        bank_of_springfield           US\n3           3            dagoberts_vault           NL\n4           4      dagoberts_geldpakhuis           NL\n\nMerchant Category Codes DataFrame:\n   Unnamed: 0   mcc                                        description\n0           0  1520   General Contractors - Residential and Commercial\n1           1  1711  Heating, Plumbing, and Air Conditioning Contra...\n2           2  1731                             Electrical Contractors\n3           3  1740  Masonry, Stonework, Tile-Setting, Plastering, ...\n4           4  1750                              Carpentry Contractors\n\nFees Data:\n[{'ID': 1, 'card_scheme': 'TransactPlus', 'account_type': [], 'capture_delay': None, 'monthly_fraud_level': None, 'monthly_volume': None, 'merchant_category_code': [8000, 8011, 8021, 8031, 8041, 7299, 9399, 8742], 'is_credit': False, 'aci': ['C', 'B'], 'fixed_amount': 0.1, 'rate': 19, 'intracountry': None}, {'ID': 2, 'card_scheme': 'GlobalCard', 'account_type': [], 'capture_delay': None, 'monthly_fraud_level': '>8.3%', 'monthly_volume': None, 'merchant_category_code': [3000, 3001, 3002, 3003, 7011, 7032, 7512, 7513], 'is_credit': None, 'aci': ['B'], 'fixed_amount': 0.13, 'rate': 86, 'intracountry': 0.0}, {'ID': 3, 'card_scheme': 'TransactPlus', 'account_type': [], 'capture_delay': '>5', 'monthly_fraud_level': None, 'monthly_volume': None, 'merchant_category_code': [4111, 4121, 4131, 4411, 4511, 4789, 7513, 7523], 'is_credit': True, 'aci': ['C', 'A'], 'fixed_amount': 0.09, 'rate': 16, 'intracountry': 0.0}, {'ID': 4, 'card_scheme': 'NexPay', 'account_type': [], 'capture_delay': None, 'monthly_fraud_level': None, 'monthly_volume': None, 'merchant_category_code': [8062, 8011, 8021, 7231, 7298, 7991, 8049], 'is_credit': None, 'aci': ['C', 'A'], 'fixed_amount': 0.11, 'rate': 25, 'intracountry': 1.0}, {'ID': 5, 'card_scheme': 'GlobalCard', 'account_type': [], 'capture_delay': '<3', 'monthly_fraud_level': None, 'monthly_volume': '>5m', 'merchant_category_code': [5411, 5412, 5499, 5912, 5812, 5813, 5911, 5983], 'is_credit': False, 'aci': [], 'fixed_amount': 0.13, 'rate': 69, 'intracountry': None}]\n\nMerchant Data:\n[{'merchant': 'Crossfit_Hanna', 'capture_delay': 'manual', 'acquirer': ['gringotts', 'the_savings_and_loan_bank', 'bank_of_springfield', 'dagoberts_vault'], 'merchant_category_code': 7997, 'account_type': 'F'}, {'merchant': 'Martinis_Fine_Steakhouse', 'capture_delay': 'immediate', 'acquirer': ['dagoberts_geldpakhuis', 'bank_of_springfield'], 'merchant_category_code': 5812, 'account_type': 'H'}, {'merchant': 'Belles_cookbook_store', 'capture_delay': '1', 'acquirer': ['lehman_brothers'], 'merchant_category_code': 5942, 'account_type': 'R'}, {'merchant': 'Golfclub_Baron_Friso', 'capture_delay': '2', 'acquirer': ['medici'], 'merchant_category_code': 7993, 'account_type': 'F'}, {'merchant': 'Rafa_AI', 'capture_delay': '7', 'acquirer': ['tellsons_bank'], 'merchant_category_code': 7372, 'account_type': 'D'}]\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 23.253530959016643,
+      "metadata": {
+        "level": "easy",
+        "predicted": "[{'merchant': 'Crossfit_Hanna', 'capture_delay': 'manual', 'acquirer': ['gringotts', 'the_savings_and_loan_bank', 'bank_of_springfield', 'dagoberts_vault'], 'merchant_category_code': 7997, 'account_ty",
+        "score_reason": "mismatch",
+        "expected": "B. BE"
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load payments data\npayments = pd.read_csv(r'/Users/vanpham/.cache/huggingface/hub/datasets--adyen--DABStep/snapshots/44e3bb7704a4d9f1a46db5afaa1243269ca76194/data/context/payments.csv')\n\n# Display first few rows of the payments dataframe\nprint(payments.head())",
+      "stdout": "   psp_reference               merchant  ... aci  acquirer_country\n0    20034594130         Crossfit_Hanna  ...   F                NL\n1    36926127356         Crossfit_Hanna  ...   F                NL\n2    31114608278  Belles_cookbook_store  ...   F                US\n3    68442235288         Crossfit_Hanna  ...   D                NL\n4    81404384199         Crossfit_Hanna  ...   F                NL\n\n[5 rows x 21 columns]\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 23.15880766598275,
+      "metadata": {
+        "level": "easy",
+        "predicted": "[5 rows x 21 columns]",
+        "score_reason": "mismatch",
+        "expected": "Not Applicable"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_easy": 0.0,
+    "fail_mismatch": 3
+  }
+}

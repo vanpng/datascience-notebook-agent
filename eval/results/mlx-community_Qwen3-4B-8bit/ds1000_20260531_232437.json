@@ -1,0 +1,352 @@
+{
+  "benchmark": "ds1000",
+  "total": 20,
+  "passed": 5,
+  "failed": 15,
+  "errors": 0,
+  "pass_rate": 0.25,
+  "mean_latency_s": 15.728168718749998,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "result = df.iloc[List]",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.287657334000414,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.iloc[List]",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "result = df.iloc[List].reset_index(drop=True)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 12.502507708999929,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.iloc[List].reset_index(drop=True)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpa92ht_w6.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpa92ht_w6.py\", line 57, in <module>\n    test_execution('result = df.iloc[List].reset_index(drop=True)')\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpa92ht_w6.py\", line 53, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "test_data = pd.DataFrame({'Qu1': ['other', 'potato', 'cheese', 'banana', 'cheese', 'banana', 'cheese', 'potato', 'other'],\n                         'Qu2': ['sausage', 'banana', 'apple', 'apple', 'apple', 'sausage', 'banana', 'banana', 'banana'],\n                         'Qu3': ['other', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\n\nresult = test_data",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 19.72576849999996,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "test_data = pd.DataFrame({'Qu1': ['other', 'potato', 'cheese', 'banana', 'cheese', 'banana', 'cheese', 'potato', 'other'],\n                         'Qu2': ['sausage', 'banana', 'apple', 'apple', 'apple', 'sausage', 'banana', 'banana', 'banana'],\n                         'Qu3': ['other', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\n\nresult = test_data",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpdbf8cjic.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpdbf8cjic.py\", line 121, in <module>\n    test_execution(\"test_data = pd.DataFrame({'Qu1': ['other', 'potato', 'cheese', 'banana', 'cheese', 'banana', 'cheese', 'potato', 'other'],\\n                         'Qu2': ['sausage', 'banana', 'apple', 'apple', 'apple', 'sausage', 'banana', 'banana', 'banana'],\\n                         'Qu3': ['other', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\\n\\nresult = test_data\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpdbf8cjic.py\", line 117, in test_execution\n    assert exec_test(test_env[\"result\"], exp",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Define the test data as per the problem statement\ntest_data = pd.DataFrame({'Qu1': ['other', 'other', 'cheese', 'other', 'cheese', 'other', 'cheese', 'other', 'other'],\n                         'Qu2': ['other', 'banana', 'apple', 'apple', 'apple', 'other', 'banana', 'banana', 'banana'],\n                         'Qu3': ['other', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\n\n# Filter the DataFrame using the List of row indices\ntest_data = test_data.iloc[List]\n\n# Store the result in the result variable\nresult = test_data",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 20.16220408299978,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "test_data = pd.DataFrame({'Qu1': ['other', 'other', 'cheese', 'other', 'cheese', 'other', 'cheese', 'other', 'other'],\n                         'Qu2': ['other', 'banana', 'apple', 'apple', 'apple', 'other', 'banana', 'banana', 'banana'],\n                         'Qu3': ['other', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\n\n# Filter the DataFrame using the List of row indices\ntest_data = test_data.iloc[List]\n\n# Store the result in the result variable\nresult = test_data",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpomzxizq_.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpomzxizq_.py\", line 121, in <module>\n    test_execution(\"test_data = pd.DataFrame({'Qu1': ['other', 'other', 'cheese', 'other', 'cheese', 'other', 'cheese', 'other', 'other'],\\n                         'Qu2': ['other', 'banana', 'apple', 'apple', 'apple', 'other', 'banana', 'banana', 'banana'],\\n                         'Qu3': ['other', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\\n\\n# Filter the DataFrame using the List of row indices\\ntest_data = test_data.iloc[List]\\n\\n# Store the result in the result variable\\nresult = test_data\")\n  File \"/var/folders/",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "def f(df):\n    def replace_others(series):\n        # Count occurrences of each value\n        value_counts = series.value_counts()\n        # Create a mask for values that appear less than twice\n        mask = value_counts < 2\n        # Replace those values with 'others'\n        return series.mask(mask, 'others')\n\n    # Apply the function to each column\n    result = df.apply(replace_others)\n    return result",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 17.145924041999933,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    def replace_others(series):\n        # Count occurrences of each value\n        value_counts = series.value_counts()\n        # Create a mask for values that appear less than twice\n        mask = value_counts < 2\n        # Replace those values with 'others'\n        return series.mask(mask, 'others')\n\n    # Apply the function to each column\n    result = df.apply(replace_others)\n    return result",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmuus8gr0.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmuus8gr0.py\", line 123, in <module>\n    test_execution(\"    def replace_others(series):\\n        # Count occurrences of each value\\n        value_counts = series.value_counts()\\n        # Create a mask for values that appear less than twice\\n        mask = value_counts < 2\\n        # Replace those values with 'others'\\n        return series.mask(mask, 'others')\\n\\n    # Apply the function to each column\\n    result = df.apply(replace_others)\\n    return result\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmuus8gr0.py\", line 119, in test_execution\n    assert exec_test(test_e",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.577566832999764,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_6",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "test_data = pd.DataFrame({'Qu1': ['apple', 'other', 'cheese', 'other', 'cheese', 'other', 'cheese', 'other', 'other'],\n                         'Qu2': ['sausage', 'banana', 'apple', 'apple', 'apple', 'sausage', 'banana', 'banana', 'banana'],\n                         'Qu3': ['apple', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\n\nresult = test_data",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 20.405370791999758,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "test_data = pd.DataFrame({'Qu1': ['apple', 'other', 'cheese', 'other', 'cheese', 'other', 'cheese', 'other', 'other'],\n                         'Qu2': ['sausage', 'banana', 'apple', 'apple', 'apple', 'sausage', 'banana', 'banana', 'banana'],\n                         'Qu3': ['apple', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\n\nresult = test_data",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpqma38yog.py\", line 133, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpqma38yog.py\", line 131, in <module>\n    test_execution(\"test_data = pd.DataFrame({'Qu1': ['apple', 'other', 'cheese', 'other', 'cheese', 'other', 'cheese', 'other', 'other'],\\n                         'Qu2': ['sausage', 'banana', 'apple', 'apple', 'apple', 'sausage', 'banana', 'banana', 'banana'],\\n                         'Qu3': ['apple', 'potato', 'other', 'cheese', 'cheese', 'potato', 'cheese', 'potato', 'other']})\\n\\nresult = test_data\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpqma38yog.py\", line 127, in test_execution\n    assert exec_test(test_env[\"result\"], expecte",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_7",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Create the DataFrame as per the problem description\ndf = pd.DataFrame({'url': ['A.com', 'A.com', 'A.com', 'B.com', 'B.com', 'C.com', 'B.com'],\n                   'keep_if_dup': ['Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes']})\n\n# Keep rows where 'keep_if_dup' is 'Yes'\nkeep_yes = df[df['keep_if_dup'] == 'Yes']\n\n# For rows where 'keep_if_dup' is 'No', keep the first occurrence of each 'url'\nkeep_no = df[df['keep_if_dup'] == 'No'].groupby('url').first().reset_index()\n\n# Combine both DataFrames\nresult = pd.concat([keep_yes, keep_no], ignore_index=True)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 21.744476791000125,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.DataFrame({'url': ['A.com', 'A.com', 'A.com', 'B.com', 'B.com', 'C.com', 'B.com'],\n                   'keep_if_dup': ['Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes']})\n\n# Keep rows where 'keep_if_dup' is 'Yes'\nkeep_yes = df[df['keep_if_dup'] == 'Yes']\n\n# For rows where 'keep_if_dup' is 'No', keep the first occurrence of each 'url'\nkeep_no = df[df['keep_if_dup'] == 'No'].groupby('url').first().reset_index()\n\n# Combine both DataFrames\nresult = pd.concat([keep_yes, keep_no], ignore_index=True)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmppjutxb.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpmppjutxb.py\", line 60, in <module>\n    test_execution(\"df = pd.DataFrame({'url': ['A.com', 'A.com', 'A.com', 'B.com', 'B.com', 'C.com', 'B.com'],\\n                   'keep_if_dup': ['Yes', 'Yes', 'No', 'No', 'No', 'No', 'Yes']})\\n\\n# Keep rows where 'keep_if_dup' is 'Yes'\\nkeep_yes = df[df['keep_if_dup'] == 'Yes']\\n\\n# For rows where 'keep_if_dup' is 'No', keep the first occurrence of each 'url'\\nkeep_no = df[df['keep_if_dup'] == 'No'].groupby('url').first().reset_index()\\n\\n# Combine both DataFrames\\nresult = pd.concat([keep_yes, keep_no], ignore_index=True)\")\n  File \"/var/folders/h8/h8_40",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_8",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Keep first occurrence of 'url' where 'drop_if_dup' is 'Yes'\nfirst_occurrence = df[df['drop_if_dup'] == 'Yes'].groupby('url').first().reset_index()\n\n# Keep all rows where 'drop_if_dup' is 'No'\nno_drop = df[df['drop_if_dup'] == 'No']\n\n# Combine both DataFrames\nresult = pd.concat([first_occurrence, no_drop], ignore_index=True)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 19.728686124999967,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "first_occurrence = df[df['drop_if_dup'] == 'Yes'].groupby('url').first().reset_index()\n\n# Keep all rows where 'drop_if_dup' is 'No'\nno_drop = df[df['drop_if_dup'] == 'No']\n\n# Combine both DataFrames\nresult = pd.concat([first_occurrence, no_drop], ignore_index=True)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeauux3qm.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeauux3qm.py\", line 60, in <module>\n    test_execution(\"first_occurrence = df[df['drop_if_dup'] == 'Yes'].groupby('url').first().reset_index()\\n\\n# Keep all rows where 'drop_if_dup' is 'No'\\nno_drop = df[df['drop_if_dup'] == 'No']\\n\\n# Combine both DataFrames\\nresult = pd.concat([first_occurrence, no_drop], ignore_index=True)\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeauux3qm.py\", line 56, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_9",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Create a sample DataFrame for testing\nimport pandas as pd\n\n# Sample data\ndata = {\n    'url': ['a', 'a', 'b', 'b', 'c', 'c', 'd'],\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes']\n}\n\ndf = pd.DataFrame(data)\n\n# Filter rows where 'keep_if_dup' is 'Yes'\nyes_rows = df[df['keep_if_dup'] == 'Yes']\n\n# Filter rows where 'keep_if_dup' is 'No' and drop duplicates on 'url', keeping the last occurrence\nno_rows = df[df['keep_if_dup'] == 'No'].drop_duplicates(subset='url', keep='last', ignore_index=True)\n\n# Combine the two DataFrames\nresult = yes_rows.append(no_rows).reset_index(drop=True)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 18.149954750000234,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "data = {\n    'url': ['a', 'a', 'b', 'b', 'c', 'c', 'd'],\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes']\n}\n\ndf = pd.DataFrame(data)\n\n# Filter rows where 'keep_if_dup' is 'Yes'\nyes_rows = df[df['keep_if_dup'] == 'Yes']\n\n# Filter rows where 'keep_if_dup' is 'No' and drop duplicates on 'url', keeping the last occurrence\nno_rows = df[df['keep_if_dup'] == 'No'].drop_duplicates(subset='url', keep='last', ignore_index=True)\n\n# Combine the two DataFrames\nresult = yes_rows.append(no_rows).reset_index(drop=True)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpcdyexam1.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpcdyexam1.py\", line 60, in <module>\n    test_execution(\"data = {\\n    'url': ['a', 'a', 'b', 'b', 'c', 'c', 'd'],\\n    'keep_if_dup': ['Yes', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes']\\n}\\n\\ndf = pd.DataFrame(data)\\n\\n# Filter rows where 'keep_if_dup' is 'Yes'\\nyes_rows = df[df['keep_if_dup'] == 'Yes']\\n\\n# Filter rows where 'keep_if_dup' is 'No' and drop duplicates on 'url', keeping the last occurrence\\nno_rows = df[df['keep_if_dup'] == 'No'].drop_duplicates(subset='url', keep='last', ignore_index=True)\\n\\n# Combine the two DataFrames\\nresult = yes_rows.append(no_rows).reset_index(drop=True)\")\n",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_10",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Create a sample DataFrame with the required columns\nimport pandas as pd\n\n# Sample data\ndata = {\n    'name': ['A', 'A', 'B', 'B', 'C', 'C'],\n    'v1': [1, 2, 3, 4, 5, 6],\n    'v2': [10, 20, 30, 40, 50, 60],\n    'v3': [100, 200, 300, 400, 500, 600]\n}\n\ndf = pd.DataFrame(data)\n\n# Re-implement the logic\nresult = df.groupby('name')['v1'].apply(lambda x: df.groupby(x.name)['v2'].apply(lambda y: df.loc[y.index, 'v3'].to_dict())).to_dict()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 18.74885304199961,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "data = {\n    'name': ['A', 'A', 'B', 'B', 'C', 'C'],\n    'v1': [1, 2, 3, 4, 5, 6],\n    'v2': [10, 20, 30, 40, 50, 60],\n    'v3': [100, 200, 300, 400, 500, 600]\n}\n\ndf = pd.DataFrame(data)\n\n# Re-implement the logic\nresult = df.groupby('name')['v1'].apply(lambda x: df.groupby(x.name)['v2'].apply(lambda y: df.loc[y.index, 'v3'].to_dict())).to_dict()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvexgpy50.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvexgpy50.py\", line 60, in <module>\n    test_execution(\"data = {\\n    'name': ['A', 'A', 'B', 'B', 'C', 'C'],\\n    'v1': [1, 2, 3, 4, 5, 6],\\n    'v2': [10, 20, 30, 40, 50, 60],\\n    'v3': [100, 200, 300, 400, 500, 600]\\n}\\n\\ndf = pd.DataFrame(data)\\n\\n# Re-implement the logic\\nresult = df.groupby('name')['v1'].apply(lambda x: df.groupby(x.name)['v2'].apply(lambda y: df.loc[y.index, 'v3'].to_dict())).to_dict()\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvexgpy50.py\", line 55, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 15, in <module>\n  File \"/Users/v",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_11",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "df['datetime'] = df['datetime'].dt.tz_localize(None)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.918729041999995,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['datetime'] = df['datetime'].dt.tz_localize(None)",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_12",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "def f(df):\n    # Convert the datetime column to datetime objects\n    df['datetime'] = pd.to_datetime(df['datetime'])\n    \n    # Remove timezone information\n    df['datetime'] = df['datetime'].dt.tz_localize(None)\n    \n    # Return the modified DataFrame\n    return df",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 8.59039358300015,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "    # Convert the datetime column to datetime objects\n    df['datetime'] = pd.to_datetime(df['datetime'])\n    \n    # Remove timezone information\n    df['datetime'] = df['datetime'].dt.tz_localize(None)\n    \n    # Return the modified DataFrame\n    return df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_13",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "df['datetime'] = df['datetime'].dt.tz_localize(None)\ndf['datetime'] = df['datetime'].dt.strftime('%d-%b-%Y %H:%M:%S')\ndf = df.sort_values(by='datetime')\nresult = df",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.869566167000357,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['datetime'] = df['datetime'].dt.tz_localize(None)\ndf['datetime'] = df['datetime'].dt.strftime('%d-%b-%Y %H:%M:%S')\ndf = df.sort_values(by='datetime')\nresult = df",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_14",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "df['datetime'] = df['datetime'].dt.tz_localize(None).sort_values()\\nresult = df",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.767121040999882,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['datetime'] = df['datetime'].dt.tz_localize(None).sort_values()\\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_cs535i8.py\", line 80, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_cs535i8.py\", line 78, in <module>\n    test_execution(\"df['datetime'] = df['datetime'].dt.tz_localize(None).sort_values()\\\\nresult = df\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_cs535i8.py\", line 66, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 5\n    df['datetime'] = df['datetime'].dt.tz_localize(None).sort_values()\\nresult = df\n                                                                       ^\nSyntaxError: unexpected character after line continuation character",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_15",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Clean the message column by removing brackets and splitting into key-value pairs\ndf['message'] = df['message'].str.replace('\\[', '').str.replace('\\]', '').str.split(', ')\\n\n# Extract values for each key\nkeys = ['job', 'money', 'wife', 'group', 'kids']\nfor key in keys:\n    df[key] = df['message'].str.split(': ').str[1].str.strip()\n\n# Drop the original 'message' column\ndf = df.drop(columns=['message'])\n\n# Reorder columns to match the expected output\ndf = df[[\"name\", \"status\", \"number\", \"job\", \"money\", \"wife\", \"group\", \"kids\"]]\n\n# Store the result in the variable 'result'\nresult = df",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 27.67587579100018,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df['message'] = df['message'].str.replace('\\[', '').str.replace('\\]', '').str.split(', ')\\n\n# Extract values for each key\nkeys = ['job', 'money', 'wife', 'group', 'kids']\nfor key in keys:\n    df[key] = df['message'].str.split(': ').str[1].str.strip()\n\n# Drop the original 'message' column\ndf = df.drop(columns=['message'])\n\n# Reorder columns to match the expected output\ndf = df[[\"name\", \"status\", \"number\", \"job\", \"money\", \"wife\", \"group\", \"kids\"]]\n\n# Store the result in the variable 'result'\nresult = df",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmph_wq65il.py\", line 81, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmph_wq65il.py\", line 79, in <module>\n    test_execution('df[\\'message\\'] = df[\\'message\\'].str.replace(\\'\\\\[\\', \\'\\').str.replace(\\'\\\\]\\', \\'\\').str.split(\\', \\')\\\\n\\n# Extract values for each key\\nkeys = [\\'job\\', \\'money\\', \\'wife\\', \\'group\\', \\'kids\\']\\nfor key in keys:\\n    df[key] = df[\\'message\\'].str.split(\\': \\').str[1].str.strip()\\n\\n# Drop the original \\'message\\' column\\ndf = df.drop(columns=[\\'message\\'])\\n\\n# Reorder columns to match the expected output\\ndf = df[[\"name\", \"status\", \"number\", \"job\", \"money\", \"wife\", \"group\", \"kids\"]]\\n\\n# Store the result in the variable \\'result\\",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_16",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Create a copy of the DataFrame to avoid modifying the original\n df_copy = df.copy()\n\n# Create a mask for the specified products\n mask = df_copy['product'].isin(products)\n\n# Multiply scores for specified products by 10\n df_copy['score'] = df_copy['score'] * mask.astype(int)\n\n# Reset the index to maintain the correct order\n result = df_copy.reset_index(drop=True)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 24.669146625000394,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df_copy = df.copy()\n\n# Create a mask for the specified products\n mask = df_copy['product'].isin(products)\n\n# Multiply scores for specified products by 10\n df_copy['score'] = df_copy['score'] * mask.astype(int)\n\n# Reset the index to maintain the correct order\n result = df_copy.reset_index(drop=True)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_oz454yu.py\", line 110, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_oz454yu.py\", line 108, in <module>\n    test_execution(\"df_copy = df.copy()\\n\\n# Create a mask for the specified products\\n mask = df_copy['product'].isin(products)\\n\\n# Multiply scores for specified products by 10\\n df_copy['score'] = df_copy['score'] * mask.astype(int)\\n\\n# Reset the index to maintain the correct order\\n result = df_copy.reset_index(drop=True)\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp_oz454yu.py\", line 103, in test_execution\n    exec(code, test_env)\n  File \"<string>\", line 8\n    mask = df_copy['product'].isin(products)\nIndentationError: unexpected in",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_17",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 14.077931541999988,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    },
+    {
+      "problem_id": "Pandas_18",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Create a copy of df to avoid modifying the original\nresult = df.copy()\n\n# Create a mask for products\nproduct_list = [item for sublist in products for item in sublist]\nmask = result['product'].isin(product_list)\n\n# Apply the score modification\nresult['score'] = result['score'].where(~mask, result['score'] * 10)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 16.226467707999745,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "result = df.copy()\n\n# Create a mask for products\nproduct_list = [item for sublist in products for item in sublist]\nmask = result['product'].isin(product_list)\n\n# Apply the score modification\nresult['score'] = result['score'].where(~mask, result['score'] * 10)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpraqtp4og.py\", line 115, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpraqtp4og.py\", line 113, in <module>\n    test_execution(\"result = df.copy()\\n\\n# Create a mask for products\\nproduct_list = [item for sublist in products for item in sublist]\\nmask = result['product'].isin(product_list)\\n\\n# Apply the score modification\\nresult['score'] = result['score'].where(~mask, result['score'] * 10)\")\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpraqtp4og.py\", line 109, in test_execution\n    assert exec_test(test_env[\"result\"], expected_result)\nAssertionError",
+        "score_reason": "logic_error"
+      }
+    },
+    {
+      "problem_id": "Pandas_19",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "# Identify the indices of the products in the 'product' column\nproduct_indices = df[df['product'].isin(products)].index\n\n# Extract the minimum and maximum scores for the specified products\nmin_score = df.loc[product_indices, 'score'].min()\nmax_score = df.loc[product_indices, 'score'].max()\n\n# Perform min-max normalization on the 'score' column for the specified products\ndf.loc[product_indices, 'score'] = (df.loc[product_indices, 'score'] - min_score) / (max_score - min_score)\n\ndf",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.589172874999804,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "product_indices = df[df['product'].isin(products)].index\n\n# Extract the minimum and maximum scores for the specified products\nmin_score = df.loc[product_indices, 'score'].min()\nmax_score = df.loc[product_indices, 'score'].max()\n\n# Perform min-max normalization on the 'score' column for the specified products\ndf.loc[product_indices, 'score'] = (df.loc[product_indices, 'score'] - min_score) / (max_score - min_score)\n\ndf",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.25,
+    "fail_logic_error": 13,
+    "fail_no_code": 2
+  }
+}

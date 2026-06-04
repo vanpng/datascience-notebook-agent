@@ -1,0 +1,42 @@
+# ── Secrets / local config ──────────────────────────────────────────────────
+.env
+.env.local
+*.env
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.mypy_cache/
+.ruff_cache/
+
+# ── Virtual environments ────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Caches / scratch (200GB+ — never commit) ────────────────────────────────
+.cache/
+.hf_cache/
+.huggingface/
+dataframe.csv
+
+# ── Model checkpoints / adapters (large; tracked via HF, not git) ───────────
+checkpoints/
+.claude/
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+*.gguf
+
+# ── Logs ────────────────────────────────────────────────────────────────────
+logs/
+*.log
+
+# ── Generated images / artifacts ────────────────────────────────────────────
+output.png
+ans.png

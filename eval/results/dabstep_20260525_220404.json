@@ -1,0 +1,82 @@
+{
+  "benchmark": "dabstep",
+  "total": 5,
+  "passed": 0,
+  "failed": 5,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "mean_latency_s": 4.766225616598968,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# No data is available yet, so no operations can be performed.",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.442266625002958,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport matplotlib.pyplot as plt\n\n# No data is available yet, so no operations can be performed.\n# Please load the data first using pd.read_csv() or similar.",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.194656792038586,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport matplotlib.pyplot as plt\n\n# No data is available yet, so no operations can be performed.\n# Please load the data first using pd.read_csv() or similar functions.\n\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.1356277909944765,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_1273",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport matplotlib.pyplot as plt\n\n# No data is available yet, so no operations can be performed.\n# Please load the data first using pd.read_csv() or similar functions.\n\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.860985499981325,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_1305",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport sklearn\n\n# No data is available to perform the requested analysis.\n# The provided notebook context does not include any dataset.\n# Therefore, no code can be executed to answer the query.",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.197591374977492,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    }
+  ],
+  "extra_metrics": {}
+}

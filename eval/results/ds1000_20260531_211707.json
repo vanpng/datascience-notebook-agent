@@ -1,0 +1,184 @@
+{
+  "benchmark": "ds1000",
+  "total": 10,
+  "passed": 0,
+  "failed": 10,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "mean_latency_s": 18.23936480829725,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Confirm data loading\nprint(df.shape)",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 17.416000750032254,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Confirm data loading\nprint(df.shape)",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbxb8zszw.py\", line 58, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpbxb8zszw.py\", line 56, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Confi",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from a CSV file (example)\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 18.011616334028076,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvuuoqm_8.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvuuoqm_8.py\", line 57, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Displ",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Load the dataset\nimport pandas as pd\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 20.21793354098918,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the dataframe\ndf.head()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkydtta2v.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpkydtta2v.py\", line 121, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Dis",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 19.704374000022653,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppfrm4354.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppfrm4354.py\", line 121, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Dis",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\n df = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm data loading\n print(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 18.265967957966495,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm data loading\n print(df.head())",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1jb9r902.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1jb9r902.py\", line 123, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Dis",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 18.618098750011995,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeqffe11i.py\", line 129, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpeqffe11i.py\", line 127, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Dis",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_6",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load the dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 15.600186499999836,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Display the first few rows to confirm the data has been loaded\nprint(df.head())",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6h6qgor6.py\", line 133, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp6h6qgor6.py\", line 131, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Dis",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_7",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 16.27776304096915,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp04_k2nzx.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp04_k2nzx.py\", line 60, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Displ",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_8",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data from CSV file\ndf = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 16.026033541944344,
+      "metadata": {
+        "lib": "Pandas",
+        "cleaned_code": "df = pd.read_csv('titanic.csv')\n\n# Display the first few rows of the DataFrame\ndf.head()",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpimd99mmn.py\", line 62, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpimd99mmn.py\", line 60, in <module>\n    test_execution(\"df = pd.read_csv('titanic.csv')\\n\\n# Displ",
+        "score_reason": "data_loading_hallucination"
+      }
+    },
+    {
+      "problem_id": "Pandas_9",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 22.255673667008523,
+      "metadata": {
+        "lib": "Pandas",
+        "score_reason": "no_code"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.0,
+    "fail_data_loading_hallucination": 9,
+    "fail_no_code": 1
+  }
+}

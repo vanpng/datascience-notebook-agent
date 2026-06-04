@@ -1,0 +1,82 @@
+{
+  "benchmark": "dabstep",
+  "total": 5,
+  "passed": 0,
+  "failed": 4,
+  "errors": 1,
+  "pass_rate": 0.0,
+  "mean_latency_s": 25.866717691987287,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Group by issuing_country and count the number of transactions per country\ntransaction_counts = payments['issuing_country'].value_counts()\n\n# Find the country with the maximum count\nmost_common_country = transaction_counts.idxmax()\n\nmost_common_country",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 26.60272233298747,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Filter payments where has_fraudulent_dispute is True\nfraudulent_payments = payments[payments['has_fraudulent_dispute'] == True]\n\n# Count the occurrences of each ip_country\nip_country_counts = fraudulent_payments['ip_country'].value_counts()\n\n# Find the top ip_country\ntop_ip_country = ip_country_counts.idxmax()\n\n# Output the result\ntop_ip_country",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.4572679590201,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Load data\npayments = pd.read_csv(r'/tmp/dabstep_data/payments.csv')\nwith open(r'/tmp/dabstep_data/merchant_data.json') as _f:\n    merchant_data = json.load(_f)\n\n# Filter transactions for Martinis_Fine_Steakhouse\nmartinis_transactions = payments[payments['merchant'] == 'Martinis_Fine_Steakhouse']\n\n# Calculate the fraction of transactions refused by Adyen\nfraud_rate = len(martinis_transactions[martinis_transactions['is_refused_by_adyen'] == 1]) / len(martinis_transactions)\n\n# Determine the answer based on the fraud rate\nif fraud_rate > 0.1:\n    answer = 'yes'\nelse:\n    answer = 'no' if len(martinis_transactions) > 0 else 'Not Applicable'\n\nanswer",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 16.780657041992527,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_1273",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "fee_rate = next((fee['ID'] for fee in fees if fee['card_scheme'] == 'GlobalCard'), 0.0)",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 2,
+      "latency_s": 21.047436416964047,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_1305",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'mcc'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppf66725g.py\", line 34, in <module>\n    fees_df['mcc'] = fees_df['mcc'].astype(str)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'mcc'\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py\", line 3812, in get_loc\n    return self._engine.get_loc(casted_key)\n  File \"pandas/_libs/index.pyx\", line 167, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/index.pyx\", line 196, in pandas._libs.index.IndexEngine.get_loc\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item\n  File \"pandas/_libs/hashtable_class_helper.pxi\", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item\nKeyError: 'mcc'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppf66725g.py\", line 34, in <module>\n    fees_df['mcc'] = fees_df['mcc'].astype(str)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/frame.py\", line 4113, in __getitem__\n    indexer = self.columns.get_loc(key)\n  File \"/Users/vanpham/Documents/imt526/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/core/indexes/base.py\", line 3819, in get_loc\n    raise KeyError(key) from err\nKeyError: 'mcc'\n",
+      "debug_attempts": 3,
+      "latency_s": 54.445504708972294,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    }
+  ],
+  "extra_metrics": {}
+}

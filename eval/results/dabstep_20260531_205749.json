@@ -1,0 +1,84 @@
+{
+  "benchmark": "dabstep",
+  "total": 5,
+  "passed": 1,
+  "failed": 3,
+  "errors": 1,
+  "pass_rate": 0.2,
+  "mean_latency_s": 20.751931625220458,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\n\ntransaction_counts = payments['issuing_country'].value_counts()\n\n# Find the country with the highest count\nmost_frequent_country = transaction_counts.idxmax()\n\nprint(f\"The country with the highest number of transactions is: {most_frequent_country}\")",
+      "stdout": "The country with the highest number of transactions is: NL\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 10.12951979204081,
+      "metadata": {
+        "score_reason": "contains_match"
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Filter payments where has_fraudulent_dispute is True\nfraudulent_payments = payments[payments['has_fraudulent_dispute'] == True]\n\n# Group by ip_country and count occurrences\nfraudulent_dispute_countries = fraudulent_payments['ip_country'].value_counts()\n\n# Find the top country with the highest count\ntop_country = fraudulent_dispute_countries.idxmax()\n\n# Display the result\nprint(f\"The top country with the highest count of fraudulent disputes is: {top_country}\")",
+      "stdout": "The top country with the highest count of fraudulent disputes is: NL\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 12.170022458012681,
+      "metadata": {
+        "score_reason": "mismatch",
+        "predicted": "The top country with the highest count of fraudulent disputes is: NL",
+        "expected": "B. BE"
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport json\n\n# Check if 'Martinis_Fine_Steakhouse' is a merchant in the payments data\nmerchant_exists = payments[payments['merchant'] == 'Martinis_Fine_Steakhouse'].shape[0] > 0\n\n# Check if the merchant has a high-fraud rate based on the 'has_fraudulent_dispute' column\nhigh_fraud_rate = payments[payments['merchant'] == 'Martinis_Fine_Steakhouse']['has_fraudulent_dispute'].sum() / payments[payments['merchant'] == 'Martinis_Fine_Steakhouse'].shape[0] > 0.5\n\n# Determine if the merchant is in danger of getting a high-fraud rate fine\nif merchant_exists and high_fraud_rate:\n    result = 'yes'\nelse:\n    result = 'no'\n\nresult",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 16.53213833400514,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_1273",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "average_fee = payments['fee_id'].map(fee_id_to_fee).mean() if 'fee_id' in payments.columns else 0",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 2,
+      "latency_s": 24.672055084025487,
+      "metadata": {
+        "score_reason": "no_output"
+      }
+    },
+    {
+      "problem_id": "dabstep_1305",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjvsrda11.py\", line 16, in <module>\n    filtered_merchant_data = merchant_data[merchant_data['mcc'].isin(merchant_category_codes['mcc'])]\nTypeError: list indices must be integers or slices, not str\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpjvsrda11.py\", line 16, in <module>\n    filtered_merchant_data = merchant_data[merchant_data['mcc'].isin(merchant_category_codes['mcc'])]\nTypeError: list indices must be integers or slices, not str\n",
+      "debug_attempts": 3,
+      "latency_s": 40.255922458018176,
+      "metadata": {
+        "score_reason": "agent_error"
+      }
+    }
+  ],
+  "extra_metrics": {}
+}

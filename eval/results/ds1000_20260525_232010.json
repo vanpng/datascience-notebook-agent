@@ -1,0 +1,94 @@
+{
+  "benchmark": "ds1000",
+  "total": 5,
+  "passed": 1,
+  "failed": 4,
+  "errors": 0,
+  "pass_rate": 0.2,
+  "mean_latency_s": 8.576829758204985,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\n\nresult = df.reindex(List)\n\n# Optional: Display the first few rows to verify the reordering\nprint(result.head())",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 9.15843179100193,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "",
+        "score_reason": "pass"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Load data (assuming the dataset is available)\ndf = pd.read_csv('titanic.csv')",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.081203500041738,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp6_1zgag.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp6_1zgag.py\", line 57, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Load data (assumi",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# No steps to execute",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 7.379564374976326,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpr1fwvkb8.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpr1fwvkb8.py\", line 121, in <module>\n    test_execution('import pandas as pd\\n\\n# No steps to exe",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# No steps to execute",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.4438209169893526,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp7x_7q_l.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpp7x_7q_l.py\", line 121, in <module>\n    test_execution('import pandas as pd\\n\\n# No steps to exe",
+        "score_reason": "test_fail"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\ndef f(df):\n    # For each column, determine which values have a count of 2 or more\n    for col in ['Qu1', 'Qu2', 'Qu3']:\n        value_counts = df[col].value_counts()\n        keep_values = value_counts[value_counts >= 2].index\n        \n        # Replace values not in keep_values with 'others'\n        df[col] = df[col].apply(lambda x: x if x in keep_values else 'others')\n    \n    return df",
+      "stdout": null,
+      "stderr": null,
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 13.82112820801558,
+      "metadata": {
+        "lib": "Pandas",
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppu3q003a.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmppu3q003a.py\", line 123, in <module>\n    test_execution(\"import pandas as pd\\n\\ndef f(df):\\n    #",
+        "score_reason": "test_fail"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_Pandas": 0.2
+  }
+}

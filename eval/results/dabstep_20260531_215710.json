@@ -1,0 +1,68 @@
+{
+  "benchmark": "dabstep",
+  "total": 3,
+  "passed": 1,
+  "failed": 1,
+  "errors": 1,
+  "pass_rate": 0.3333333333333333,
+  "mean_latency_s": 19.255722486336406,
+  "results": [
+    {
+      "problem_id": "dabstep_5",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "# Count the number of transactions per issuing country\ntransaction_count = payments['issuing_country'].value_counts()\n\n# Get the country with the highest number of transactions\nresult = transaction_count.idxmax()\n\nprint(result)",
+      "stdout": "NL\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 15.262949375028256,
+      "metadata": {
+        "level": "easy",
+        "task_id": "5",
+        "predicted": "NL",
+        "score_reason": "numeric_match"
+      }
+    },
+    {
+      "problem_id": "dabstep_49",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "# Filter payments for fraudulent transactions\nfraudulent_payments = payments[payments['has_fraudulent_dispute'].astype(bool)]\n\n# Count occurrences of each ip_country\nip_country_counts = fraudulent_payments['ip_country'].value_counts()\n\n# Get the top country\ntop_country = ip_country_counts.idxmax()\n\n# Map the country code to the corresponding option\noptions = {'NL': 'A', 'BE': 'B', 'ES': 'C', 'FR': 'D'}\nresult = options.get(top_country, 'Not Applicable')\n\nprint(result)",
+      "stdout": "A\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 11.97241774998838,
+      "metadata": {
+        "level": "easy",
+        "task_id": "49",
+        "predicted": "A",
+        "score_reason": "mismatch",
+        "expected": "B. BE"
+      }
+    },
+    {
+      "problem_id": "dabstep_70",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": null,
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpla3zrgek.py\", line 24, in <module>\n    has_fraud = mariinis_payments['has_fraudulent_dispute'].any()\nNameError: name 'mariinis_payments' is not defined. Did you mean: 'martinis_payments'?\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpla3zrgek.py\", line 24, in <module>\n    has_fraud = mariinis_payments['has_fraudulent_dispute'].any()\nNameError: name 'mariinis_payments' is not defined. Did you mean: 'martinis_payments'?\n",
+      "debug_attempts": 3,
+      "latency_s": 30.531800333992578,
+      "metadata": {
+        "level": "easy",
+        "task_id": "70",
+        "score_reason": "agent_error",
+        "predicted": ""
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_easy": 0.3333333333333333,
+    "fail_mismatch": 1,
+    "fail_agent_error": 1
+  }
+}

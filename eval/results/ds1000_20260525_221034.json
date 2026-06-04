@@ -1,0 +1,84 @@
+{
+  "benchmark": "ds1000",
+  "total": 5,
+  "passed": 0,
+  "failed": 5,
+  "errors": 0,
+  "pass_rate": 0.0,
+  "mean_latency_s": 9.021993608388584,
+  "results": [
+    {
+      "problem_id": "Pandas_0",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\n\n# No data is available yet, so no operations can be performed.",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.6744019580073655,
+      "metadata": {
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1ram1j94.py\", line 58, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp1ram1j94.py\", line 56, in <module>\n    test_execution('import pandas as pd\\nimport numpy as np\\n\\"
+      }
+    },
+    {
+      "problem_id": "Pandas_1",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\n\n# No data is available yet, so no operations can be performed.",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.677894708001986,
+      "metadata": {
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpm3lfgayh.py\", line 59, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpm3lfgayh.py\", line 57, in <module>\n    test_execution('import pandas as pd\\nimport numpy as np\\n\\"
+      }
+    },
+    {
+      "problem_id": "Pandas_2",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# No data is available yet, so no operations can be performed.",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.463346749951597,
+      "metadata": {
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvu4u7a9d.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpvu4u7a9d.py\", line 121, in <module>\n    test_execution('import pandas as pd\\n\\n# No data is avai"
+      }
+    },
+    {
+      "problem_id": "Pandas_3",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# No data is available yet, so no operations can be performed.",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.36987695901189,
+      "metadata": {
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp606z3lck.py\", line 123, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmp606z3lck.py\", line 121, in <module>\n    test_execution('import pandas as pd\\n\\n# No data is avai"
+      }
+    },
+    {
+      "problem_id": "Pandas_4",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Replace values with counts < 2 in columns Qu1, Qu2, and Qu3 with 'others'\nresult = pd.DataFrame(columns=['Qu1', 'Qu2', 'Qu3'])  # Create an empty DataFrame with the required columns\nfor col in ['Qu1', 'Qu2', 'Qu3']:\n    result[col] = result[col].replace(result[col].value_counts().loc[lambda x: x < 2].index, 'others')\n\nresult",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 2,
+      "latency_s": 19.92444766697008,
+      "metadata": {
+        "test_stderr": "Traceback (most recent call last):\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpficn870o.py\", line 125, in <module>\n    raise _e\n  File \"/var/folders/h8/h8_405kx0mz2fx5ftx2f1d380000gn/T/tmpficn870o.py\", line 123, in <module>\n    test_execution(\"import pandas as pd\\n\\n# Replace values "
+      }
+    }
+  ],
+  "extra_metrics": {
+    "pass_rate_unknown": 0.0
+  }
+}

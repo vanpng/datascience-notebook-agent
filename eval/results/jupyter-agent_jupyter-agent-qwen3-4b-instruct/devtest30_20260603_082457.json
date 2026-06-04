@@ -1,0 +1,583 @@
+{
+  "benchmark": "devtest30",
+  "total": 30,
+  "passed": 7,
+  "failed": 15,
+  "errors": 8,
+  "pass_rate": 0.23333333333333334,
+  "mean_latency_s": 8.151010574648778,
+  "results": [
+    {
+      "problem_id": "sales_total_revenue",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "units_by_region = sales.groupby('region')['units'].mean()\nprint(units_by_region)",
+      "stdout": "region\nEast     9.666667\nNorth    9.500000\nSouth    4.000000\nWest     6.500000\nName: units, dtype: float64\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.9327690708450973,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "aggregation",
+        "expected": "266.5",
+        "nb_stdout_tail": "type: float64\nregion\nEast     9.666667\nNorth    9.500000\nSouth    4.000000\nWest     6.500000\nName: units, dtype: float64"
+      }
+    },
+    {
+      "problem_id": "sales_avg_units_widget",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Group by region and sum the units\nregion_totals = sales.groupby('region')['units'].sum().reset_index()\nregion_totals.columns = ['region', 'total_units']\nregion_totals",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 24.56906518083997,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "filtering",
+        "expected": "10.2",
+        "nb_stdout_tail": "region  total_units\n0   East           29\n1  North           38\n2  South           12\n3   West           13"
+      }
+    },
+    {
+      "problem_id": "sales_top_product_units",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "units_by_region = sales.groupby('region')['units'].mean()\nunits_by_region",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.8815897880122066,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "aggregation",
+        "expected": "Widget",
+        "nb_stdout_tail": ""
+      }
+    },
+    {
+      "problem_id": "sales_bar_units_region",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "units_by_region = sales.groupby('region')['units'].sum()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.281126453075558,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "sales_hist_units",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": "{\"reasoning\":\"I need to create a visualization of sales data by region and product. First, I'll group the data by region and product to calculate total sales (units * price). Then I'll create a bar chart to visualize this data. I'll use matplotlib for plotting and pandas for data manipulation. The chart will show total sales for each product in each region, with products as x-axis labels and sales as y-axis values. I'll add value labels on top of each bar to show the exact sales",
+      "stdout": "",
+      "stderr": "  File \"/tmp/claude-1208432/tmprlptybkp.py\", line 17\n    {\"reasoning\":\"I need to create a visualization of sales data by region and product. First, I'll group the data by region and product to calculate total sales (units * price). Then I'll create a bar chart to visualize this data. I'll use matplotlib for plotting and pandas for data manipulation. The chart will show total sales for each product in each region, with products as x-axis labels and sales as y-axis values. I'll add value labels on top of each bar to show the exact sales\n                 ^\nSyntaxError: unterminated string literal (detected at line 17)\n",
+      "agent_error": "All debug attempts exhausted. Last error:\n  File \"/tmp/claude-1208432/tmprlptybkp.py\", line 17\n    {\"reasoning\":\"I need to create a visualization of sales data by region and product. First, I'll group the data by region and product to calculate total sales (units * price). Then I'll create a bar chart to visualize this data. I'll use matplotlib for plotting and pandas for data manipulation. The chart will show total sales for each product in each region, with products as x-axis labels and sales as y-axis values. I'll add value labels on top of each bar to show the exact sales\n                 ^\nSyntaxError: unterminated string literal (detected at line 17)\n",
+      "debug_attempts": 3,
+      "latency_s": 31.12943451688625,
+      "metadata": {
+        "format_compliant": false,
+        "format_issues": [
+          "not valid Python: unterminated string literal (detected at line 1)"
+        ],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "emp_highest_paid",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Group by department and calculate average salary and age\ndept_stats = employees.groupby('department')[['salary', 'age']].mean()\n\n# Create a bar chart for average salary by department\nplt.figure(figsize=(10, 6))\nplt.bar(dept_stats.index, dept_stats['salary'])\nplt.xlabel('Department')\nplt.ylabel('Average Salary')\nplt.title('Average Salary by Department')\nplt.show()\n\n# Create a bar chart for average age by department\nplt.figure(figsize=(10, 6))\nplt.bar(dept_stats.index, dept_stats['age'])\nplt.xlabel('Department')\nplt.ylabel('Average Age')\nplt.title('Average Age by Department')\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.0866614039987326,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "Ivan",
+        "nb_stdout_tail": ""
+      }
+    },
+    {
+      "problem_id": "emp_top_dept_salary",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\nimport matplotlib.pyplot as plt\n\n# Group by department and calculate average salary and age\ndept_stats = employees.groupby('department')[['salary', 'age']].mean().reset_index()\n\n# Display the results\nprint(\"Average salary and age by department:\")\nprint(dept_stats)\n\n# Count employees by department\ndept_counts = employees['department'].value_counts()\nprint(\"\\nNumber of employees by department:\")\nprint(dept_counts)",
+      "stdout": "Average salary and age by department:\n  department         salary        age\n0        Eng  102250.000000  39.000000\n1         HR   57666.666667  32.333333\n2      Sales   62000.000000  41.000000\n\nNumber of employees by department:\ndepartment\nEng      4\nSales    3\nHR       3\nName: count, dtype: int64\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.8541678751353174,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "aggregation",
+        "expected": "Eng",
+        "nb_stdout_tail": "region\nEast     9.666667\nNorth    9.500000\nSouth    4.000000\nWest     6.500000\nName: units, dtype: float64\nNone"
+      }
+    },
+    {
+      "problem_id": "emp_corr_age_years",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Group by department and calculate average salary\navg_salary_by_dept = employees.groupby('department')['salary'].mean()\n\n# Create bar chart\nplt.figure(figsize=(8, 6))\navg_salary_by_dept.plot(kind='bar', color='skyblue')\nplt.title('Average Salary by Department')\nplt.xlabel('Department')\nplt.ylabel('Average Salary')\nplt.xticks(rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.208257229067385,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "statistics",
+        "expected": "0.99",
+        "nb_stdout_tail": "les    3\nHR       3\nName: count, dtype: int64\ndepartment\nEng      4\nSales    3\nHR       3\nName: count, dtype: int64\nNone"
+      }
+    },
+    {
+      "problem_id": "emp_bar_salary_dept",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": "result = df.sort_values('score', ascending=False).head(3)",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/claude-1208432/tmp400qmrs3.py\", line 18, in <module>\n    result = df.sort_values('score', ascending=False).head(3)\nNameError: name 'df' is not defined\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/tmp/claude-1208432/tmp400qmrs3.py\", line 18, in <module>\n    result = df.sort_values('score', ascending=False).head(3)\nNameError: name 'df' is not defined\n",
+      "debug_attempts": 3,
+      "latency_s": 49.62121849018149,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "emp_scatter_age_salary",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Create a scatter plot of age vs salary\nplt.figure(figsize=(10, 6))\nplt.scatter(employees['age'], employees['salary'], alpha=0.7)\nplt.xlabel('Age')\nplt.ylabel('Salary')\nplt.title('Age vs Salary')\nplt.grid(True)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 25.329544204985723,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "stu_avg_math",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Create a bar chart for gender distribution\ngender_counts = students['gender'].value_counts()\nplt.figure(figsize=(8, 6))\nplt.bar(gender_counts.index, gender_counts.values, color=['blue', 'orange'])\nplt.title('Gender Distribution of Students')\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.1478868511039764,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "aggregation",
+        "expected": "76.9",
+        "nb_stdout_tail": "None"
+      }
+    },
+    {
+      "problem_id": "stu_top_math",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Display the first few rows of the students DataFrame\nstudents.head()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.0387064430397004,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "Gia",
+        "nb_stdout_tail": " 80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68"
+      }
+    },
+    {
+      "problem_id": "stu_max_total",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Count of each gender\ngender_counts = df['gender'].value_counts()\n\n# Create bar chart\nplt.figure(figsize=(8, 6))\nbars = plt.bar(gender_counts.index, gender_counts.values)\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.title('Distribution of Student Genders')\nplt.show()",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/claude-1208432/tmpjr_08lrg.py\", line 21, in <module>\n    gender_counts = df['gender'].value_counts()\nNameError: name 'df' is not defined\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/tmp/claude-1208432/tmpjr_08lrg.py\", line 21, in <module>\n    gender_counts = df['gender'].value_counts()\nNameError: name 'df' is not defined\n",
+      "debug_attempts": 3,
+      "latency_s": 7.045028168940917,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "preprocessing",
+        "expected": "278"
+      }
+    },
+    {
+      "problem_id": "stu_count_sci90",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport matplotlib.pyplot as plt\n\n# Check what variables are available\nprint(\"Available variables:\", [var for var in globals() if not var.startswith('_')])\n\n# Display basic info about the students DataFrame\nprint(\"\\nStudents DataFrame info:\")\nprint(students.head())\nprint(\"\\nStudents DataFrame columns:\", students.columns.tolist())\n\n# Create a simple visualization\nplt.figure(figsize=(8, 6))\nstudents.groupby('gender')['math'].mean().plot(kind='bar')\nplt.title('Average Math Scores by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Average Math Score')\nplt.xticks(rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": "Available variables: ['pd', 'students', 'plt']\n\nStudents DataFrame info:\n   name gender  math  science  english\n0   Ann      F    78       82       75\n1   Ben      M    85       79       80\n2  Cara      F    92       90       88\n3   Dan      M    60       65       70\n4  Ella      F    73       70       68\n\nStudents DataFrame columns: ['name', 'gender', 'math', 'science', 'english']\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.9536709741223603,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "filtering",
+        "expected": "2",
+        "nb_stdout_tail": "  Ella      F    73       70       68\n\nStudents DataFrame columns: ['name', 'gender', 'math', 'science', 'english']\nNone"
+      }
+    },
+    {
+      "problem_id": "stu_corr_math_sci",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Count of students by gender\ngender_counts = df['gender'].value_counts()\n\n# Create a bar chart\nplt.figure(figsize=(8, 6))\nbars = plt.bar(gender_counts.index, gender_counts.values)\nplt.xlabel('Gender')\nplt.ylabel('Count')\nplt.title('Number of Students by Gender')\nplt.show()",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/claude-1208432/tmp7q_yjvb5.py\", line 21, in <module>\n    gender_counts = df['gender'].value_counts()\nNameError: name 'df' is not defined\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/tmp/claude-1208432/tmp7q_yjvb5.py\", line 21, in <module>\n    gender_counts = df['gender'].value_counts()\nNameError: name 'df' is not defined\n",
+      "debug_attempts": 3,
+      "latency_s": 9.50556849502027,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "statistics",
+        "expected": "0.96"
+      }
+    },
+    {
+      "problem_id": "stu_count_math_below70",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Count of students by gender\ngender_counts = students['gender'].value_counts()\n\n# Create bar chart\nplt.figure(figsize=(8, 6))\nbars = plt.bar(gender_counts.index, gender_counts.values, color=['blue', 'orange'])\nplt.title('Number of Students by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Number of Students')\nplt.xticks(rotation=0)\n\n# Add value labels on bars\nfor bar in bars:\n    height = bar.get_height()\n    plt.text(bar.get_x() + bar.get_width()/2., height,\n             f'{int(height)}',\n             ha='center', va='bottom')\n\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 3.2703225610312074,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "filtering",
+        "expected": "3",
+        "nb_stdout_tail": "None"
+      }
+    },
+    {
+      "problem_id": "stu_hist_math",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Calculate average math scores by gender\navg_math_by_gender = students.groupby('gender')['math'].mean()\n\n# Create the bar chart\nplt.figure(figsize=(8, 6))\navg_math_by_gender.plot(kind='bar', color='skyblue')\nplt.title('Average Math Scores by Gender')\nplt.xlabel('Gender')\nplt.ylabel('Average Math Score')\nplt.xticks(rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 4.380213035969064,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "cust_missing_age",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "avg_spend_by_segment = customers.groupby('segment')['spend'].mean()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.2075697591062635,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "exploration",
+        "expected": "3",
+        "nb_stdout_tail": "segment\nA    190.00\nB    138.75\nC    280.00\nName: spend, dtype: float64"
+      }
+    },
+    {
+      "problem_id": "cust_missing_total",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Load the titanic dataset\ndf = pd.read_csv('titanic.csv')\n\n# Display the shape of the dataframe\nprint(df.shape)",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/claude-1208432/tmptx0a7dks.py\", line 23, in <module>\n    df = pd.read_csv('titanic.csv')\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: 'titanic.csv'\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/tmp/claude-1208432/tmptx0a7dks.py\", line 23, in <module>\n    df = pd.read_csv('titanic.csv')\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: 'titanic.csv'\n",
+      "debug_attempts": 3,
+      "latency_s": 6.682084886124358,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "exploration",
+        "expected": "6"
+      }
+    },
+    {
+      "problem_id": "cust_mean_spend",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "avg_spend_by_segment = customers.groupby('segment')['spend'].mean()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.7635360311251134,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "statistics",
+        "expected": "197.22222222222223",
+        "nb_stdout_tail": "segment\nA    190.00\nB    138.75\nC    280.00\nName: spend, dtype: float64"
+      }
+    },
+    {
+      "problem_id": "cust_fillna_age_mean",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\n\n# Load the customers DataFrame\ncustomers = pd.read_csv('customers.csv')\n\n# Handle missing values in 'age' column by filling with median\ncustomers['age'].fillna(customers['age'].median(), inplace=True)\n\n# Handle missing values in 'spend' column by filling with median\ncustomers['spend'].fillna(customers['spend'].median(), inplace=True)\n\n# Create age groups\ncustomers['age_group'] = pd.cut(customers['age'], \n                                bins=[0, 25, 40, 60, 100], \n                                labels=['0-25', '26-40', '41-60', '60+'])\n\n# Display the updated DataFrame\ncustomers.head()",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/claude-1208432/tmpqiuhtjym.py\", line 22, in <module>\n    customers = pd.read_csv('customers.csv')\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: 'customers.csv'\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/tmp/claude-1208432/tmpqiuhtjym.py\", line 22, in <module>\n    customers = pd.read_csv('customers.csv')\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1026, in read_csv\n    return _read(filepath_or_buffer, kwds)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 620, in _read\n    parser = TextFileReader(filepath_or_buffer, **kwds)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1620, in __init__\n    self._engine = self._make_engine(f, self.engine)\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/parsers/readers.py\", line 1880, in _make_engine\n    self.handles = get_handle(\n  File \"/gpfs/projects/imt526a/group3/ds-notebook-agent/.venv/lib/python3.10/site-packages/pandas/io/common.py\", line 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: 'customers.csv'\n",
+      "debug_attempts": 3,
+      "latency_s": 13.777540263952687,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "preprocessing",
+        "expected": "35.888888888888886"
+      }
+    },
+    {
+      "problem_id": "cust_count_segA",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Group by Pclass and calculate mean survival rate\nsurvival_by_class = df.groupby('Pclass')['Survived'].mean()\n\n# Create bar chart\nplt.figure(figsize=(8, 6))\nsurvival_by_class.plot(kind='bar', color='skyblue')\nplt.title('Survival Rate by Passenger Class')\nplt.xlabel('Passenger Class')\nplt.ylabel('Survival Rate')\nplt.xticks(rotation=0)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "Traceback (most recent call last):\n  File \"/tmp/claude-1208432/tmpt3io9wnj.py\", line 21, in <module>\n    survival_by_class = df.groupby('Pclass')['Survived'].mean()\nNameError: name 'df' is not defined\n",
+      "agent_error": "All debug attempts exhausted. Last error:\nTraceback (most recent call last):\n  File \"/tmp/claude-1208432/tmpt3io9wnj.py\", line 21, in <module>\n    survival_by_class = df.groupby('Pclass')['Survived'].mean()\nNameError: name 'df' is not defined\n",
+      "debug_attempts": 3,
+      "latency_s": 10.145247689913958,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "exploration",
+        "expected": "4"
+      }
+    },
+    {
+      "problem_id": "cust_top_spend_segment",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\nimport numpy as np\n\n# Group by segment and calculate mean spend\navg_spend_by_segment = customers.groupby('segment')['spend'].mean()\n\n# Display the result\navg_spend_by_segment",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.797848809044808,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "aggregation",
+        "expected": "C",
+        "nb_stdout_tail": "segment\nA    190.00\nB    138.75\nC    280.00\nName: spend, dtype: float64"
+      }
+    },
+    {
+      "problem_id": "cust_bar_spend_segment",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Count the number of customers in each segment\nsegment_counts = customers['segment'].value_counts().sort_index()\n\n# Create a bar chart\nplt.figure(figsize=(8, 6))\nbars = plt.bar(segment_counts.index, segment_counts.values, color=['#1f77b4', '#ff7f0e', '#2ca02c'], edgecolor='white')\nplt.xlabel('Customer Segment')\nplt.ylabel('Number of Customers')\nplt.title('Distribution of Customers by Segment')\nplt.grid(axis='y', alpha=0.3)\n\n# Add value labels on top of bars\nfor bar in bars:\n    height = bar.get_height()\n    plt.text(bar.get_x() + bar.get_width()/2., height,\n             f'{int(height)}', ha='center', va='bottom')\n\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 5.962057165801525,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    },
+    {
+      "problem_id": "ts_peak_day",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Group by date and calculate mean visitors\ndaily_avg_visitors = ts.groupby('date')['visitors'].mean()\n\n# Plot as a bar chart\nplt.figure(figsize=(10, 6))\nplt.bar(daily_avg_visitors.index, daily_avg_visitors.values)\nplt.xlabel('Date')\nplt.ylabel('Average Visitors')\nplt.title('Average Daily Visitors Over Time')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.827261253958568,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "2023-01-11",
+        "nb_stdout_tail": "None"
+      }
+    },
+    {
+      "problem_id": "ts_avg_visitors",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import matplotlib.pyplot as plt\n\n# Group by date and calculate mean visitors\ndaily_avg_visitors = ts.groupby('date')['visitors'].mean()\n\n# Plot as a bar chart\nplt.figure(figsize=(10, 6))\nplt.bar(daily_avg_visitors.index, daily_avg_visitors.values)\nplt.xlabel('Date')\nplt.ylabel('Average Visitors')\nplt.title('Average Daily Visitors Over Time')\nplt.xticks(rotation=45)\nplt.tight_layout()\nplt.show()",
+      "stdout": "",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.746790497098118,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "numeric",
+        "intent": "statistics",
+        "expected": "124.64285714285714",
+        "nb_stdout_tail": "None"
+      }
+    },
+    {
+      "problem_id": "ts_rolling7_last",
+      "status": "error",
+      "score": 0.0,
+      "generated_code": "!pip install matplotlib scikit-learn",
+      "stdout": "",
+      "stderr": "  File \"/tmp/claude-1208432/tmpz18tlmq_.py\", line 15\n    !pip install matplotlib scikit-learn\n    ^\nSyntaxError: invalid syntax\n",
+      "agent_error": "All debug attempts exhausted. Last error:\n  File \"/tmp/claude-1208432/tmpz18tlmq_.py\", line 15\n    !pip install matplotlib scikit-learn\n    ^\nSyntaxError: invalid syntax\n",
+      "debug_attempts": 3,
+      "latency_s": 3.5439165791030973,
+      "metadata": {
+        "format_compliant": false,
+        "format_issues": [
+          "not valid Python: invalid syntax"
+        ],
+        "check": "numeric",
+        "intent": "preprocessing",
+        "expected": "127.85714285714286"
+      }
+    },
+    {
+      "problem_id": "prod_top_category_count",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "survival_by_class = products.groupby('category')['price'].mean()\nprint(survival_by_class)",
+      "stdout": "category\nElectronics    361.750000\nHome            86.000000\nToys            23.333333\nName: price, dtype: float64\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.7341360710561275,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "exploration",
+        "expected": "Electronics",
+        "nb_stdout_tail": "\ncategory\nElectronics    361.750000\nHome            86.000000\nToys            23.333333\nName: price, dtype: float64\nNone"
+      }
+    },
+    {
+      "problem_id": "prod_top_avg_price_cat",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "# Group by category and calculate mean price\navg_price_by_category = products.groupby('category')['price'].mean()\nprint(avg_price_by_category)",
+      "stdout": "category\nElectronics    361.750000\nHome            86.000000\nToys            23.333333\nName: price, dtype: float64\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 2.2481704039964825,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "contains",
+        "intent": "aggregation",
+        "expected": "Electronics",
+        "nb_stdout_tail": "\ncategory\nElectronics    361.750000\nHome            86.000000\nToys            23.333333\nName: price, dtype: float64\nNone"
+      }
+    },
+    {
+      "problem_id": "prod_pie_category",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "print(list(products.columns))\nprint(products.head())",
+      "stdout": "['product', 'category', 'price', 'stock']\n  product     category  price  stock\n0       A  Electronics    299     10\n1       B         Home     49     50\n2       C  Electronics    199      5\n3       D         Toys     25    200\n4       E         Home     89     30\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 3,
+      "latency_s": 6.858927086926997,
+      "metadata": {
+        "format_compliant": true,
+        "format_issues": [],
+        "check": "plot",
+        "intent": "visualization",
+        "expected": "<plot>"
+      }
+    }
+  ],
+  "extra_metrics": {
+    "format_compliance_rate": 0.9333,
+    "format_compliant": 28,
+    "format_noncompliant": 2,
+    "pass_aggregation": 0.5,
+    "pass_exploration": 0.1429,
+    "pass_filtering": 0.0,
+    "pass_preprocessing": 0.0,
+    "pass_statistics": 0.0,
+    "pass_visualization": 0.4286
+  }
+}

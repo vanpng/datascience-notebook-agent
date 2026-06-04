@@ -1,0 +1,84 @@
+{
+  "benchmark": "dsbench_local",
+  "total": 5,
+  "passed": 4,
+  "failed": 1,
+  "errors": 0,
+  "pass_rate": 0.8,
+  "mean_latency_s": 8.510694083210547,
+  "results": [
+    {
+      "problem_id": "local_churn_01",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\n\n# Use the nunique() function on the 'Contract-Type' column to count the unique values\nunique_contract_types = df['contract_type'].nunique()\n\nprint(unique_contract_types)",
+      "stdout": "3\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 11.133971500035841,
+      "metadata": {
+        "score_reason": "numeric_match"
+      }
+    },
+    {
+      "problem_id": "local_churn_02",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "churn_rate = df['churn'].mean() * 100\nchurn_rate = round(churn_rate, 1)\nprint(f'Overall Churn Rate: {churn_rate:.1f}%')",
+      "stdout": "Overall Churn Rate: 42.7%\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 1,
+      "latency_s": 11.882783207984176,
+      "metadata": {
+        "score_reason": "numeric_match"
+      }
+    },
+    {
+      "problem_id": "local_churn_03",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\n\nmean_monthly_charges = round(df['monthly_charges'].mean(), 2)\n\nprint(f\"Mean monthly charges: {mean_monthly_charges}\")",
+      "stdout": "Mean monthly charges: 77.15\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.436963625019416,
+      "metadata": {
+        "score_reason": "execution_only"
+      }
+    },
+    {
+      "problem_id": "local_churn_04",
+      "status": "pass",
+      "score": 1.0,
+      "generated_code": "import pandas as pd\n\n# Calculate the total number of missing values\nmissing_values = df.isnull().sum().sum()\n\n# Print the result\nprint(f\"Total missing values: {missing_values}\")",
+      "stdout": "Total missing values: 23\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.438328583026305,
+      "metadata": {
+        "score_reason": "numeric_match"
+      }
+    },
+    {
+      "problem_id": "local_aita_01",
+      "status": "fail",
+      "score": 0.0,
+      "generated_code": "import pandas as pd\n\n# Use value_counts() to find the most common author_gender\nmost_common_gender = df['author_gender'].value_counts().idxmax()\n\n# Print the result\nprint(f\"The most common author gender is: {most_common_gender}\")",
+      "stdout": "The most common author gender is: male\n",
+      "stderr": "",
+      "agent_error": null,
+      "debug_attempts": 0,
+      "latency_s": 6.661423499986995,
+      "metadata": {
+        "score_reason": "mismatch",
+        "predicted": "The most common author gender is: male",
+        "expected": "male"
+      }
+    }
+  ],
+  "extra_metrics": {}
+}
