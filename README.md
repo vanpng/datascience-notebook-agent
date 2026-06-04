@@ -341,19 +341,3 @@ uv run --extra train python fine_tuning/train.py
 
 The adapter is saved to `checkpoints/qwen3-4b-ds-agent/final/`. Set `LORA_ADAPTER_PATH` in `.env` and `serve_model.sh` will load it automatically via `--lora-modules`.
 
----
-
-## Cluster (Tillicum) deployment
-
-```bash
-# Build the sandbox image once (requires Apptainer)
-bash scripts/build_sandbox.sh
-
-# .env additions
-USE_APPTAINER=true
-APPTAINER_SIF=sandbox/ds_agent.sif
-
-bash scripts/start.sh
-```
-
-The Apptainer container pins Python 3.10 with the full DS stack (pandas, scikit-learn, etc.) so generated code runs in a reproducible, isolated environment even if the host has a different Python installation.
